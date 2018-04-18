@@ -1,6 +1,7 @@
 +1.Permite al cliente y empresa registrarse.
 +2.El cliente puede buscar un producto en concreto.
-+3.El cliente tiene la capacidad de compartir y añadir una oferta.
++3.El cliente tiene la capacidad de compartir una oferta.
 +4.La empresa puede añadir y modificar sus propias ofertas y productos a la aplicacion.
 +5.Los productos y ofertas aparecen en un mapa o en una lista ordenados por cercania.
 +6.Los moderadores pueden banear y modificar todos los usuarios y ofertas.
++7.El cliente tiene la capacidad de comentar y corroborar una oferta.
