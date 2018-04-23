@@ -1,0 +1,20 @@
+Nombre del equipo: Cooking Ingenieros
+			
+Miembros del equipo (rol primario y rol secundario):
+- Alberto Espejo Labao, 53743031N, Computadores A.            Programador y Jefe de Proyecto.
+- David Fernández Díaz, 46071373G, Computadores A.            Encargado pruebas y Documentación/modelado.
+- Ionut Turcu Vasile, X8365131P, Computadores A. 	      Documentación/modelado y Jefe de Proyecto.
+- Javier Ramírez Aragón, 09184602R, Computadores A. 	      Jefe de proyecto y Programador.
+- José Carlos Gómez Vera, 76433115K, Computadores A. 	      Programador y Documentación/modelado.
+- Juan Álvaro Caravaca Seliva, 75966088D, Computadores A.     Encargado pruebas y Programador.
+- Manuel Jurado Pérez, 26834884W, Computadores A. 	      Encargado pruebas y Programador.
+- María Belén Verdugo Verdugo, 49122247C, Computadores A.     Jefe de proyecto y Encargado pruebas.
+- Miguel Ángel Fernández Somovilla, 26833820L, Informática D. Encargado pruebas y Documentación/modelado.
+- Miguel Rios Calle, 77671128J, Computadores A. 	      Documentación/modelado y Encargado pruebas.
+
+
+Vista por roles (primario - secundario):
+- Jefe de proyecto:	  Javier, María Belén.	             - Alberto, Ionut.
+- Documentación/modelado: Ionut, Miguel.	             - David, José Carlos, Miguel Ángel.
+- Programador:		  Alberto, José Carlos.	             - Javier, Juan, Manuel.
+- Encargado pruebas:	  David, Juan, Manuel, Miguel Ángel. - María Belén, Miguel.
