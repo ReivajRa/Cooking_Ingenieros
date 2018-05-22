@@ -13,6 +13,17 @@ public class Tienda {
 		dueño = due;
 	}
 	
-	public void añadirOferta(int id, String producto, int desc, int precio, String descrip, 
+	public void añadirOferta(int id, String producto, int desc, int precio, String descrip, LinkedList<String> categ){
+		Oferta of = new Oferta(id, producto, desc, precio, descrip, categ);
+		ofertas.add(of);
+	}
+	
+	public void quitarOferta(Oferta of){
+		ofertas.delete(of);
+	}
+	
+	public void mostrarOfertas(){
+		
+	}
 
 }
