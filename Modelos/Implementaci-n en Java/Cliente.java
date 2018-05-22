@@ -2,7 +2,6 @@ package prCheapDeal;
 
 import java.util.*;
 
-import javax.naming.NamingException;
 
 public class Cliente {
 	
@@ -56,9 +55,9 @@ public class Cliente {
 		System.out.println("Nombre de usuario: "+this.usuario+"; E-mail de contacto: "+this.email+"; Reputación: "+this.reputacion
 				+"; Seguidores: "+this.seguidores.size()+"; Seguidos: "+this.seguidos.size()+" .");
 	}
-	public void verOferta()
+	public void verOferta(Oferta o)
 	{
-		// pendiente de hacer, primero debe crearse la clase Oferta.
+		o.verOferta();
 	}
 	public void compartirOferta()
 	{
