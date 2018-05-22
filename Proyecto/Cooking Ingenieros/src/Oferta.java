@@ -1,8 +1,7 @@
 
 
 import java.awt.Image;
-import java.util.LinkedList;
-import java.util.Scanner;
+
 
 public class Oferta {
 	
@@ -86,7 +85,7 @@ public class Oferta {
 
 	public void setCategoria(Coleccion_categoria categoria) {
 		this.categoria = categoria;
-	} //AÑADIR Y QUITAR CATEGORIA.
+	}
 	
 	public void aniadirCat(String cat) {
 		categoria.aniadirCat(cat);

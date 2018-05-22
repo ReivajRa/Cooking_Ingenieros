@@ -50,16 +50,13 @@ public class Cliente {
 		cl.seguidores.add(this.usuario);
 		this.seguidos.add(cl.usuario);
 	}
+	
 	public void verPerfil()
 	{
 		System.out.println("Nombre de usuario: "+this.usuario+"; E-mail de contacto: "+this.email+"; Reputación: "+this.reputacion
 				+"; Seguidores: "+this.seguidores.size()+"; Seguidos: "+this.seguidos.size()+" .");
 	}
-	public void compartirOferta()
-	{
-		// pendiente de hacer, primero debe crearse la clase Oferta.
-
-	}
+	
 	public void DejarSeguirUsuario(Cliente cl)
 	{
 		
@@ -78,7 +75,5 @@ public class Cliente {
 		return of.verOferta();
 	}
 	
-	
-	//VER OFERTA??
 	
 }
