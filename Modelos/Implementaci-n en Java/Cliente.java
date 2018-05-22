@@ -1,6 +1,8 @@
-package prCliente;
+package prCheapDeal;
 
 import java.util.*;
+
+import javax.naming.NamingException;
 
 public class Cliente {
 	
@@ -63,4 +65,36 @@ public class Cliente {
 		// pendiente de hacer, primero debe crearse la clase Oferta.
 
 	}
+	public void cambiarEmail()
+	{
+		try(Scanner sc = new Scanner(System.in))
+		{
+			while(sc.hasNext())
+			{
+				this.email = sc.next();
+				
+			}
+			
+		}
+		
+	}
+	public void cambiarContraseña()
+	{
+		try(Scanner sc = new Scanner(System.in))
+		{
+			while(sc.hasNext())
+			{
+				this.contraseña = sc.next();
+				
+			}
+			
+		}
+		
+	}
+	public void DejarSeguirUsuario(Cliente cl)
+	{
+		
+		this.seguidos.remove(cl.usuario);
+	}
+	
 }
