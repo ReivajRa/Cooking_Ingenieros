@@ -1,9 +1,10 @@
 
 public class Opinion {
-	int id;
+	public static int id=1;
 	String mensaje;
 	String usuario;
 	int puntuacion;
+<<<<<<< HEAD
 	int id_tienda;
 	int aux = 1;
 	
@@ -14,6 +15,16 @@ public class Opinion {
 		puntuacion = punt;
 		this.id_tienda = id_tienda;
 		aux++;
+=======
+	int id_opinion;
+	
+	public Opinion(String usu, String msj,int punt, int id_tienda){
+		id_opinion = id;
+		usuario = usu;
+		mensaje = msj;
+		puntuacion = punt;
+		id++;
+>>>>>>> 87c5f0e3de0094b42a3b3df12a776d745093ebe2
 	}
 
 	public String getMensaje() {
@@ -21,11 +32,7 @@ public class Opinion {
 	}
 	
 	public int getId() {
-		return id;
-	}
-
-	public int getId_tienda() {
-		return id_tienda;
+		return id_opinion;
 	}
 
 	public String getUsuario() {
