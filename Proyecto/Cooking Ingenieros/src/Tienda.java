@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 
 public class Tienda {
+	public static int id=1;
 	private int id_tienda;
 	private String direccion;
 	private String duenio;
@@ -9,12 +10,14 @@ public class Tienda {
 	private LinkedList<Opinion> opiniones;
 	
 
-	public Tienda(int id, String dir, String due){
+	public Tienda( String dir, String due){
 		id_tienda = id;
 		direccion = dir;
 		duenio = due;
 		ofertas = new Coleccion_ofertas();
 		opiniones = new LinkedList<Opinion>();
+		Tienda.id++;
+		
 	}
 	
 	public void anadirOferta(String producto, double desc, double precio, String descrip, Coleccion_categoria categ) {
