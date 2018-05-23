@@ -87,12 +87,12 @@ public class Oferta {
 		this.codigoQR = codigoQR;
 	}
 
-	/*public void setCategoria(Categorias categoria) {
-		this.categoria = categoria;
+	public void setCategoria(Categorias cat) {
+		this.categoria = cat;
 	}
 	
-	public void aniadirCat(String cat) {
-		categoria.aniadirCat(cat);
+	/*public void aniadirCat(String cat) {
+		categoria
 	}
 	
 	public void quitarCat(String cat) {
