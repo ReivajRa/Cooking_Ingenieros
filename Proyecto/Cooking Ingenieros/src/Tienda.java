@@ -3,6 +3,7 @@ import java.util.LinkedList;
 public class Tienda {
 	public static int id=1;
 	private int id_tienda;
+	private String nombre;
 	private String direccion;
 	private String duenio;
 	private Coleccion_ofertas ofertas;
@@ -10,8 +11,9 @@ public class Tienda {
 	private LinkedList<Opinion> opiniones;
 	
 
-	public Tienda( String dir, String due){
+	public Tienda(String nom, String dir, String due){
 		id_tienda = id;
+		nombre = nom;
 		direccion = dir;
 		duenio = due;
 		ofertas = new Coleccion_ofertas();
@@ -43,7 +45,11 @@ public class Tienda {
 	public String getDireccion() {
 		return direccion;
 	}
-
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
 	public String getDuenio() {
 		return duenio;
 	}
