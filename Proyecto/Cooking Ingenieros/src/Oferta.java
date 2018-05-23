@@ -20,8 +20,9 @@ public class Oferta {
 		this.descuento = d;
 		this.tienda = t;
 		this.precio = pr;
+		foto = null;
 		this.descripcion = des;
-		//categoria = new Categorias();
+		codigoQR = (Integer) null;
 		categoria = cat;
 	}
 
@@ -93,16 +94,41 @@ public class Oferta {
 		categoria.quitarCat(cat);
 	}*/
 
-	public boolean equals(Object o)
-	{
-		boolean res = o instanceof Oferta;
-		Oferta of = res ? (Oferta)o: null;
-		return res && this.id_oferta==of.id_oferta;
-		
+	
+	
+	public boolean equals(Oferta obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Oferta other = (Oferta) obj;
+		if (Double.doubleToLongBits(descuento) != Double.doubleToLongBits(other.descuento))
+			return false;
+		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
+			return false;
+		if (producto == null) {
+			if (other.producto != null)
+				return false;
+		} else if (!producto.equals(other.producto))
+			return false;
+		if (tienda != other.tienda)
+			return false;
+		return true;
 	}
-	public int hashCode()
-	{
-		return this.id_oferta;
+
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(descuento);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(precio);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
+		result = prime * result + tienda;
+		return result;
 	}
 	
 	public String verOferta()
