@@ -2,12 +2,13 @@ import java.util.LinkedList;
 
 public class Tienda {
 	public static int id=1;
-	private int id_tienda;
-	private String nombre;
-	private String direccion;
-	private String duenio;
-	private String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
-	private LinkedList<Opinion> opiniones;
+	int id_tienda;
+	String nombre;
+	String direccion;
+	String duenio;
+	LinkedList<Oferta> ofertas;
+	String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
+	LinkedList<Opinion> opiniones;
 	
 
 	public Tienda(String nom, String dir, String due){
@@ -15,16 +16,19 @@ public class Tienda {
 		nombre = nom;
 		direccion = dir;
 		duenio = due;
+		ofertas = new LinkedList<Oferta>();
 		opiniones = new LinkedList<Opinion>();
 		Tienda.id++;
 		
 	}
 	
-	public void anadirOferta(String producto, double desc, double precio, String descrip, Coleccion_categoria categ) {
+	public void anadirOferta(String producto, double desc, double precio, String descrip, Categorias categ) {
 		Oferta of= new Oferta(producto, desc, id_tienda, precio, descrip, categ);
+		ofertas.add(of);
 	}
 	
 	public void quitarOferta(Oferta of){
+		ofertas.remove(of);
 	}
 	
 	public void mostrarOfertas(){

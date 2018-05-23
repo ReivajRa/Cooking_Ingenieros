@@ -11,9 +11,9 @@ public class Oferta {
 	private Image foto;
 	private String descripcion;
 	private int codigoQR;
-	Coleccion_categoria categoria;
+	Categorias categoria;
 	
-	public Oferta(String p, double d, int t, double pr, String des, Coleccion_categoria cat)
+	public Oferta(String p, double d, int t, double pr, String des, Categorias cat)
 	{
 		this.id_oferta= (int)Math.random();
 		this.producto = p;
@@ -21,7 +21,7 @@ public class Oferta {
 		this.tienda = t;
 		this.precio = pr;
 		this.descripcion = des;
-		categoria = new Coleccion_categoria();
+		//categoria = new Categorias();
 		categoria = cat;
 	}
 
@@ -57,7 +57,7 @@ public class Oferta {
 		return this.descripcion;
 	}
 	
-	public Coleccion_categoria getCategoria() {
+	public Categorias getCategoria() {
 		return this.categoria;
 	}
 	
@@ -81,7 +81,7 @@ public class Oferta {
 		this.codigoQR = codigoQR;
 	}
 
-	public void setCategoria(Coleccion_categoria categoria) {
+	/*public void setCategoria(Categorias categoria) {
 		this.categoria = categoria;
 	}
 	
@@ -91,7 +91,7 @@ public class Oferta {
 	
 	public void quitarCat(String cat) {
 		categoria.quitarCat(cat);
-	}
+	}*/
 
 	public boolean equals(Object o)
 	{
