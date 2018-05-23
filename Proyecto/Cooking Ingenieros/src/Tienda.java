@@ -5,7 +5,7 @@ public class Tienda {
 	private String direccion;
 	private String duenio;
 	private Coleccion_ofertas ofertas;
-	private String[][] horario = new String[2][7]; // Primera fila mañana, segunda fila tarde
+	private String[][] horario = new String[2][7]; // Primera fila maï¿½ana, segunda fila tarde
 	private LinkedList<Opinion> opiniones;
 	
 
@@ -19,7 +19,7 @@ public class Tienda {
 	
 	public void anadirOferta(String producto, double desc, double precio, String descrip, Coleccion_categoria categ) {
 		Oferta of= new Oferta(producto, desc, id_tienda, precio, descrip, categ);
-		ofertas.añadirOferta(of);
+		ofertas.aniadirOferta(of);
 	}
 	
 	public void quitarOferta(Oferta of){
@@ -65,7 +65,7 @@ public class Tienda {
 		for(int i=0; i<opiniones.size(); i++) {
 			Opinion aux =opiniones.get(i);
 			System.out.println("Id:" + aux.id + ". Escrito por: " + aux.usuario + ". Mensaje: "
-			+ 	aux.mensaje + ". Puntuación: " + aux.puntuacion + ". Tienda: " + aux.id_tienda);
+			+ 	aux.mensaje + ". Puntuaciï¿½n: " + aux.puntuacion + ". Tienda: " + aux.id_tienda);
 		}
 		return "";
 	}

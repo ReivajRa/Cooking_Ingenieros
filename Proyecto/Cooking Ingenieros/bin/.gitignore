@@ -1,5 +1,8 @@
-
-/Coleccion_opiniones.class
-/Opiniones.class
+/Administrador.class
+/Cliente.class
+/Coleccion_categoria.class
+/Coleccion_ofertas.class
+/Empresa.class
+/Oferta.class
 /Opinion.class
-/prueba.class
+/Tienda.class

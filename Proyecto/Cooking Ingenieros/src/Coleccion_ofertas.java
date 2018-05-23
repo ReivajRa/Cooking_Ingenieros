@@ -23,7 +23,7 @@ public class Coleccion_ofertas {
 		return ok;
 	
 	}
-	public void añadirOferta(Oferta o)
+	public void aniadirOferta(Oferta o)
 	{
 		if(encuentraOferta(o)==true)
 		{

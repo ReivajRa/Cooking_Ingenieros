@@ -66,7 +66,7 @@ public class Cliente {
 		this.usuario = usuario;
 	}
 	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+		this.contrasenia = contraseña;
 	}
 	public void setEmail(String email) {
 		this.email = email;
