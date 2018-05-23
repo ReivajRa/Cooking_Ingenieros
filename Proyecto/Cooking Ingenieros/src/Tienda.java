@@ -32,7 +32,6 @@ public class Tienda {
 	}
 	
 	public void verOfertas(){
-		Iterator<Oferta> it = ofertas.iterator();
 		for(Oferta o: ofertas) {
 			System.out.println(o.toString());
 		}
