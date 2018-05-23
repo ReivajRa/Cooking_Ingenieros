@@ -20,6 +20,10 @@ public class Empresa {
 		return usuario;
 	}
 
+	public LinkedList<Tienda> getTienda() {
+		return tienda;
+	}
+
 	public String getContrasenia() {
 		return contrasenia;
 	}

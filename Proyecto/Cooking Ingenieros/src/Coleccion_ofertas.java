@@ -1,5 +1,5 @@
 
-import java.util.*;
+/*import java.util.*;
 
 public class Coleccion_ofertas {
 	
@@ -53,4 +53,4 @@ public class Coleccion_ofertas {
 		return ofertas.get(x).verOferta();
 	}
 
-}
+} SIN USO*/
