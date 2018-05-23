@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class Tienda {
 	public static int id=1;
@@ -6,7 +6,7 @@ public class Tienda {
 	String nombre;
 	String direccion;
 	String duenio;
-	LinkedList<Oferta> ofertas;
+	HashSet<Oferta> ofertas;
 	String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
 	LinkedList<Opinion> opiniones;
 	
@@ -16,7 +16,7 @@ public class Tienda {
 		nombre = nom;
 		direccion = dir;
 		duenio = due;
-		ofertas = new LinkedList<Oferta>();
+		ofertas = new HashSet<Oferta>();
 		opiniones = new LinkedList<Opinion>();
 		Tienda.id++;
 		
@@ -32,10 +32,19 @@ public class Tienda {
 	}
 	
 	public void mostrarOfertas(){
-		int aux = ofertas.size();
-		for(int i=0; i<aux; i++) {
-			System.out.println(ofertas.get(i));
+		Iterator<Oferta> it = ofertas.iterator();
+		for(Oferta o: ofertas) {
+			System.out.println("ID oferta: " + o.getId_oferta() + ". Producto: " + o.getProducto() + ". Precio: " + o.getPrecio()
+			+ ". Descuento: " + o.getDescuento() + ". Descripción: " + o.getDescripcion() + ". Categorias: " + o.getCategoria() + ".");
+			if(o.getCodigoQR()!= (Integer) null) {
+				System.out.println("CodigoQR: " + o.getCodigoQR()+ ".");
+			}
+			if(o.getFoto() != null) {
+				System.out.println("Foto: " + o.getFoto()+ ".");
+			}
+			
 		}
+		
 	}
 
 	public int getId_tienda() {
