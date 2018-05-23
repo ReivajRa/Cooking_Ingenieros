@@ -65,11 +65,15 @@ public class Cliente {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void setReputacion(double reputacion) {
+		this.reputacion = reputacion;
 	}
 	public String verOferta(Oferta of) {
 		return of.verOferta();
