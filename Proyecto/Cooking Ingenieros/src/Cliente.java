@@ -65,8 +65,8 @@ public class Cliente {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	public void setEmail(String email) {
 		this.email = email;
