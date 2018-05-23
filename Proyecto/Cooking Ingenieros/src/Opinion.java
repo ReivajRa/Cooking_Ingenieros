@@ -1,17 +1,17 @@
 
 public class Opinion {
-	int id;
+	public static int id=1;
 	String mensaje;
 	String usuario;
 	int puntuacion;
-	int id_tienda;
+	int id_opinion;
 	
 	public Opinion(String usu, String msj,int punt, int id_tienda){
-		id = (int)Math.random();
+		id_opinion = id;
 		usuario = usu;
 		mensaje = msj;
 		puntuacion = punt;
-		this.id_tienda = id_tienda;
+		id++;
 	}
 
 	public String getMensaje() {
@@ -19,11 +19,7 @@ public class Opinion {
 	}
 	
 	public int getId() {
-		return id;
-	}
-
-	public int getId_tienda() {
-		return id_tienda;
+		return id_opinion;
 	}
 
 	public String getUsuario() {
