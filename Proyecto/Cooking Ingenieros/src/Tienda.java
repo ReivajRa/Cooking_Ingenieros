@@ -24,6 +24,9 @@ public class Tienda {
 	
 	public void anadirOferta(String producto, double desc, double precio, String descrip, Categorias categ) {
 		Oferta of= new Oferta(producto, desc, id_tienda, precio, descrip, categ);
+		for(Oferta o: Ofertas) {
+			
+		}
 		ofertas.add(of);
 	}
 	
@@ -81,8 +84,7 @@ public class Tienda {
 	
 	public void getOpiniones() {
 		for(int i=0; i<opiniones.size(); i++) {
-			Opinion aux =opiniones.get(i);
-			
+			System.out.println(opiniones.get(i).mostrarOp());
 		}
 	}
 

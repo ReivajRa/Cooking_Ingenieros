@@ -4,28 +4,18 @@ public class Opinion {
 	String mensaje;
 	String usuario;
 	int puntuacion;
-<<<<<<< HEAD
-	int id_tienda;
-	int aux = 1;
-	
-	public Opinion(String usu, String msj,int punt, int id_tienda){
-		id = aux;
-		usuario = usu;
-		mensaje = msj;
-		puntuacion = punt;
-		this.id_tienda = id_tienda;
-		aux++;
-=======
 	int id_opinion;
+	Oferta oferta;
 	
-	public Opinion(String usu, String msj,int punt, int id_tienda){
+	public Opinion(String usu, String msj,int punt, Oferta of){
 		id_opinion = id;
 		usuario = usu;
 		mensaje = msj;
 		puntuacion = punt;
+		oferta = of;
 		id++;
->>>>>>> 87c5f0e3de0094b42a3b3df12a776d745093ebe2
 	}
+	
 
 	public String getMensaje() {
 		return mensaje;
@@ -44,9 +34,44 @@ public class Opinion {
 	}
 	
 	public String mostrarOp() {
-		return "Id:" + id + ". Escrito por: " + usuario + ". Mensaje: "
+		return "Id:" + id_opinion + ". Escrito por: " + usuario + ". Mensaje: "
 				+ 	mensaje + ". Puntuacion: " + puntuacion + ".";
 	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((oferta == null) ? 0 : oferta.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Opinion other = (Opinion) obj;
+		if (oferta == null) {
+			if (other.oferta != null)
+				return false;
+		} else if (!oferta.equals(other.oferta))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
+	}
+
+	
 	
 	
 }
