@@ -16,7 +16,6 @@ public class Opinion {
 		id++;
 	}
 	
-
 	public String getMensaje() {
 		return mensaje;
 	}
@@ -33,11 +32,27 @@ public class Opinion {
 		return puntuacion;
 	}
 	
-	public String mostrarOp() {
-		return "Id:" + id_opinion + ". Escrito por: " + usuario + ". Mensaje: "
-				+ 	mensaje + ". Puntuacion: " + puntuacion + ".";
+	public int getId_opinion() {
+		return id_opinion;
 	}
 
+	public Oferta getOferta() {
+		return oferta;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public void setPuntuacion(int puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
+	@Override
+	public String toString() {
+		return "Opinion [id_opinion=" + id_opinion + ", usuario=" + usuario + ", mensaje=" + mensaje + ", puntuacion="
+				+ puntuacion + ", oferta=" + oferta.toString() + "]";
+	}
 
 	@Override
 	public int hashCode() {

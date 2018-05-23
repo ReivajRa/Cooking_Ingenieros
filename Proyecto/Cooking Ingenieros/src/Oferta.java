@@ -1,4 +1,5 @@
 import java.awt.Image;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 
@@ -7,15 +8,15 @@ public class Oferta {
 	private int id_oferta;
 	private String producto;
 	private double descuento;
-	private int tienda;
 	private double precio;
 	private Image foto;
 	private String descripcion;
 	private int codigoQR;
 	Categorias categoria;
-	LinkedList<Opinion> opiones;
+	HashSet<Opinion> opiniones;
+	private Tienda tienda;
 	
-	public Oferta(String p, double d, int t, double pr, String des, Categorias cat)
+	public Oferta(String p, double d, Tienda t, double pr, String des, Categorias cat)
 	{
 		this.id_oferta= (int)Math.random();
 		this.producto = p;
@@ -26,6 +27,7 @@ public class Oferta {
 		this.descripcion = des;
 		codigoQR = (Integer) null;
 		categoria = cat;
+		opiniones = new HashSet<Opinion>();
 		
 	}
 
@@ -41,8 +43,8 @@ public class Oferta {
 		return this.descuento;
 	}
 	
-	public int getTienda() {
-		return this.tienda;
+	public Tienda getTienda() {
+		return tienda;
 	}
 
 	public double getPrecio() {
@@ -96,10 +98,56 @@ public class Oferta {
 	public void quitarCat(String cat) {
 		categoria.quitarCat(cat);
 	}*/
+	
+	public String toString() {
+		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
+		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + categoria + ".";
+		if(codigoQR!= (Integer) null) {
+			aux += "CodigoQR: " + codigoQR + ".";
+		}
+		if(foto != null) {
+			aux +="Foto: " + foto+ ".";
+		}
+		return aux;
+	}
+	
+	public void mostrarOpiniones() {
+		for(Opinion o: opiniones) {
+			System.out.println(o.toString());
+		}
+	}
+	
+	public HashSet<Opinion> getOpiniones() {
+		return opiniones;
+	}
 
+	public void setOpiniones(HashSet<Opinion> opiniones) {
+		this.opiniones = opiniones;
+	}
 	
+	public void aniadirOp(Opinion op) {
+		opiniones.add(op);
+	}
 	
-	public boolean equals(Oferta obj) {
+	public void eliminarOp(Opinion op) {
+		opiniones.remove(op);
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id_oferta;
+		long temp;
+		temp = Double.doubleToLongBits(precio);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
+		result = prime * result + ((tienda == null) ? 0 : tienda.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -107,7 +155,7 @@ public class Oferta {
 		if (getClass() != obj.getClass())
 			return false;
 		Oferta other = (Oferta) obj;
-		if (Double.doubleToLongBits(descuento) != Double.doubleToLongBits(other.descuento))
+		if (id_oferta != other.id_oferta)
 			return false;
 		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
 			return false;
@@ -116,32 +164,12 @@ public class Oferta {
 				return false;
 		} else if (!producto.equals(other.producto))
 			return false;
-		if (tienda != other.tienda)
+		if (tienda == null) {
+			if (other.tienda != null)
+				return false;
+		} else if (!tienda.equals(other.tienda))
 			return false;
 		return true;
-	}
-
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(descuento);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(precio);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
-		result = prime * result + tienda;
-		return result;
-	}
-	
-	public String verOferta()
-	{
-		System.out.println("Id: "+this.getId_oferta()+"; Producto: "+this.getProducto()
-		+"; Descuento: "+this.getDescuento()+"; Tienda: "+this.getTienda()
-		+"; Precio: "+this.getPrecio()+"; Foto: "+this.getFoto()+"; Descripcion: "
-		+this.getDescripcion()+"; CodigoQR: "+this.getCodigoQR()+"; Categoria: "
-		+this.getCategoria());
-		return "";
 	}
 
 }

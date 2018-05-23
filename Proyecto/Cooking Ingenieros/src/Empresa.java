@@ -1,15 +1,15 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class Empresa {
 	private String usuario, contrasenia;
-	LinkedList<Tienda> tienda;
+	HashSet<Tienda> tienda;
 	private String eMail;
 	
 	public Empresa(String usu, String contr, String mail) {
 		usuario = usu;
 		contrasenia = contr;
 		eMail = mail;
-		tienda = new LinkedList<>();
+		tienda = new HashSet<>();
 	}
 	
 	public void addTienda(Tienda tnd) {
@@ -20,8 +20,12 @@ public class Empresa {
 		return usuario;
 	}
 
-	public LinkedList<Tienda> getTienda() {
-		return tienda;
+	public String verTienda() {
+		String aux = null ;
+		for(Tienda o: tienda) {
+			aux += "Nombre: "+ o.nombre + ", ID: " + o.id_tienda + ". ";
+		}
+		return aux;
 	}
 
 	public String getContrasenia() {
@@ -42,6 +46,45 @@ public class Empresa {
 
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
+	}
+
+	public String toString() {
+		return "Empresa [usuario=" + usuario + ", tiendas=" + verTienda() + ", eMail=" + eMail + "]";
+	}
+
+	public HashSet<Tienda> getTienda() {
+		return tienda;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((eMail == null) ? 0 : eMail.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empresa other = (Empresa) obj;
+		if (eMail == null) {
+			if (other.eMail != null)
+				return false;
+		} else if (!eMail.equals(other.eMail))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
 	}
 
 }

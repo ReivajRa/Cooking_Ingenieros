@@ -8,7 +8,7 @@ public class Tienda {
 	String duenio;
 	HashSet<Oferta> ofertas;
 	String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
-	LinkedList<Opinion> opiniones;
+	HashSet<Opinion> opiniones;
 	
 
 	public Tienda(String nom, String dir, String due){
@@ -17,16 +17,13 @@ public class Tienda {
 		direccion = dir;
 		duenio = due;
 		ofertas = new HashSet<Oferta>();
-		opiniones = new LinkedList<Opinion>();
+		opiniones = new HashSet<Opinion>();
 		Tienda.id++;
 		
 	}
 	
 	public void anadirOferta(String producto, double desc, double precio, String descrip, Categorias categ) {
-		Oferta of= new Oferta(producto, desc, id_tienda, precio, descrip, categ);
-		for(Oferta o: Ofertas) {
-			
-		}
+		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
 		ofertas.add(of);
 	}
 	
@@ -34,20 +31,11 @@ public class Tienda {
 		ofertas.remove(of);
 	}
 	
-	public void mostrarOfertas(){
+	public void verOfertas(){
 		Iterator<Oferta> it = ofertas.iterator();
 		for(Oferta o: ofertas) {
-			System.out.println("ID oferta: " + o.getId_oferta() + ". Producto: " + o.getProducto() + ". Precio: " + o.getPrecio()
-			+ ". Descuento: " + o.getDescuento() + ". Descripción: " + o.getDescripcion() + ". Categorias: " + o.getCategoria() + ".");
-			if(o.getCodigoQR()!= (Integer) null) {
-				System.out.println("CodigoQR: " + o.getCodigoQR()+ ".");
-			}
-			if(o.getFoto() != null) {
-				System.out.println("Foto: " + o.getFoto()+ ".");
-			}
-			
+			System.out.println(o.toString());
 		}
-		
 	}
 
 	public int getId_tienda() {
@@ -82,10 +70,26 @@ public class Tienda {
 		this.duenio = duenio;
 	}
 	
-	public void getOpiniones() {
-		for(int i=0; i<opiniones.size(); i++) {
-			System.out.println(opiniones.get(i).mostrarOp());
+	public void mostrarOpiniones() {
+		for(Opinion o: opiniones) {
+			System.out.println(o.toString());
 		}
+	}
+
+	public static int getId() {
+		return id;
+	}
+
+	public HashSet<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public HashSet<Opinion> getOpiniones() {
+		return opiniones;
+	}
+
+	public void setOfertas(HashSet<Oferta> ofertas) {
+		this.ofertas = ofertas;
 	}
 
 	@Override
@@ -122,7 +126,7 @@ public class Tienda {
 		return true;
 	}
 
-	public void setOpiniones(LinkedList<Opinion> opiniones) {
+	public void setOpiniones(HashSet<Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 
@@ -137,5 +141,12 @@ public class Tienda {
 	public void eliminarOp(Opinion op) {
 		opiniones.remove(op);
 	}
+
+	public String toString() {
+		return "Tienda [id_tienda=" + id_tienda + ", nombre=" + nombre + ", direccion=" + direccion + ", duenio="
+				+ duenio + ", horario=" + Arrays.toString(horario) + "]";
+	}
+	
+	
 
 }
