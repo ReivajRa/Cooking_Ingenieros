@@ -6,7 +6,7 @@ import java.util.*;
 public class Cliente {
 	
 	private String usuario;
-	private String contraseña;
+	private String contrasenia;
 	private String email;
 	private double reputacion;
 	private List<String> seguidores;
@@ -15,7 +15,7 @@ public class Cliente {
 	public Cliente(String u, String c, String e)
 	{
 		this.usuario = u;
-		this.contraseña = c;
+		this.contrasenia = c;
 		this.email = e;
 		this.reputacion = 0.0;
 		seguidores = new LinkedList<String>();
@@ -25,9 +25,9 @@ public class Cliente {
 	{
 		return this.usuario;
 	}
-	public String getContraseña()
+	public String getContrasenia()
 	{
-		return this.contraseña;
+		return this.contrasenia;
 	}
 	public String getEmail()
 	{
@@ -53,7 +53,7 @@ public class Cliente {
 	
 	public void verPerfil()
 	{
-		System.out.println("Nombre de usuario: "+this.usuario+"; E-mail de contacto: "+this.email+"; Reputación: "+this.reputacion
+		System.out.println("Nombre de usuario: "+this.usuario+"; E-mail de contacto: "+this.email+"; ReputaciÃ³n: "+this.reputacion
 				+"; Seguidores: "+this.seguidores.size()+"; Seguidos: "+this.seguidos.size()+" .");
 	}
 	
@@ -65,8 +65,8 @@ public class Cliente {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContraseÃ±a(String contraseÃ±a) {
+		this.contraseÃ±a = contraseÃ±a;
 	}
 	public void setEmail(String email) {
 		this.email = email;
