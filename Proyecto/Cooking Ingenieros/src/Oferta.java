@@ -1,4 +1,5 @@
 import java.awt.Image;
+import java.util.LinkedList;
 
 
 public class Oferta {
@@ -12,6 +13,7 @@ public class Oferta {
 	private String descripcion;
 	private int codigoQR;
 	Categorias categoria;
+	LinkedList<Opinion> opiones;
 	
 	public Oferta(String p, double d, int t, double pr, String des, Categorias cat)
 	{
@@ -24,6 +26,7 @@ public class Oferta {
 		this.descripcion = des;
 		codigoQR = (Integer) null;
 		categoria = cat;
+		
 	}
 
 	public int getId_oferta() {
