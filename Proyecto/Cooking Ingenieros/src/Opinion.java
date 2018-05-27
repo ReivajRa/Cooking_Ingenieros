@@ -1,4 +1,3 @@
-
 public class Opinion {
 	public static int id=1;
 	String mensaje;
@@ -85,8 +84,4 @@ public class Opinion {
 			return false;
 		return true;
 	}
-
-	
-	
-	
 }
