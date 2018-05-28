@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 
 public class Oferta {
-	
+	private static int id = 1;
 	private int id_oferta;
 	private String producto;
 	private double descuento;
@@ -13,13 +13,13 @@ public class Oferta {
 	private Image foto;
 	private String descripcion;
 	private Image codigoQR;
-	Categorias categoria;
-	HashSet<Opinion> opiniones;
+	private HashSet<Categorias> categoria;
+	private HashSet<Opinion> opiniones;
 	private Tienda tienda;
 	
-	public Oferta(String p, double d, Tienda t, double pr, String des, Categorias cat)
+	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
-		this.id_oferta= (int)Math.random();
+		this.id_oferta= id;
 		this.producto = p;
 		this.descuento = d;
 		this.tienda = t;
@@ -29,6 +29,7 @@ public class Oferta {
 		codigoQR = null;
 		categoria = cat;
 		opiniones = new HashSet<Opinion>();
+		id++;
 		
 	}
 
@@ -64,9 +65,7 @@ public class Oferta {
 		return this.descripcion;
 	}
 	
-	public Categorias getCategoria() {
-		return this.categoria;
-	}
+
 	
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
@@ -88,11 +87,14 @@ public class Oferta {
 		this.codigoQR = codigoQR;
 	}
 
-	public void setCategoria(Categorias cat) {
+	/*public void setCategoria(Categorias cat) {
 		this.categoria = cat;
 	}
 	
-	/*public void aniadirCat(String cat) {
+	public Categorias getCategoria() {
+		return this.categoria;
+	}
+	public void aniadirCat(String cat) {
 		categoria
 	}
 	

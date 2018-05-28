@@ -2,14 +2,14 @@ package CheapDeal;
 import java.util.*;
 
 public class Tienda {
-	public static int id=1;
-	int id_tienda;
-	String nombre;
-	String direccion;
-	String duenio;
-	HashSet<Oferta> ofertas;
-	String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
-	HashSet<Opinion> opiniones;
+	private static int id=1;
+	private int id_tienda;
+	private String nombre;
+	private String direccion;
+	private String duenio;
+	private HashSet<Oferta> ofertas;
+	private String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
+	private HashSet<Opinion> opiniones;
 	
 
 	public Tienda(String nom, String dir, String due){
@@ -23,7 +23,7 @@ public class Tienda {
 		
 	}
 	
-	public void anadirOferta(String producto, double desc, double precio, String descrip, Categorias categ) {
+	public void anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
 		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
 		ofertas.add(of);
 	}

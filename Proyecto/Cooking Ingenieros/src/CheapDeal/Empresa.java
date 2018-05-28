@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Empresa {
 	private String usuario, contrasenia;
-	HashSet<Tienda> tienda;
+	private HashSet<Tienda> tienda;
 	private String eMail;
 	
 	public Empresa(String usu, String contr, String mail) {
@@ -24,7 +24,7 @@ public class Empresa {
 	public String verTienda() {
 		String aux = null ;
 		for(Tienda o: tienda) {
-			aux += "Nombre: "+ o.nombre + ", ID: " + o.id_tienda + ". ";
+			aux += "Nombre: "+ o.getNombre() + ", ID: " + o.getId_tienda() + ". ";
 		}
 		return aux;
 	}

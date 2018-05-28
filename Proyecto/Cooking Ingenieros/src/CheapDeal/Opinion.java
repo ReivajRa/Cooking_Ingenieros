@@ -2,11 +2,11 @@ package CheapDeal;
 
 public class Opinion {
 	public static int id=1;
-	String mensaje;
-	String usuario;
-	int puntuacion;
-	int id_opinion;
-	Oferta oferta;
+	private String mensaje;
+	private String usuario;
+	private int puntuacion;
+	private int id_opinion;
+	private Oferta oferta;
 	
 	public Opinion(String usu, String msj,int punt, Oferta of){
 		id_opinion = id;
