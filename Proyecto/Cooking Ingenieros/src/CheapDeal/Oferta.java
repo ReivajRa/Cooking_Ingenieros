@@ -1,3 +1,4 @@
+package CheapDeal;
 import java.awt.Image;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ public class Oferta {
 	private double precio;
 	private Image foto;
 	private String descripcion;
-	private int codigoQR;
+	private Image codigoQR;
 	Categorias categoria;
 	HashSet<Opinion> opiniones;
 	private Tienda tienda;
@@ -25,7 +26,7 @@ public class Oferta {
 		this.precio = pr;
 		foto = null;
 		this.descripcion = des;
-		codigoQR = (Integer) null;
+		codigoQR = null;
 		categoria = cat;
 		opiniones = new HashSet<Opinion>();
 		
@@ -55,7 +56,7 @@ public class Oferta {
 		return this.foto;
 	}	
 	
-	public int getCodigoQR() {
+	public Image getCodigoQR() {
 		return codigoQR;
 	}
 	
@@ -83,7 +84,7 @@ public class Oferta {
 		this.descripcion = descripcion;
 	}
 
-	public void setCodigoQR(int codigoQR) {
+	public void setCodigoQR(Image codigoQR) {
 		this.codigoQR = codigoQR;
 	}
 
@@ -102,7 +103,7 @@ public class Oferta {
 	public String toString() {
 		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
 		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + categoria + ".";
-		if(codigoQR!= (Integer) null) {
+		if(codigoQR!= null) {
 			aux += "CodigoQR: " + codigoQR + ".";
 		}
 		if(foto != null) {

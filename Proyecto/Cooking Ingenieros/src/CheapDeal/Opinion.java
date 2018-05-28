@@ -1,3 +1,4 @@
+package CheapDeal;
 
 public class Opinion {
 	public static int id=1;
@@ -85,8 +86,4 @@ public class Opinion {
 			return false;
 		return true;
 	}
-
-	
-	
-	
 }

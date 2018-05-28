@@ -1,5 +1,4 @@
 package Test;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -20,5 +19,4 @@ public class OpinionTest {
 	public void testEqualsObject() {
 		fail("Not yet implemented");
 	}
-
 }
