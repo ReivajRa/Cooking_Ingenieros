@@ -1,3 +1,5 @@
+package CheapDeal;
+
 public class Opinion {
 	public static int id=1;
 	String mensaje;

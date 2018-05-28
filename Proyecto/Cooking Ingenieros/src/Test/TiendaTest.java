@@ -1,4 +1,5 @@
 package Test;
+import CheapDeal.Tienda;
 import static org.junit.Assert.*;
 
 import org.junit.Test;

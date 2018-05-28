@@ -1,3 +1,4 @@
+package CheapDeal;
 import java.util.*;
 
 public class Empresa {
