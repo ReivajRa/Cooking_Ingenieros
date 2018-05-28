@@ -65,7 +65,13 @@ public class Oferta {
 		return this.descripcion;
 	}
 	
-
+	public HashSet<Categorias> getCategoria() {
+		return categoria;
+	}
+	
+	public HashSet<Opinion> getOpiniones() {
+		return opiniones;
+	}
 	
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
@@ -86,46 +92,35 @@ public class Oferta {
 	public void setCodigoQR(Image codigoQR) {
 		this.codigoQR = codigoQR;
 	}
-
-	/*public void setCategoria(Categorias cat) {
-		this.categoria = cat;
+	
+	public void setCategoria(HashSet<Categorias> cat) {
+		categoria = cat;
 	}
 	
-	public Categorias getCategoria() {
-		return this.categoria;
-	}
-	public void aniadirCat(String cat) {
-		categoria
+	public void setOpiniones(HashSet<Opinion> opiniones) {
+		this.opiniones = opiniones;
 	}
 	
-	public void quitarCat(String cat) {
-		categoria.quitarCat(cat);
-	}*/
-	
-	public String toString() {
-		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
-		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + categoria + ".";
-		if(codigoQR!= null) {
-			aux += "CodigoQR: " + codigoQR + ".";
-		}
-		if(foto != null) {
-			aux +="Foto: " + foto+ ".";
+	public String mostrarCategorias() {
+		String aux = "Categorias: ";
+		for(Categorias o: categoria) {
+			aux += o.name() + ",";
 		}
 		return aux;
+	}
+	
+	public void aniadirCat(Categorias cat) {
+		categoria.add(cat);
+	}
+	
+	public void quitarCat(Categorias cat) {
+		categoria.remove(cat);
 	}
 	
 	public void mostrarOpiniones() {
 		for(Opinion o: opiniones) {
 			System.out.println(o.toString());
 		}
-	}
-	
-	public HashSet<Opinion> getOpiniones() {
-		return opiniones;
-	}
-
-	public void setOpiniones(HashSet<Opinion> opiniones) {
-		this.opiniones = opiniones;
 	}
 	
 	public void aniadirOp(Opinion op) {
@@ -174,5 +169,16 @@ public class Oferta {
 			return false;
 		return true;
 	}
-
+	
+	public String toString() {
+		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
+		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + categoria + ".";
+		if(codigoQR!= null) {
+			aux += "CodigoQR: " + codigoQR + ".";
+		}
+		if(foto != null) {
+			aux +="Foto: " + foto+ ".";
+		}
+		return aux;
+	}
 }
