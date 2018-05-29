@@ -2,6 +2,9 @@ package CheapDeal;
 import java.awt.Image;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 
 public class Oferta {
@@ -15,7 +18,7 @@ public class Oferta {
 	private Image foto;
 	private Image codigoQR;
 	private HashSet<Categorias> categoria;
-	private HashSet<Opinion> opiniones;
+	private Map<Integer, Opinion> opiniones;
 	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
 		this.id_oferta= id;
@@ -27,7 +30,7 @@ public class Oferta {
 		this.descripcion = des;
 		codigoQR = null;
 		categoria = cat;
-		opiniones = new HashSet<Opinion>();
+		opiniones = new TreeMap<Integer, Opinion>();
 		id++;
 		
 	}
@@ -68,7 +71,7 @@ public class Oferta {
 		return categoria;
 	}
 	
-	public HashSet<Opinion> getOpiniones() {
+	public Map<Integer, Opinion> getOpiniones() {
 		return opiniones;
 	}
 	
@@ -100,7 +103,7 @@ public class Oferta {
 		categoria = cat;
 	}
 	
-	public void setOpiniones(HashSet<Opinion> opiniones) {
+	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 	
@@ -120,18 +123,20 @@ public class Oferta {
 		categoria.remove(cat);
 	}
 	
+	public void aniadirOp(String usu, String msj, int punt) {
+		Opinion op = new Opinion(usu, msj, punt, this, this.getTienda());
+		opiniones.put(op.getId(), op);
+	}
+	
+	public void eliminarOp(Integer id) {
+		opiniones.remove(id);
+	}
+
 	public void mostrarOpiniones() {
-		for(Opinion o: opiniones) {
-			System.out.println(o.toString());
+		Set<Map.Entry<Integer, Opinion>> set = opiniones.entrySet();
+		for(Map.Entry<Integer, Opinion> o: set) {
+			System.out.println("Id_Opinion: " + o.getKey() + ". Opinion: " + o.getValue().toString() + ".");
 		}
-	}
-	
-	public void aniadirOp(Opinion op) {
-		opiniones.add(op);
-	}
-	
-	public void eliminarOp(Opinion op) {
-		opiniones.remove(op);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package CheapDeal;
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Tienda {
 	private static int id=1;
@@ -7,9 +8,9 @@ public class Tienda {
 	private String nombre;
 	private String direccion;
 	private String duenio;
-	private HashSet<Oferta> ofertas;
+	private Map<Integer, Oferta> ofertas;
 	private String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
-	private HashSet<Opinion> opiniones;
+	private Map<Integer, Opinion> opiniones;
 	
 
 	public Tienda(String nom, String dir, String due){
@@ -17,8 +18,8 @@ public class Tienda {
 		nombre = nom;
 		direccion = dir;
 		duenio = due;
-		ofertas = new HashSet<Oferta>();
-		opiniones = new HashSet<Opinion>();
+		ofertas = new TreeMap<Integer, Oferta>();
+		opiniones = new TreeMap<Integer, Opinion>();
 		Tienda.id++;
 		
 	}
@@ -39,7 +40,7 @@ public class Tienda {
 		return duenio;
 	}
 	
-	public HashSet<Oferta> getOfertas() {
+	public Map<Integer, Oferta> getOfertas() {
 		return ofertas;
 	}
 
@@ -47,7 +48,7 @@ public class Tienda {
 		return horario;
 	}
 	
-	public HashSet<Opinion> getOpiniones() {
+	public Map<Integer, Opinion> getOpiniones() {
 		return opiniones;
 	}
 	
@@ -67,7 +68,7 @@ public class Tienda {
 		this.duenio = duenio;
 	}
 	
-	public void setOfertas(HashSet<Oferta> ofertas) {
+	public void setOfertas(TreeMap<Integer, Oferta> ofertas) {
 		this.ofertas = ofertas;
 	}
 
@@ -75,36 +76,39 @@ public class Tienda {
 		this.horario = horario;
 	}
 
-	public void setOpiniones(HashSet<Opinion> opiniones) {
+	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 
 	public void anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
 		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
-		ofertas.add(of);
+		ofertas.put(of.getId_oferta(), of);
 	}
 
-	public void quitarOferta(Oferta of){
-		ofertas.remove(of);
+	public void quitarOferta(Integer id){
+		ofertas.remove(id);
 	}
 
 	public void verOfertas(){
-		for(Oferta o: ofertas) {
-			System.out.println(o.toString());
+		Set<Map.Entry<Integer, Oferta>> set = ofertas.entrySet();
+		for(Map.Entry<Integer, Oferta> o:set) {
+			System.out.println("Id_Oferta: " + o.getKey() + ". Oferta: " + o.getValue().toString() + ".");
 		}
 	}
 
-	public void aniadirOp(Opinion op) {
-		opiniones.add(op);
+	public void aniadirOp(String usu, String msj, int punt, Oferta oferta) {
+		Opinion op = new Opinion(usu, msj, punt, oferta, this);
+		opiniones.put(op.getId(), op);
 	}
 	
-	public void eliminarOp(Opinion op) {
-		opiniones.remove(op);
+	public void eliminarOp(Integer id) {
+		opiniones.remove(id);
 	}
 
 	public void mostrarOpiniones() {
-		for(Opinion o: opiniones) {
-			System.out.println(o.toString());
+		Set<Map.Entry<Integer, Opinion>> set = opiniones.entrySet();
+		for(Map.Entry<Integer, Opinion> o: set) {
+			System.out.println("Id_Opinion: " + o.getKey() + ". Opinion: " + o.getValue().toString() + ".");
 		}
 	}
 
