@@ -46,26 +46,28 @@ public class Cliente {
 	{
 		return this.seguidos;
 	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setReputacion(double reputacion) {
+		this.reputacion = reputacion;
+	}
 	public void seguirUsuario(Cliente cl)
 	{
 		cl.seguidores.add(this);
 		this.seguidos.add(cl);
 	}
-	
-	@Override
-	public String toString() {
-		return "Cliente [usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
-				+ seguidores.size() + ", seguidos=" + seguidos.size() + "]";
-	}
-	public void DejarSeguirUsuario(Cliente cl)
+	public void dejarSeguir(Cliente cl)
 	{
 		cl.seguidores.remove(this);
 		this.seguidos.remove(cl);
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-	
 	public String verSeguidores() {
 		String aux=null;
 		for(Cliente o: seguidores) {
@@ -82,16 +84,6 @@ public class Cliente {
 		return aux;
 	}
 
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public void setReputacion(double reputacion) {
-		this.reputacion = reputacion;
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -120,5 +112,10 @@ public class Cliente {
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "Cliente [usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
+				+ seguidores.size() + ", seguidos=" + seguidos.size() + "]";
 	}
 }

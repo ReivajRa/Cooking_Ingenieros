@@ -17,14 +17,14 @@ public class Opinion {
 		id++;
 	}
 	
-	public String getMensaje() {
-		return mensaje;
-	}
-	
 	public int getId() {
 		return id_opinion;
 	}
 
+	public String getMensaje() {
+		return mensaje;
+	}
+	
 	public String getUsuario() {
 		return usuario;
 	}

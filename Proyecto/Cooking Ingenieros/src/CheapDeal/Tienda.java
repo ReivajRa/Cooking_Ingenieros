@@ -23,43 +23,40 @@ public class Tienda {
 		
 	}
 	
-	public void anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
-		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
-		ofertas.add(of);
-	}
-	
-	public void quitarOferta(Oferta of){
-		ofertas.remove(of);
-	}
-	
-	public void verOfertas(){
-		for(Oferta o: ofertas) {
-			System.out.println(o.toString());
-		}
-	}
-
 	public int getId_tienda() {
 		return id_tienda;
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 
 	public String getDireccion() {
 		return direccion;
 	}
 	
-	public String getNombre() {
-		return nombre;
-	}
-	
 	public String getDuenio() {
 		return duenio;
 	}
 	
+	public HashSet<Oferta> getOfertas() {
+		return ofertas;
+	}
+
 	public String[][] getHorario() {
 		return horario;
 	}
 	
+	public HashSet<Opinion> getOpiniones() {
+		return opiniones;
+	}
+	
 	public void setId_tienda(int id_tienda) {
 		this.id_tienda = id_tienda;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public void setDireccion(String direccion) {
@@ -70,26 +67,45 @@ public class Tienda {
 		this.duenio = duenio;
 	}
 	
-	public void mostrarOpiniones() {
-		for(Opinion o: opiniones) {
+	public void setOfertas(HashSet<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
+
+	public void setHorario(String[][] horario) {
+		this.horario = horario;
+	}
+
+	public void setOpiniones(HashSet<Opinion> opiniones) {
+		this.opiniones = opiniones;
+	}
+
+	public void anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
+		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
+		ofertas.add(of);
+	}
+
+	public void quitarOferta(Oferta of){
+		ofertas.remove(of);
+	}
+
+	public void verOfertas(){
+		for(Oferta o: ofertas) {
 			System.out.println(o.toString());
 		}
 	}
 
-	public static int getId() {
-		return id;
+	public void aniadirOp(Opinion op) {
+		opiniones.add(op);
+	}
+	
+	public void eliminarOp(Opinion op) {
+		opiniones.remove(op);
 	}
 
-	public HashSet<Oferta> getOfertas() {
-		return ofertas;
-	}
-
-	public HashSet<Opinion> getOpiniones() {
-		return opiniones;
-	}
-
-	public void setOfertas(HashSet<Oferta> ofertas) {
-		this.ofertas = ofertas;
+	public void mostrarOpiniones() {
+		for(Opinion o: opiniones) {
+			System.out.println(o.toString());
+		}
 	}
 
 	@Override
@@ -124,22 +140,6 @@ public class Tienda {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
-	}
-
-	public void setOpiniones(HashSet<Opinion> opiniones) {
-		this.opiniones = opiniones;
-	}
-
-	public void setHorario(String[][] horario) {
-		this.horario = horario;
-	}
-	
-	public void aniadirOp(Opinion op) {
-		opiniones.add(op);
-	}
-	
-	public void eliminarOp(Opinion op) {
-		opiniones.remove(op);
 	}
 
 	public String toString() {

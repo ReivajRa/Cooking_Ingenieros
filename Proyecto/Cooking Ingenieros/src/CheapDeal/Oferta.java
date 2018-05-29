@@ -10,13 +10,12 @@ public class Oferta {
 	private String producto;
 	private double descuento;
 	private double precio;
-	private Image foto;
+	private Tienda tienda;
 	private String descripcion;
+	private Image foto;
 	private Image codigoQR;
 	private HashSet<Categorias> categoria;
 	private HashSet<Opinion> opiniones;
-	private Tienda tienda;
-	
 	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
 		this.id_oferta= id;
@@ -45,12 +44,16 @@ public class Oferta {
 		return this.descuento;
 	}
 	
+	public double getPrecio() {
+		return this.precio;
+	}
+
 	public Tienda getTienda() {
 		return tienda;
 	}
 
-	public double getPrecio() {
-		return this.precio;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
 	public Image getFoto() {
@@ -61,10 +64,6 @@ public class Oferta {
 		return codigoQR;
 	}
 	
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-	
 	public HashSet<Categorias> getCategoria() {
 		return categoria;
 	}
@@ -73,6 +72,10 @@ public class Oferta {
 		return opiniones;
 	}
 	
+	public void setProducto(String producto) {
+		this.producto = producto;
+	}
+
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
 	}
@@ -81,12 +84,12 @@ public class Oferta {
 		this.precio = precio;
 	}
 
-	public void setFoto(Image foto) {
-		this.foto = foto;
-	}
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public void setFoto(Image foto) {
+		this.foto = foto;
 	}
 
 	public void setCodigoQR(Image codigoQR) {
