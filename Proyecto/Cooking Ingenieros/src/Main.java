@@ -1,8 +1,14 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//MAPA PARA ORDENACION DE OFERTAS
+		Map<Integer,HashSet<Oferta>> OfertasCercanas = new HashMap<Integer, HashSet<Oferta>>();
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","pepitoperez","pepeguapo@gmail.com");
@@ -23,6 +29,8 @@ public class Main {
 				"Sillon de interior de madera contrachapada de color negro", Categorias.MUEBLES );
 		tienda3.anadirOferta("Sofa de piel", 60.00, 2599.00, 
 				"Sofa de color negro mate de 3 plazas y de maxima calidad", Categorias.MUEBLES );
+		System.out.println();
+		System.out.println();
 		
 		
 	}

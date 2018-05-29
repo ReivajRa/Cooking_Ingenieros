@@ -2,7 +2,7 @@ import java.awt.Image;
 
 
 public class Oferta {
-	
+	public static int id=1;
 	private int id_oferta;
 	private String producto;
 	private double descuento;
@@ -10,19 +10,19 @@ public class Oferta {
 	private double precio;
 	private Image foto;
 	private String descripcion;
-	private int codigoQR;
+	private Image codigoQR= null;
 	Categorias categoria;
 	
 	public Oferta(String p, double d, int t, double pr, String des, Categorias cat)
 	{
-		this.id_oferta= (int)Math.random();
+		this.id_oferta= id++;
 		this.producto = p;
 		this.descuento = d;
 		this.tienda = t;
 		this.precio = pr;
 		foto = null;
+		codigoQR= null;
 		this.descripcion = des;
-		codigoQR = (Integer) null;
 		categoria = cat;
 	}
 
@@ -50,9 +50,9 @@ public class Oferta {
 		return this.foto;
 	}	
 	
-	public int getCodigoQR() {
+	/*public int getCodigoQR() {
 		return codigoQR;
-	}
+	}*/
 	
 	public String getDescripcion() {
 		return this.descripcion;
@@ -78,7 +78,7 @@ public class Oferta {
 		this.descripcion = descripcion;
 	}
 
-	public void setCodigoQR(int codigoQR) {
+	/*public void setCodigoQR(int codigoQR) {
 		this.codigoQR = codigoQR;
 	}
 
@@ -136,7 +136,7 @@ public class Oferta {
 		System.out.println("Id: "+this.getId_oferta()+"; Producto: "+this.getProducto()
 		+"; Descuento: "+this.getDescuento()+"; Tienda: "+this.getTienda()
 		+"; Precio: "+this.getPrecio()+"; Foto: "+this.getFoto()+"; Descripcion: "
-		+this.getDescripcion()+"; CodigoQR: "+this.getCodigoQR()+"; Categoria: "
+		+this.getDescripcion()+/*"; CodigoQR: "+this.getCodigoQR()+*/"; Categoria: "
 		+this.getCategoria());
 		return "";
 	}

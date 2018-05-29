@@ -36,12 +36,12 @@ public class Tienda {
 		for(Oferta o: ofertas) {
 			System.out.println("ID oferta: " + o.getId_oferta() + ". Producto: " + o.getProducto() + ". Precio: " + o.getPrecio()
 			+ ". Descuento: " + o.getDescuento() + ". Descripción: " + o.getDescripcion() + ". Categorias: " + o.getCategoria() + ".");
-			if(o.getCodigoQR()!= (Integer) null) {
+			/*if(o.getCodigoQR()!= (Integer) null) {
 				System.out.println("CodigoQR: " + o.getCodigoQR()+ ".");
 			}
 			if(o.getFoto() != null) {
 				System.out.println("Foto: " + o.getFoto()+ ".");
-			}
+			}*/
 			
 		}
 		
