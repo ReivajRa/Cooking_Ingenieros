@@ -1,3 +1,4 @@
+package CheapDeal;
 
 public enum Categorias {
 	FRUTA, VERDURAS_HORTALIZAS, CARNICERIA, PESCADERIA, CHARCUTERIA, 
