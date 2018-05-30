@@ -45,9 +45,9 @@ public class Main {
 		cat.add(Categorias.MUEBLES);
 		tienda3.anadirOferta("Sofa de piel", 60.00, 2599.00, 
 				"Sofa de color negro mate de 3 plazas y de maxima calidad", cat );
-		//cat.removeAll(cat);
+		cat.removeAll(cat);
 		
-		tienda1.verOfertas();
+		tienda2.verOfertas();
 		
 		
 	}

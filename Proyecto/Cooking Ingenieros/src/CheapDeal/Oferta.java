@@ -29,7 +29,7 @@ public class Oferta {
 		foto = null;
 		this.descripcion = des;
 		codigoQR = null;
-		categoria.addAll(cat);
+		categoria = new HashSet<Categorias>(cat);
 		opiniones = new TreeMap<Integer, Opinion>();
 		id++;
 		
@@ -181,7 +181,7 @@ public class Oferta {
 	
 	public String toString() {
 		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
-		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + /*mostrarCategorias() +*/ ".";
+		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + mostrarCategorias() + ".";
 		if(codigoQR!= null) {
 			aux += "CodigoQR: " + codigoQR + ".";
 		}
