@@ -7,24 +7,26 @@ public class Opinion {
 	private int puntuacion;
 	private int id_opinion;
 	private Oferta oferta;
+	private Tienda tienda;
 	
-	public Opinion(String usu, String msj,int punt, Oferta of){
+	public Opinion(String usu, String msj,int punt, Oferta of, Tienda tnd){
 		id_opinion = id;
 		usuario = usu;
 		mensaje = msj;
 		puntuacion = punt;
 		oferta = of;
+		tienda = tnd;
 		id++;
-	}
-	
-	public String getMensaje() {
-		return mensaje;
 	}
 	
 	public int getId() {
 		return id_opinion;
 	}
 
+	public String getMensaje() {
+		return mensaje;
+	}
+	
 	public String getUsuario() {
 		return usuario;
 	}
@@ -41,12 +43,20 @@ public class Opinion {
 		return oferta;
 	}
 
+	public Tienda getTienda() {
+		return tienda;
+	}
+
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
 
 	public void setPuntuacion(int puntuacion) {
 		this.puntuacion = puntuacion;
+	}
+
+	public void setTienda(Tienda tienda) {
+		this.tienda = tienda;
 	}
 
 	@Override

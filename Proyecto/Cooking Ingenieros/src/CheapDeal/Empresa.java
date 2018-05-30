@@ -13,20 +13,8 @@ public class Empresa {
 		tienda = new HashSet<>();
 	}
 	
-	public void addTienda(Tienda tnd) {
-		tienda.add(tnd);
-	}
-
 	public String getUsuario() {
 		return usuario;
-	}
-
-	public String verTienda() {
-		String aux = null ;
-		for(Tienda o: tienda) {
-			aux += "Nombre: "+ o.getNombre() + ", ID: " + o.getId_tienda() + ". ";
-		}
-		return aux;
 	}
 
 	public String getContrasenia() {
@@ -35,6 +23,10 @@ public class Empresa {
 
 	public String geteMail() {
 		return eMail;
+	}
+
+	public HashSet<Tienda> getTienda() {
+		return tienda;
 	}
 
 	public void setUsuario(String usuario) {
@@ -49,12 +41,20 @@ public class Empresa {
 		this.eMail = eMail;
 	}
 
-	public String toString() {
-		return "Empresa [usuario=" + usuario + ", tiendas=" + verTienda() + ", eMail=" + eMail + "]";
+	public void addTienda(Tienda tnd) {
+		tienda.add(tnd);
 	}
 
-	public HashSet<Tienda> getTienda() {
-		return tienda;
+	public String verTienda() {
+		String aux = null ;
+		for(Tienda o: tienda) {
+			aux += "Nombre: "+ o.getNombre() + ", ID: " + o.getId_tienda() + ". ";
+		}
+		return aux;
+	}
+
+	public String toString() {
+		return "Empresa [usuario=" + usuario + ", tiendas=" + verTienda() + ", eMail=" + eMail + "]";
 	}
 
 	@Override

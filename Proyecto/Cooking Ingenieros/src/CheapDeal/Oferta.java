@@ -2,6 +2,9 @@ package CheapDeal;
 import java.awt.Image;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 
 public class Oferta {
@@ -10,13 +13,12 @@ public class Oferta {
 	private String producto;
 	private double descuento;
 	private double precio;
-	private Image foto;
+	private Tienda tienda;
 	private String descripcion;
+	private Image foto;
 	private Image codigoQR;
 	private HashSet<Categorias> categoria;
-	private HashSet<Opinion> opiniones;
-	private Tienda tienda;
-	
+	private Map<Integer, Opinion> opiniones;
 	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
 		this.id_oferta= id;
@@ -27,8 +29,8 @@ public class Oferta {
 		foto = null;
 		this.descripcion = des;
 		codigoQR = null;
-		categoria = cat;
-		opiniones = new HashSet<Opinion>();
+		categoria.addAll(cat);
+		opiniones = new TreeMap<Integer, Opinion>();
 		id++;
 		
 	}
@@ -45,12 +47,16 @@ public class Oferta {
 		return this.descuento;
 	}
 	
+	public double getPrecio() {
+		return this.precio;
+	}
+
 	public Tienda getTienda() {
 		return tienda;
 	}
 
-	public double getPrecio() {
-		return this.precio;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
 	public Image getFoto() {
@@ -61,18 +67,18 @@ public class Oferta {
 		return codigoQR;
 	}
 	
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-	
 	public HashSet<Categorias> getCategoria() {
 		return categoria;
 	}
 	
-	public HashSet<Opinion> getOpiniones() {
+	public Map<Integer, Opinion> getOpiniones() {
 		return opiniones;
 	}
 	
+	public void setProducto(String producto) {
+		this.producto = producto;
+	}
+
 	public void setDescuento(double descuento) {
 		this.descuento = descuento;
 	}
@@ -81,12 +87,12 @@ public class Oferta {
 		this.precio = precio;
 	}
 
-	public void setFoto(Image foto) {
-		this.foto = foto;
-	}
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public void setFoto(Image foto) {
+		this.foto = foto;
 	}
 
 	public void setCodigoQR(Image codigoQR) {
@@ -97,16 +103,17 @@ public class Oferta {
 		categoria = cat;
 	}
 	
-	public void setOpiniones(HashSet<Opinion> opiniones) {
+	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 	
 	public String mostrarCategorias() {
-		String aux = "Categorias: ";
+		StringBuilder aux = new StringBuilder();
+		aux.append("Categorias: ");
 		for(Categorias o: categoria) {
-			aux += o.name() + ",";
+			aux.append(o.name()+", ");
 		}
-		return aux;
+		return aux.toString();
 	}
 	
 	public void aniadirCat(Categorias cat) {
@@ -117,18 +124,20 @@ public class Oferta {
 		categoria.remove(cat);
 	}
 	
+	public void aniadirOp(String usu, String msj, int punt) {
+		Opinion op = new Opinion(usu, msj, punt, this, this.getTienda());
+		opiniones.put(op.getId(), op);
+	}
+	
+	public void eliminarOp(Integer id) {
+		opiniones.remove(id);
+	}
+
 	public void mostrarOpiniones() {
-		for(Opinion o: opiniones) {
-			System.out.println(o.toString());
+		Set<Map.Entry<Integer, Opinion>> set = opiniones.entrySet();
+		for(Map.Entry<Integer, Opinion> o: set) {
+			System.out.println("Id_Opinion: " + o.getKey() + ". Opinion: " + o.getValue().toString() + ".");
 		}
-	}
-	
-	public void aniadirOp(Opinion op) {
-		opiniones.add(op);
-	}
-	
-	public void eliminarOp(Opinion op) {
-		opiniones.remove(op);
 	}
 
 	@Override
@@ -172,7 +181,7 @@ public class Oferta {
 	
 	public String toString() {
 		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
-		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + categoria + ".";
+		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + /*mostrarCategorias() +*/ ".";
 		if(codigoQR!= null) {
 			aux += "CodigoQR: " + codigoQR + ".";
 		}
