@@ -4,12 +4,12 @@ public class Opinion {
 	public static int id=1;
 	private String mensaje;
 	private String usuario;
-	private int puntuacion;
+	private double puntuacion;
 	private int id_opinion;
 	private Oferta oferta;
 	private Tienda tienda;
 	
-	public Opinion(String usu, String msj,int punt, Oferta of, Tienda tnd){
+	public Opinion(String usu, String msj,double punt, Oferta of, Tienda tnd){
 		id_opinion = id;
 		usuario = usu;
 		mensaje = msj;
@@ -31,7 +31,7 @@ public class Opinion {
 		return usuario;
 	}
 
-	public int getPuntuacion() {
+	public double getPuntuacion() {
 		return puntuacion;
 	}
 	
