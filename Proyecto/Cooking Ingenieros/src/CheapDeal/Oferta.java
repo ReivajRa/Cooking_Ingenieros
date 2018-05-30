@@ -181,7 +181,7 @@ public class Oferta {
 	
 	public String toString() {
 		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
-		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + mostrarCategorias() + ".";
+		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + mostrarCategorias() + ".";
 		if(codigoQR!= null) {
 			aux += "CodigoQR: " + codigoQR + ".";
 		}
