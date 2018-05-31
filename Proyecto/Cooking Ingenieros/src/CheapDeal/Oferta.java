@@ -124,9 +124,10 @@ public class Oferta {
 		categoria.remove(cat);
 	}
 	
-	public void aniadirOp(String usu, String msj, int punt) {
+	public int aniadirOp(String usu, String msj, int punt) {
 		Opinion op = new Opinion(usu, msj, punt, this, this.getTienda());
 		opiniones.put(op.getId(), op);
+		return op.getId();
 	}
 	
 	public void eliminarOp(Integer id) {

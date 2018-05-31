@@ -1,6 +1,7 @@
 package CheapDeal;
+
 import java.util.*;
-import java.util.Map.Entry;
+import java.util.Map;
 
 public class Tienda {
 	private static int id=1;
@@ -80,9 +81,10 @@ public class Tienda {
 		this.opiniones = opiniones;
 	}
 
-	public void anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
+	public int anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
 		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
 		ofertas.put(of.getId_oferta(), of);
+		return of.getId_oferta();
 	}
 
 	public void quitarOferta(Integer id){
@@ -96,9 +98,10 @@ public class Tienda {
 		}
 	}
 
-	public void aniadirOp(String usu, String msj, int punt, Oferta oferta) {
+	public int aniadirOp(String usu, String msj, int punt, Oferta oferta) {
 		Opinion op = new Opinion(usu, msj, punt, oferta, this);
 		opiniones.put(op.getId(), op);
+		return op.getId();
 	}
 	
 	public void eliminarOp(Integer id) {
