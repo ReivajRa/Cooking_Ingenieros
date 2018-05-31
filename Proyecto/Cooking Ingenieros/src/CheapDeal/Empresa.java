@@ -3,14 +3,14 @@ import java.util.*;
 
 public class Empresa {
 	private String usuario, contrasenia;
-	private HashSet<Tienda> tienda;
+	private Map<Integer ,Tienda> tienda;
 	private String eMail;
 	
 	public Empresa(String usu, String contr, String mail) {
 		usuario = usu;
 		contrasenia = contr;
 		eMail = mail;
-		tienda = new HashSet<>();
+		tienda = new TreeMap<Integer, Tienda>();
 	}
 	
 	public String getUsuario() {
@@ -25,7 +25,7 @@ public class Empresa {
 		return eMail;
 	}
 
-	public HashSet<Tienda> getTienda() {
+	public Map<Integer, Tienda> getTienda() {
 		return tienda;
 	}
 
@@ -42,19 +42,18 @@ public class Empresa {
 	}
 
 	public void addTienda(Tienda tnd) {
-		tienda.add(tnd);
+		tienda.put(tnd.getId_tienda(), tnd);
 	}
 
-	public String verTienda() {
-		String aux = null ;
-		for(Tienda o: tienda) {
-			aux += "Nombre: "+ o.getNombre() + ", ID: " + o.getId_tienda() + ". ";
+	public void verTienda() {
+		Set<Map.Entry<Integer, Tienda>> set = tienda.entrySet();
+		for(Map.Entry<Integer, Tienda> o: set) {
+			System.out.println("Nombre: "+ o.getValue().getNombre() + ", ID: " + o.getKey() + ". ");
 		}
-		return aux;
 	}
 
 	public String toString() {
-		return "Empresa [usuario=" + usuario + ", tiendas=" + verTienda() + ", eMail=" + eMail + "]";
+		return "Empresa [usuario=" + usuario + ", tiendas= " + tienda.size() + ", eMail=" + eMail + "]";
 	}
 
 	@Override

@@ -62,7 +62,7 @@ public class Opinion {
 	@Override
 	public String toString() {
 		return "Opinion [id_opinion=" + id_opinion + ", usuario=" + usuario + ", mensaje=" + mensaje + ", puntuacion="
-				+ puntuacion + ", oferta=" + oferta.toString() + "]";
+				+ puntuacion + ", oferta=" + oferta.getProducto() + ", tienda=" + tienda.getNombre() + "]";
 	}
 
 	@Override

@@ -69,19 +69,19 @@ public class Cliente {
 		this.seguidos.remove(cl);
 	}
 	public String verSeguidores() {
-		String aux=null;
+		StringBuilder aux= new StringBuilder();
 		for(Cliente o: seguidores) {
-			aux += "Nombre: " + o.usuario + ",";
+			aux.append("Nombre: " + o.usuario + ",");
 		}
-		return aux;
+		return aux.toString();
 	}
 	
 	public String verSeguidos() {
-		String aux = null;
+		StringBuilder aux = new StringBuilder();
 		for(Cliente o: seguidores) {
-			aux += "Nombre: " + o.usuario + ",";
+			aux.append("Nombre: " + o.usuario + ",");
 		}
-		return aux;
+		return aux.toString();
 	}
 
 	@Override
