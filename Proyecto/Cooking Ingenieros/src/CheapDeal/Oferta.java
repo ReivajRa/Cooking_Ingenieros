@@ -22,7 +22,7 @@ public class Oferta {
 	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
 		this.id_oferta= id;
-		this.producto = p;
+		this.producto = p.toUpperCase();
 		this.descuento = d;
 		this.tienda = t;
 		this.precio = pr;
@@ -132,11 +132,12 @@ public class Oferta {
 		categoria.remove(cat);
 	}
 	
-	public int aniadirOp(String usu, String msj, int punt) {
+	public int aniadirOp(Cliente usu, String msj, int punt) {
 		Opinion op = new Opinion(usu, msj, punt, this, this.getTienda());
-		
-		puntuacion += op.getPuntuacion();
-		opiniones.put(op.getId(), op);
+		if(!(opiniones.containsKey(op.getUsuario().getId()))) {
+			puntuacion += op.getPuntuacion();
+			opiniones.put(op.getUsuario().getId(), op);
+		}
 		return op.getId();
 	}
 	
@@ -151,12 +152,11 @@ public class Oferta {
 			System.out.println("Id_Opinion: " + o.getKey() + ". Opinion: " + o.getValue().toString() + ".");
 		}
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id_oferta;
 		long temp;
 		temp = Double.doubleToLongBits(precio);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -174,8 +174,6 @@ public class Oferta {
 		if (getClass() != obj.getClass())
 			return false;
 		Oferta other = (Oferta) obj;
-		if (id_oferta != other.id_oferta)
-			return false;
 		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
 			return false;
 		if (producto == null) {
@@ -190,7 +188,7 @@ public class Oferta {
 			return false;
 		return true;
 	}
-	
+
 	public String toString() {
 		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
 		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + mostrarCategorias() + ".";

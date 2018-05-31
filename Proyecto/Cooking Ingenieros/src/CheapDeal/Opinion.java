@@ -3,13 +3,13 @@ package CheapDeal;
 public class Opinion {
 	public static int id=1;
 	private String mensaje;
-	private String usuario;
+	private Cliente usuario;
 	private double puntuacion;
 	private int id_opinion;
 	private Oferta oferta;
 	private Tienda tienda;
 	
-	public Opinion(String usu, String msj,double punt, Oferta of, Tienda tnd){
+	public Opinion(Cliente usu, String msj,double punt, Oferta of, Tienda tnd){
 		id_opinion = id;
 		usuario = usu;
 		mensaje = msj;
@@ -27,7 +27,7 @@ public class Opinion {
 		return mensaje;
 	}
 	
-	public String getUsuario() {
+	public Cliente getUsuario() {
 		return usuario;
 	}
 
@@ -61,7 +61,7 @@ public class Opinion {
 
 	@Override
 	public String toString() {
-		return "Opinion [id_opinion=" + id_opinion + ", usuario=" + usuario + ", mensaje=" + mensaje + ", puntuacion="
+		return "Opinion [id_opinion=" + id_opinion + ", usuario=" + usuario.getUsuario() + ", mensaje=" + mensaje + ", puntuacion="
 				+ puntuacion + ", oferta=" + oferta.getProducto() + ", tienda=" + tienda.getNombre() + "]";
 	}
 
@@ -70,10 +70,10 @@ public class Opinion {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((oferta == null) ? 0 : oferta.hashCode());
+		result = prime * result + ((tienda == null) ? 0 : tienda.hashCode());
 		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -89,11 +89,18 @@ public class Opinion {
 				return false;
 		} else if (!oferta.equals(other.oferta))
 			return false;
+		if (tienda == null) {
+			if (other.tienda != null)
+				return false;
+		} else if (!tienda.equals(other.tienda))
+			return false;
 		if (usuario == null) {
 			if (other.usuario != null)
 				return false;
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
-	}
+	}	
 }
+
+	

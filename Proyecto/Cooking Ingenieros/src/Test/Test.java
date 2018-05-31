@@ -20,12 +20,14 @@ public class Test {
 	Tienda tienda1;
 	Tienda tienda2;
 	HashSet<Categorias> cat = new HashSet<Categorias>();
+	Cliente usuario1;
+	Cliente usuario2;
 	
 	
 	@Before 
 	
 	public void setUp(){
-	  opinion2 = new Opinion("Usuario2", "Me ha encantado",2.5, oferta1, tienda1);
+	  opinion2 = new Opinion(usuario2, "Me ha encantado",2.5, oferta1, tienda1);
 	  opiniones = new TreeMap<Integer, Opinion>();
 	  opiniones.put((int) opinion2.getPuntuacion(), opinion2);
 	  cat.add(Categorias.CONSERVAS);
@@ -58,8 +60,8 @@ public class Test {
 	public void testDespuesdeAniadirUnaOpEstaEnLaColeccion()
 	{
 		int punt=1;
-		opinion1 = new Opinion("Usuario1", "Es una farsa",punt, oferta1, tienda1);
-		oferta1.aniadirOp("Usuario1", "Es una farsa",punt);
+		opinion1 = new Opinion(usuario1, "Es una farsa",punt, oferta1, tienda1);
+		oferta1.aniadirOp(usuario1, "Es una farsa",punt);
 		opiniones = oferta1.getOpiniones();
 		opinion1 = opiniones.get((int)opinion1.getPuntuacion());
 		
@@ -95,8 +97,8 @@ public class Test {
 	public void testDespuesdeAniadirUnaTiendaEstaEnLaColeccion()
 	{
 		int punt=1;
-		opinion1 = new Opinion("Usuario1", "Es una farsa",punt, oferta1, tienda1);
-		oferta1.aniadirOp("Usuario1", "Es una farsa",punt);
+		opinion1 = new Opinion(usuario1, "Es una farsa",punt, oferta1, tienda1);
+		oferta1.aniadirOp(usuario1, "Es una farsa",punt);
 		opiniones = oferta1.getOpiniones();
 		
 		assertNotNull("Deberia de existir la opinion",opinion1);

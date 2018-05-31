@@ -17,9 +17,9 @@ public class Tienda {
 
 	public Tienda(String nom, String dir, String due){
 		id_tienda = id;
-		nombre = nom;
+		nombre = nom.toUpperCase();
 		direccion = dir;
-		duenio = due;
+		duenio = due.toUpperCase();
 		ofertas = new TreeMap<Integer, Oferta>();
 		opiniones = new TreeMap<Integer, Opinion>();
 		Tienda.id++;
@@ -92,7 +92,9 @@ public class Tienda {
 
 	public int anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
 		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
-		ofertas.put(of.getId_oferta(), of);
+		if(!(ofertas.containsKey(of.hashCode()))) {
+			ofertas.put(of.hashCode(), of);
+		}
 		return of.getId_oferta();
 	}
 
@@ -107,10 +109,12 @@ public class Tienda {
 		}
 	}
 
-	public int aniadirOp(String usu, String msj, int punt, Oferta oferta) {
+	public int aniadirOp(Cliente usu, String msj, int punt, Oferta oferta) {
 		Opinion op = new Opinion(usu, msj, punt, oferta, this);
-		opiniones.put(op.getId(), op);
-		puntuacion += op.getPuntuacion();
+		if(!(opiniones.containsKey(op.getUsuario().getId()))) {
+			puntuacion += op.getPuntuacion();
+			opiniones.put(op.getUsuario().getId(), op);
+		}
 		return op.getId();
 	}
 	
@@ -130,8 +134,8 @@ public class Tienda {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
 		result = prime * result + ((duenio == null) ? 0 : duenio.hashCode());
-		result = prime * result + id_tienda;
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
@@ -145,12 +149,15 @@ public class Tienda {
 		if (getClass() != obj.getClass())
 			return false;
 		Tienda other = (Tienda) obj;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
 		if (duenio == null) {
 			if (other.duenio != null)
 				return false;
 		} else if (!duenio.equals(other.duenio))
-			return false;
-		if (id_tienda != other.id_tienda)
 			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
