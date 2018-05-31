@@ -1,4 +1,4 @@
-package Test;
+/*package Test;
 import CheapDeal.Categorias;
 import CheapDeal.Oferta;
 import CheapDeal.Opinion;
@@ -86,3 +86,4 @@ public class TiendaTest {
 	}
 
 }
+*/

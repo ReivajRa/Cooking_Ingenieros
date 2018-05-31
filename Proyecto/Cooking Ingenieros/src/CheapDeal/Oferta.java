@@ -111,7 +111,7 @@ public class Oferta {
 		categoria = cat;
 	}
 	
-	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
+	public void setOpiniones(Map<Integer, Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 	

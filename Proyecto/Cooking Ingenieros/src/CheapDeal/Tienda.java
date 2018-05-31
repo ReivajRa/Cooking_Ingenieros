@@ -74,7 +74,7 @@ public class Tienda {
 		this.duenio = duenio;
 	}
 	
-	public void setOfertas(TreeMap<Integer, Oferta> ofertas) {
+	public void setOfertas(Map<Integer, Oferta> ofertas) {
 		this.ofertas = ofertas;
 	}
 
@@ -86,7 +86,7 @@ public class Tienda {
 		this.puntuacion = puntuacion;
 	}
 
-	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
+	public void setOpiniones(Map<Integer, Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 
