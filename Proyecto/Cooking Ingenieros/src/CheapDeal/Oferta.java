@@ -1,7 +1,6 @@
 package CheapDeal;
 import java.awt.Image;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -13,6 +12,7 @@ public class Oferta {
 	private String producto;
 	private double descuento;
 	private double precio;
+	private double puntuacion;
 	private Tienda tienda;
 	private String descripcion;
 	private Image foto;
@@ -51,6 +51,10 @@ public class Oferta {
 		return this.precio;
 	}
 
+	public double getPuntuacion() {
+		return puntuacion/opiniones.size();
+	}
+
 	public Tienda getTienda() {
 		return tienda;
 	}
@@ -85,6 +89,10 @@ public class Oferta {
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	public void setPuntuacion(double puntuacion) {
+		this.puntuacion = puntuacion;
 	}
 
 	public void setDescripcion(String descripcion) {
@@ -126,11 +134,14 @@ public class Oferta {
 	
 	public int aniadirOp(String usu, String msj, int punt) {
 		Opinion op = new Opinion(usu, msj, punt, this, this.getTienda());
+		
+		puntuacion += op.getPuntuacion();
 		opiniones.put(op.getId(), op);
 		return op.getId();
 	}
 	
 	public void eliminarOp(Integer id) {
+		puntuacion -= opiniones.get(id).getPuntuacion();
 		opiniones.remove(id);
 	}
 

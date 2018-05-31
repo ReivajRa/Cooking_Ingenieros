@@ -12,6 +12,7 @@ public class Tienda {
 	private Map<Integer, Oferta> ofertas;
 	private String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
 	private Map<Integer, Opinion> opiniones;
+	private double puntuacion;
 	
 
 	public Tienda(String nom, String dir, String due){
@@ -53,6 +54,10 @@ public class Tienda {
 		return opiniones;
 	}
 	
+	public double getPuntuacion() {
+		return puntuacion/opiniones.size();
+	}
+
 	public void setId_tienda(int id_tienda) {
 		this.id_tienda = id_tienda;
 	}
@@ -75,6 +80,10 @@ public class Tienda {
 
 	public void setHorario(String[][] horario) {
 		this.horario = horario;
+	}
+
+	public void setPuntuacion(double puntuacion) {
+		this.puntuacion = puntuacion;
 	}
 
 	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
@@ -101,10 +110,12 @@ public class Tienda {
 	public int aniadirOp(String usu, String msj, int punt, Oferta oferta) {
 		Opinion op = new Opinion(usu, msj, punt, oferta, this);
 		opiniones.put(op.getId(), op);
+		puntuacion += op.getPuntuacion();
 		return op.getId();
 	}
 	
 	public void eliminarOp(Integer id) {
+		puntuacion -= opiniones.get(id).getPuntuacion();
 		opiniones.remove(id);
 	}
 
