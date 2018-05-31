@@ -1,8 +1,7 @@
 package Test;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import CheapDeal.Cliente;
 
@@ -13,7 +12,11 @@ public class ClienteTest {
 	public void setUp(){
 		c = new Cliente("usuariox","user4576","usuario@ci.com");
 	}
-
+	
+	@After
+	public void tearDown(){
+		c = null;
+	}	
 
 	@Test
 	public void testExisteCliente() {
