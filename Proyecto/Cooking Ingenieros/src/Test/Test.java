@@ -2,55 +2,56 @@ package Test;
 
 import CheapDeal.*;
 
+
+
+import org.mockito.*;
+
 import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
-
+import org.hamcrest.*;
+import org.hamcrest.collection.IsMapContaining;
 
 
 public class Test {
 	
-	Map<Integer, Opinion> opiniones;
-	Opinion opinion1;
-	Opinion opinion2;
-	Map<Integer, Oferta> ofertas;
-	Oferta oferta1;
-	Oferta oferta2;
-	Map<Integer, Tienda> tiendas;
-	Tienda tienda1;
-	Tienda tienda2;
+	Cliente usuario;
+	Opinion opinion;
+	Map<Integer,Opinion> opiniones;
+	Oferta oferta;
+	Map<Integer,Oferta> ofertas;
+	Tienda tienda;
+	Map<Integer,Tienda> tiendas;
 	HashSet<Categorias> cat = new HashSet<Categorias>();
-	Cliente usuario1;
-	Cliente usuario2;
 	
 	
 	@Before 
 	
 	public void setUp(){
-	  opinion2 = new Opinion(usuario2, "Me ha encantado",2.5, oferta1, tienda1);
-	  opiniones = new TreeMap<Integer, Opinion>();
-	  opiniones.put((int) opinion2.getPuntuacion(), opinion2);
-	  cat.add(Categorias.CONSERVAS);
-	  oferta1 = new Oferta("Margarina",10.0,tienda1,2.5,"Margarina casera vegetal en oferta", cat);//null esta mal 
-	  cat.removeAll(cat);
-	  oferta1.setOpiniones(opiniones);
-	  ofertas = new TreeMap<Integer, Oferta>();
-	  ofertas.put(oferta1.getId_oferta(), oferta1);
-	  tiendas = new TreeMap<Integer, Tienda>();
-	  tienda1 = new Tienda("DelCampo","Avenida plutarco","Paco");
-	  tienda1.setOfertas(ofertas);
-	  tiendas.put(tienda1.getId_tienda(), tienda1);
+		usuario = new Cliente("Paco","1234","paco@mail");
+		//opinion = new Opinion(usuario, "Es una farsa",1.0, oferta, tienda);
+		opiniones = new TreeMap<>();
+		cat.add(Categorias.VERDURAS_HORTALIZAS);
+		oferta = new Oferta("Patatas", 15.0, tienda, 5.0, "Kilos de patatas ",cat);
+		cat.removeAll(cat);
+		ofertas = new TreeMap<>();
+		tienda = new Tienda("Verduras Petra", "Av velazquez", "Petra");
+		tiendas = new TreeMap<>();
+		
+	  
 	}
 	
 
 	@After
 	public void tearDown() {
 		
-		tienda1 = null;
-		oferta1 = null;
-		opiniones = null;
-		opinion1= null;
-		opinion2=null;
+		usuario = null;
+		opinion = null;
+		opiniones=null;
+		cat=null;
+		oferta=null;
+		tienda=null;
+		tiendas=null;
 		
 	}
 
@@ -59,16 +60,12 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesdeAniadirUnaOpEstaEnLaColeccion()
 	{
-		int punt=1;
-		opinion1 = new Opinion(usuario1, "Es una farsa",punt, oferta1, tienda1);
-		oferta1.aniadirOp(usuario1, "Es una farsa",punt);
-		opiniones = oferta1.getOpiniones();
-		opinion1 = opiniones.get((int)opinion1.getPuntuacion());
-		
-		assertNotNull("Deberia de existir la opinion",opinion1);
-		assertEquals("Deberia ser el usuario del parametro",String.valueOf("Usuario1"),opinion1.getUsuario());
-		assertEquals("Deberia ser el mensaje del parametro",String.valueOf("Es una farsa"),opinion1.getMensaje());
-		assertTrue("Deberia ser la puntuacion del parametro",punt==opinion1.getPuntuacion());
+		int id;
+		id = oferta.aniadirOp(usuario, "Es una farsa", 1);
+		//opiniones = oferta.getOpiniones();
+		//opinion = opiniones.get(1);
+		System.out.println(id);
+		assertNotNull("Deberia existir la opinion",oferta.getOpiniones().get(id));
 	}
 
 	
@@ -76,41 +73,14 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesdeAniadirUnaOfEstaEnLaColeccion()
 	{
-		double des = 15.0;
-		double pr = 1.8;
-		oferta2 = new Oferta("Pepinos",des,tienda1,pr,"Pepinos de huerta ecologicos", cat);
-		tienda1.anadirOferta("Pepinos",des,pr,"Pepinos de huerta ecologicos", cat);
-		ofertas = tienda1.getOfertas();
-		oferta2 = ofertas.get(oferta2.getId_oferta());
-		
-		assertNotNull("Deberia de existir la oferta",oferta2);
-		assertEquals("Deberia ser el producto del parametro",String.valueOf("Pepinos"),oferta2.getProducto());
-		assertTrue("Deberia ser el descuento del parametro",des==oferta2.getDescuento());
-		assertTrue("Deberia ser la precio del parametro",pr==oferta2.getPrecio());
-		assertEquals("Deberia ser la descripcion del parametro",String.valueOf("Pepinos de huerta ecologicos"),oferta2.getDescripcion());
-		
-		
+			
 	}
 	
 	
 	@org.junit.Test
 	public void testDespuesdeAniadirUnaTiendaEstaEnLaColeccion()
 	{
-		int punt=1;
-		opinion1 = new Opinion(usuario1, "Es una farsa",punt, oferta1, tienda1);
-		oferta1.aniadirOp(usuario1, "Es una farsa",punt);
-		opiniones = oferta1.getOpiniones();
 		
-		assertNotNull("Deberia de existir la opinion",opinion1);
-		assertEquals("Deberia ser el usuario del parametro",String.valueOf("Usuario1"),opinion1.getUsuario());
-		assertEquals("Deberia ser el mensaje del parametro",String.valueOf("Es una farsa"),opinion1.getMensaje());
-		assertTrue("Deberia ser la puntuacion del parametro",punt==opinion1.getPuntuacion());
+		
 	}
-	
-	
-	
-	
-	
-	
-	
 }
