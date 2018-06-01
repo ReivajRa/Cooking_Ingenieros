@@ -66,6 +66,7 @@ public class Test {
 		//opinion = opiniones.get(1);
 		System.out.println(id);
 		assertNotNull("Deberia existir la opinion",oferta.getOpiniones().get(id));
+		
 	}
 
 	
@@ -74,13 +75,5 @@ public class Test {
 	public void testDespuesdeAniadirUnaOfEstaEnLaColeccion()
 	{
 			
-	}
-	
-	
-	@org.junit.Test
-	public void testDespuesdeAniadirUnaTiendaEstaEnLaColeccion()
-	{
-		
-		
 	}
 }
