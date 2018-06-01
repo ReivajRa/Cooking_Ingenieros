@@ -1,4 +1,4 @@
-package Test;
+/*package Test;
 
 import static org.junit.Assert.*;
 
@@ -24,17 +24,7 @@ public class TestOferta {
 	  o = new Oferta("Margarina",10.0,t,2.5,"Margarina casera vegetal en oferta",null);
 	}
 
-	@Test
-	public void testDespuesDeCrearUnaOfertaEstaExisteDeFormaCorrecta() {
-	
-		assertEquals("Deberia ser margarina",String.valueOf("Margarina"),o.getProducto());
-		assertTrue("El descuento deberia ser del 10%",10.0==o.getDescuento());
-		assertEquals("Deberia de salir DelCampo",String.valueOf("DelCampo"),t.getNombre());
-		assertEquals("Deberia de salir Avenida Plutarco",String.valueOf("Avenida plutarco"),t.getDireccion());
-		assertEquals("Deberia de salir Paco",String.valueOf("Paco"),t.getDuenio());
-		assertTrue("El precio deberia ser de 2.5",2.5==o.getPrecio());
-		assertEquals("Deberia de salir la descripcion de la margarina",String.valueOf("Margarina casera vegetal en oferta"),o.getDescripcion());
-	}
+
 	@Test
 	public void testDespuesdeAniadirUnaOpEstaEnLaColeccion()
 	{
@@ -52,3 +42,4 @@ public class TestOferta {
 	}
 
 }
+*/

@@ -6,21 +6,28 @@ import java.util.*;
 
 public class Cliente {
 	
+	private int id;
 	private String usuario;
 	private String contrasenia;
 	private String email;
 	private double reputacion;
+	private static int aux = 1;
 	private HashSet<Cliente> seguidores;
 	private HashSet<Cliente> seguidos;
 
 	public Cliente(String u, String c, String e)
 	{
-		this.usuario = u;
+		id = aux;
+		this.usuario = u.toUpperCase();
 		this.contrasenia = c;
-		this.email = e;
+		this.email = e.toLowerCase();
 		this.reputacion = 0.0;
 		seguidores = new HashSet<Cliente>();
 		seguidos = new HashSet<Cliente>();
+		aux++;
+	}
+	public int getId() {
+		return id;
 	}
 	public String getUsuario()
 	{
@@ -51,6 +58,9 @@ public class Cliente {
 	}
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public void setEmail(String email) {
 		this.email = email;
@@ -89,7 +99,6 @@ public class Cliente {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
 	@Override
@@ -106,16 +115,11 @@ public class Cliente {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
-				return false;
-		} else if (!usuario.equals(other.usuario))
-			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Cliente [usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
+		return "Cliente [id=" + id + "usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
 				+ seguidores.size() + ", seguidos=" + seguidos.size() + "]";
 	}
 }

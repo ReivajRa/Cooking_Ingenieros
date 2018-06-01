@@ -1,7 +1,6 @@
 package CheapDeal;
 import java.awt.Image;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -13,6 +12,7 @@ public class Oferta {
 	private String producto;
 	private double descuento;
 	private double precio;
+	private double puntuacion;
 	private Tienda tienda;
 	private String descripcion;
 	private Image foto;
@@ -22,7 +22,7 @@ public class Oferta {
 	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
 		this.id_oferta= id;
-		this.producto = p;
+		this.producto = p.toUpperCase();
 		this.descuento = d;
 		this.tienda = t;
 		this.precio = pr;
@@ -49,6 +49,10 @@ public class Oferta {
 	
 	public double getPrecio() {
 		return this.precio;
+	}
+
+	public double getPuntuacion() {
+		return puntuacion/opiniones.size();
 	}
 
 	public Tienda getTienda() {
@@ -87,6 +91,10 @@ public class Oferta {
 		this.precio = precio;
 	}
 
+	public void setPuntuacion(double puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
@@ -103,7 +111,7 @@ public class Oferta {
 		categoria = cat;
 	}
 	
-	public void setOpiniones(TreeMap<Integer, Opinion> opiniones) {
+	public void setOpiniones(Map<Integer, Opinion> opiniones) {
 		this.opiniones = opiniones;
 	}
 	
@@ -124,13 +132,17 @@ public class Oferta {
 		categoria.remove(cat);
 	}
 	
-	public int aniadirOp(String usu, String msj, int punt) {
+	public int aniadirOp(Cliente usu, String msj, int punt) {
 		Opinion op = new Opinion(usu, msj, punt, this, this.getTienda());
-		opiniones.put(op.getId(), op);
+		if(!(opiniones.containsKey(op.getUsuario().getId()))) {
+			puntuacion += op.getPuntuacion();
+			opiniones.put(op.getUsuario().getId(), op);
+		}
 		return op.getId();
 	}
 	
 	public void eliminarOp(Integer id) {
+		puntuacion -= opiniones.get(id).getPuntuacion();
 		opiniones.remove(id);
 	}
 
@@ -140,12 +152,11 @@ public class Oferta {
 			System.out.println("Id_Opinion: " + o.getKey() + ". Opinion: " + o.getValue().toString() + ".");
 		}
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id_oferta;
 		long temp;
 		temp = Double.doubleToLongBits(precio);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -163,8 +174,6 @@ public class Oferta {
 		if (getClass() != obj.getClass())
 			return false;
 		Oferta other = (Oferta) obj;
-		if (id_oferta != other.id_oferta)
-			return false;
 		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
 			return false;
 		if (producto == null) {
@@ -179,7 +188,7 @@ public class Oferta {
 			return false;
 		return true;
 	}
-	
+
 	public String toString() {
 		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
 		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + mostrarCategorias() + ".";
