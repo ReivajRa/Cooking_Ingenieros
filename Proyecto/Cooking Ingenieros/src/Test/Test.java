@@ -2,10 +2,11 @@ package Test;
 
 import CheapDeal.*;
 
+import org.mockito.*;
+
 import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
-
 
 
 public class Test {
@@ -27,11 +28,13 @@ public class Test {
 	@Before 
 	
 	public void setUp(){
-	  opinion2 = new Opinion(usuario2, "Me ha encantado",2.5, oferta1, tienda1);
+	  usuario1 = new Cliente("Paco","1234","paco@mail");
+	  usuario2 = new Cliente("Mari","0000","mari@mail");
+	  opinion2 = new Opinion(usuario1, "Es una farsa",1, oferta1, tienda1);
 	  opiniones = new TreeMap<Integer, Opinion>();
 	  opiniones.put((int) opinion2.getPuntuacion(), opinion2);
 	  cat.add(Categorias.CONSERVAS);
-	  oferta1 = new Oferta("Margarina",10.0,tienda1,2.5,"Margarina casera vegetal en oferta", cat);//null esta mal 
+	  oferta1 = new Oferta("Margarina",10.0,tienda1,2.5,"Margarina casera vegetal en oferta", cat); 
 	  cat.removeAll(cat);
 	  oferta1.setOpiniones(opiniones);
 	  ofertas = new TreeMap<Integer, Oferta>();
@@ -51,6 +54,7 @@ public class Test {
 		opiniones = null;
 		opinion1= null;
 		opinion2=null;
+		usuario1 = null;
 		
 	}
 
@@ -59,14 +63,15 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesdeAniadirUnaOpEstaEnLaColeccion()
 	{
-		int punt=1;
-		opinion1 = new Opinion(usuario1, "Es una farsa",punt, oferta1, tienda1);
-		oferta1.aniadirOp(usuario1, "Es una farsa",punt);
+		int punt=4;
+		opinion1 = new Opinion(usuario2, "Me ha gustado",punt, oferta1, tienda1);
+		oferta1.aniadirOp(opinion1.getUsuario(), opinion1.getMensaje(),(int)opinion1.getPuntuacion());
 		opiniones = oferta1.getOpiniones();
-		opinion1 = opiniones.get((int)opinion1.getPuntuacion());
+		//opinion1 = opiniones.get((int)opinion1.getPuntuacion());
 		
-		assertNotNull("Deberia de existir la opinion",opinion1);
-		assertEquals("Deberia ser el usuario del parametro",String.valueOf("Usuario1"),opinion1.getUsuario());
+		//assertThat();
+		
+		assertTrue("Deberia ser el usuario del parametro",usuario1==opinion1.getUsuario());
 		assertEquals("Deberia ser el mensaje del parametro",String.valueOf("Es una farsa"),opinion1.getMensaje());
 		assertTrue("Deberia ser la puntuacion del parametro",punt==opinion1.getPuntuacion());
 	}
@@ -102,7 +107,7 @@ public class Test {
 		opiniones = oferta1.getOpiniones();
 		
 		assertNotNull("Deberia de existir la opinion",opinion1);
-		assertEquals("Deberia ser el usuario del parametro",String.valueOf("Usuario1"),opinion1.getUsuario());
+		assertTrue("Deberia ser el usuario del parametro",usuario1==opinion1.getUsuario());
 		assertEquals("Deberia ser el mensaje del parametro",String.valueOf("Es una farsa"),opinion1.getMensaje());
 		assertTrue("Deberia ser la puntuacion del parametro",punt==opinion1.getPuntuacion());
 	}
