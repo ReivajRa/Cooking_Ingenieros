@@ -1,5 +1,15 @@
 package CheapDeal;
 
-public class Ordenacion {
+import java.util.*;
 
+public class Ordenacion {
+	 public Map<Integer,Tienda> Master;
+	 int filtro;
+	 public Map<Integer,Tienda> OfertasCercanas;
+	 
+	 public Ordenacion(double X, double Y, Map<Integer,Tienda> tiendas, int filtro) {
+		 Master = new HashMap<Integer, Tienda>(tiendas);
+		 //ordenacion
+		 Master.forEach((k,v)->OfertasCercanas.add(v.getOfertas().values()));
+	 }
 }

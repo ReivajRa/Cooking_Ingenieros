@@ -48,8 +48,8 @@ public class Main {
 		cat.removeAll(cat);
 		
 		tienda2.verOfertas();
-		
-		
+		Ordenacion ord = new Ordenacion();
+		OfertasCercanas = ord.getMaster();
 	}
 
 }
