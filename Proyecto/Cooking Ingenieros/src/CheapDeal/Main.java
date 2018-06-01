@@ -47,7 +47,7 @@ public class Main {
 				"Sofa de color negro mate de 3 plazas y de maxima calidad", cat );
 		cat.removeAll(cat);
 		
-		//tienda2.verOfertas();
+		tienda2.verOfertas();
 		/*Ordenacion ord = new Ordenacion();
  		OfertasCercanas = ord.getMaster();*/
 		

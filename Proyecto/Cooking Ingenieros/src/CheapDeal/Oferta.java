@@ -138,7 +138,7 @@ public class Oferta {
 			puntuacion += op.getPuntuacion();
 			opiniones.put(op.getUsuario().getId(), op);
 		}
-		return op.getId();
+		return op.getUsuario().getId();
 	}
 	
 	public void eliminarOp(Integer id) {
