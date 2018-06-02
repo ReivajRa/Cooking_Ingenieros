@@ -3,14 +3,11 @@ package Test;
 import CheapDeal.*;
 
 
-
-import org.mockito.*;
-
+import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
-import org.hamcrest.*;
-import org.hamcrest.collection.IsMapContaining;
+
 
 
 public class Test {
@@ -101,7 +98,46 @@ public class Test {
 		
 		assertNull("No deberia de existir la oferta",tienda.getOfertas().get(id));
 	}
+	@org.junit.Test
+	public void testMockAniadirOpinionVerificaQueEstaEnLaColeccion()
+	{
+		int id;
+		Oferta of= mock(Oferta.class);
+		id = of.aniadirOp(usuario, "Es una farsa", 1);
+		
+		verify(of).getOpiniones().get(id);
+	}
 	
+	@org.junit.Test
+	public void testMockAniadirOfertaVerificaQueEstaEnLaColeccion() {
+		int id;
+		Tienda ti = mock(Tienda.class);
+		cat.add(Categorias.VERDURAS_HORTALIZAS);
+		id = ti.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
+		cat.removeAll(cat);
+		
+		verify(ti).getOfertas().get(id);
+	}
+	@org.junit.Test
+	public void testMockEliminarOpVerificaQueNoEstaEnLaColeccion()
+	{
+		int id;
+		Oferta of= mock(Oferta.class);
+		id = of.aniadirOp(usuario, "Es una farsa", 1);
+		
+		verify(of).eliminarOp(id);;
+	}
+	@org.junit.Test
+	public void testMockEliminarOfVerificaQueNoEstaEnLaColeccion()
+	{
+		int id;
+		Tienda ti = mock(Tienda.class);
+		cat.add(Categorias.VERDURAS_HORTALIZAS);
+		id = ti.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
+		cat.removeAll(cat);
+		
+		verify(ti).quitarOferta(id);
+	}
 	
 	
 	
