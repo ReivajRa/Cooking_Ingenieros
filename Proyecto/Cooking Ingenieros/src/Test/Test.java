@@ -62,9 +62,7 @@ public class Test {
 	{
 		int id;
 		id = oferta.aniadirOp(usuario, "Es una farsa", 1);
-		//opiniones = oferta.getOpiniones();
-		//opinion = opiniones.get(1);
-		System.out.println(id);
+		
 		assertNotNull("Deberia existir la opinion",oferta.getOpiniones().get(id));
 		
 	}
@@ -74,6 +72,43 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesdeAniadirUnaOfEstaEnLaColeccion()
 	{
+		int id;
+		cat.add(Categorias.VERDURAS_HORTALIZAS);
+		id = tienda.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
+		cat.removeAll(cat);
+		
+		assertNotNull("Deberia existir la oferta",tienda.getOfertas().get(id));
+		//Falta modificar el return de anadirOferta de la misma manera que aniadirOp de la clase Oferta.
 			
 	}
+	@org.junit.Test
+	public void testDespuesDeEliminarUnaOpNoEstaEnLaColeccion()
+	{
+		int id;
+		id = oferta.aniadirOp(usuario, "Es una farsa", 1);
+		oferta.eliminarOp(id);
+		
+		assertNull("No deberia de existir la opinion",oferta.getOpiniones().get(id));
+	}
+	@org.junit.Test
+	public void testDespuesDeEliminarUnaOfNoEstaEnLaColeccion()
+	{
+		int id;
+		cat.add(Categorias.VERDURAS_HORTALIZAS);
+		id = tienda.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
+		cat.removeAll(cat);
+		tienda.quitarOferta(id);
+		
+		assertNull("No deberia de existir la oferta",tienda.getOfertas().get(id));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
