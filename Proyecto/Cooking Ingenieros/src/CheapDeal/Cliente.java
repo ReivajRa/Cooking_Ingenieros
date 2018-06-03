@@ -119,7 +119,7 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + "usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
+		return "Cliente [id=" + id + ", usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
 				+ seguidores.size() + ", seguidos=" + seguidos.size() + "]";
 	}
 }

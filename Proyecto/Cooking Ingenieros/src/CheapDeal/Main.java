@@ -2,8 +2,13 @@ package CheapDeal;
 
 import java.util.*;
 
-public class Main {
+import Interfaz.Login;
 
+
+
+public class Main {
+	public static Cliente clientes[] = new Cliente[10];
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//MAPA PARA ORDENACION DE OFERTAS
@@ -12,6 +17,12 @@ public class Main {
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","pepitoperez","pepeguapo@gmail.com");
+		clientes[0] = cliente1;
+		clientes[1] = cliente2;
+		
+		Login ventana = new Login();
+		ventana.setVisible(true);
+		
 		//3 tiendas de prueba
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior");
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro");
@@ -54,3 +65,14 @@ public class Main {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
