@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 
 import CheapDeal.Cliente;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 
 public class Tiendas extends JFrame {
 
@@ -62,7 +63,11 @@ public class Tiendas extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("TIENDAS CERCANAS");
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 22));
-		lblNewLabel.setBounds(129, 11, 250, 25);
+		lblNewLabel.setBounds(272, 11, 250, 25);
 		contentPane.add(lblNewLabel);
+		
+		JList list = new JList();
+		list.setBounds(10, 35, 774, 491);
+		contentPane.add(list);
 	}
 }

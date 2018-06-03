@@ -12,6 +12,10 @@ import CheapDeal.Cliente;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JFormattedTextField;
+import javax.swing.JList;
 
 public class Perfil extends JFrame {
 
@@ -56,5 +60,34 @@ public class Perfil extends JFrame {
 		});
 		btnAtras.setBounds(10, 537, 89, 23);
 		contentPane.add(btnAtras);
+		
+		JLabel lblNombre = new JLabel("Nombre: " + cliente.getUsuario());
+		lblNombre.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblNombre.setBounds(74, 47, 315, 31);
+		contentPane.add(lblNombre);
+		
+		JLabel lblReputacion = new JLabel("Reputacion: " + cliente.getReputacion());
+		lblReputacion.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblReputacion.setBounds(74, 89, 315, 31);
+		contentPane.add(lblReputacion);
+		
+		JLabel lblSeguidores = new JLabel("Seguidores: " + cliente.getSeguidores().size());
+		lblSeguidores.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblSeguidores.setBounds(74, 131, 315, 31);
+		contentPane.add(lblSeguidores);
+		
+		JLabel lblSeguidos = new JLabel("Seguidos: " + cliente.getSeguidos().size());
+		lblSeguidos.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblSeguidos.setBounds(74, 173, 315, 31);
+		contentPane.add(lblSeguidos);
+		
+		JLabel lblMisOpiniones = new JLabel("Mis opiniones");
+		lblMisOpiniones.setFont(new Font("Arial", Font.PLAIN, 15));
+		lblMisOpiniones.setBounds(348, 235, 97, 23);
+		contentPane.add(lblMisOpiniones);
+		
+		JList list = new JList();
+		list.setBounds(97, 269, 600, 257);
+		contentPane.add(list);
 	}
 }

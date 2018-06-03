@@ -19,6 +19,15 @@ public class Opinion {
 		id++;
 	}
 	
+	public Opinion(Cliente usu, String msj, double punt, Tienda tnd) {
+		id_opinion = id;
+		usuario = usu;
+		mensaje = msj;
+		puntuacion = punt;
+		tienda = tnd;
+		id++;
+	}
+	
 	public int getId() {
 		return id_opinion;
 	}

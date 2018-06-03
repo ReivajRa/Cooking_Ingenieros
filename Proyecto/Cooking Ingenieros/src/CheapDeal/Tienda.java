@@ -109,8 +109,8 @@ public class Tienda {
 		}
 	}
 
-	public int aniadirOp(Cliente usu, String msj, int punt, Oferta oferta) {
-		Opinion op = new Opinion(usu, msj, punt, oferta, this);
+	public int aniadirOp(Cliente usu, String msj, int punt) {
+		Opinion op = new Opinion(usu, msj, punt, this);
 		if(!(opiniones.containsKey(op.getUsuario().getId()))) {
 			puntuacion += op.getPuntuacion();
 			opiniones.put(op.getUsuario().getId(), op);

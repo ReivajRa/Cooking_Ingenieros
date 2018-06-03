@@ -69,11 +69,13 @@ public class Login extends JFrame {
 		contentPane.add(lblPass);
 		
 		txtUsu = new JTextField();
+		txtUsu.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtUsu.setBounds(220, 206, 180, 30);
 		contentPane.add(txtUsu);
 		txtUsu.setColumns(10);
 		
 		txtPass = new JPasswordField();
+		txtPass.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtPass.setBounds(220, 265, 180, 30);
 		contentPane.add(txtPass);
 		
@@ -107,7 +109,7 @@ public class Login extends JFrame {
 		JLabel lblCookingIngenieros = new JLabel("Cooking Ingenieros");
 		lblCookingIngenieros.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCookingIngenieros.setFont(new Font("Arial", Font.PLAIN, 22));
-		lblCookingIngenieros.setBounds(119, 108, 281, 50);
+		lblCookingIngenieros.setBounds(144, 108, 281, 50);
 		contentPane.add(lblCookingIngenieros);
 	}
 }
