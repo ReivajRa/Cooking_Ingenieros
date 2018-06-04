@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import CheapDeal.Cliente;
+import CheapDeal.Tienda;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -44,7 +45,8 @@ public class TiendaInt extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TiendaInt(Cliente cliente, CheapDeal.Tienda tienda) {
+	public TiendaInt(Cliente cliente, Tienda tienda) {
+		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -88,23 +90,37 @@ public class TiendaInt extends JFrame {
 		contentPane.add(lblOpiniones);
 		
 		JList list = new JList();
-		list.setBounds(10, 171, 375, 389);
+		list.setBounds(10, 171, 375, 343);
 		contentPane.add(list);
 		
 		JList list_1 = new JList();
-		list_1.setBounds(408, 171, 376, 389);
+		list_1.setBounds(408, 171, 376, 343);
 		contentPane.add(list_1);
 		
 		JButton btnOpinar = new JButton("Opinar");
 		btnOpinar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				OpinionTnd obj = new OpinionTnd(cliente, tienda);
+				obj.setVisible(true);
+				dispose();
 			}
 		});
 		btnOpinar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnOpinar.setBounds(597, 60, 89, 23);
 		contentPane.add(btnOpinar);
 		setLocationRelativeTo(null);
+		
+		JButton btnIrAInicio = new JButton("Ir a inicio");
+		btnIrAInicio.setFont(new Font("Arial", Font.PLAIN, 15));
+		btnIrAInicio.setBounds(10, 527, 97, 25);
+		contentPane.add(btnIrAInicio);
+		btnIrAInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Principal obj = new Principal(cliente);
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 
 	}
 }

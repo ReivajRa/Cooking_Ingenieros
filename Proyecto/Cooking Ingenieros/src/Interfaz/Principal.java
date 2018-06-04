@@ -67,6 +67,7 @@ public class Principal extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JButton btnCliente = new JButton("Mi perfil");
+		btnCliente.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PerfilInt obj = new PerfilInt(cliente);
@@ -78,6 +79,7 @@ public class Principal extends JFrame {
 		contentPane.add(btnCliente);
 		
 		JButton btnTiendas = new JButton("Tiendas cercanas");
+		btnTiendas.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnTiendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TiendasInt obj = new TiendasInt(cliente);
@@ -89,6 +91,7 @@ public class Principal extends JFrame {
 		contentPane.add(btnTiendas);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BusquedaInt obj = new BusquedaInt(cliente);

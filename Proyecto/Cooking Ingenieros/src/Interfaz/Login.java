@@ -48,7 +48,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
-		
+		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 576, 506);
@@ -59,12 +59,12 @@ public class Login extends JFrame {
 		setLocationRelativeTo(null);
 		
 		lblUsu = new JLabel("Usuario:");
-		lblUsu.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblUsu.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblUsu.setBounds(119, 204, 91, 30);
 		contentPane.add(lblUsu);
 		
 		lblPass = new JLabel("Contrase\u00F1a:");
-		lblPass.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblPass.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblPass.setBounds(119, 263, 91, 30);
 		contentPane.add(lblPass);
 		
@@ -80,6 +80,7 @@ public class Login extends JFrame {
 		contentPane.add(txtPass);
 		
 		JButton btnNewButton = new JButton("Entrar");
+		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usu = txtUsu.getText().toUpperCase();
@@ -92,11 +93,11 @@ public class Login extends JFrame {
 						dispose();
 						break;
 					}else if(lblUsu.getText().equals("") || lblPass.equals("")){
-						JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña estan vacios\n");
+						JOptionPane.showMessageDialog(null, "Usuario y/o Contraseï¿½a estan vacios\n");
 						setLocationRelativeTo(null);
 						break;
 					}else {
-						JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña invalidos\n");
+						JOptionPane.showMessageDialog(null, "Usuario y/o Contraseï¿½a invalidos\n");
 						setLocationRelativeTo(null);
 						break;
 					}

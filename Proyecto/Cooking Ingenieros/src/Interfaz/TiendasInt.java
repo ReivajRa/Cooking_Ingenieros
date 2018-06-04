@@ -40,6 +40,7 @@ public class TiendasInt extends JFrame {
 	 * Create the frame.
 	 */
 	public TiendasInt(Cliente cliente) {
+		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -67,7 +68,7 @@ public class TiendasInt extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JList list = new JList();
-		list.setBounds(10, 35, 774, 491);
+		list.setBounds(10, 49, 774, 477);
 		contentPane.add(list);
 	}
 }
