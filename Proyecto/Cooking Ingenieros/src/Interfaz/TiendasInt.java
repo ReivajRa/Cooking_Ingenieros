@@ -16,7 +16,7 @@ import CheapDeal.Cliente;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 
-public class Tiendas extends JFrame {
+public class TiendasInt extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class Tiendas extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Tiendas frame = new Tiendas(null);
+					TiendasInt frame = new TiendasInt(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class Tiendas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Tiendas(Cliente cliente) {
+	public TiendasInt(Cliente cliente) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);

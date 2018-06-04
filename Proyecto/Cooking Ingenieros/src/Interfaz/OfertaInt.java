@@ -16,7 +16,7 @@ import javax.swing.JList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Oferta extends JFrame {
+public class OfertaInt extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class Oferta extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Oferta frame = new Oferta(null, null);
+					OfertaInt frame = new OfertaInt(null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class Oferta extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Oferta(Cliente cliente, CheapDeal.Oferta oferta) {
+	public OfertaInt(Cliente cliente, CheapDeal.Oferta oferta) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -76,7 +76,7 @@ public class Oferta extends JFrame {
 		JButton btnIr = new JButton("Ir a tienda");
 		btnIr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Tienda obj = new Tienda(cliente, oferta.getTienda());
+				TiendaInt obj = new TiendaInt(cliente, oferta.getTienda());
 				obj.setVisible(true);
 				dispose();
 			}

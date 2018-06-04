@@ -21,7 +21,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Tienda extends JFrame {
+public class TiendaInt extends JFrame {
 
 	private JPanel contentPane;
 
@@ -32,7 +32,7 @@ public class Tienda extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Tienda frame = new Tienda(null, null);
+					TiendaInt frame = new TiendaInt(null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class Tienda extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Tienda(Cliente cliente, CheapDeal.Tienda tienda) {
+	public TiendaInt(Cliente cliente, CheapDeal.Tienda tienda) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);

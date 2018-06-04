@@ -17,7 +17,7 @@ import java.awt.Font;
 import javax.swing.JFormattedTextField;
 import javax.swing.JList;
 
-public class Perfil extends JFrame {
+public class PerfilInt extends JFrame {
 
 	private JPanel contentPane;
 
@@ -28,7 +28,7 @@ public class Perfil extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Perfil frame = new Perfil(null);
+					PerfilInt frame = new PerfilInt(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class Perfil extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Perfil(Cliente cliente) {
+	public PerfilInt(Cliente cliente) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);

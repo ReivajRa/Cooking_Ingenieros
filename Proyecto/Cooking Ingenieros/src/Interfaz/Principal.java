@@ -69,7 +69,7 @@ public class Principal extends JFrame {
 		JButton btnCliente = new JButton("Mi perfil");
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Perfil obj = new Perfil(cliente);
+				PerfilInt obj = new PerfilInt(cliente);
 				obj.setVisible(true);
 				dispose();	
 			}
@@ -80,7 +80,7 @@ public class Principal extends JFrame {
 		JButton btnTiendas = new JButton("Tiendas cercanas");
 		btnTiendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Tiendas obj = new Tiendas(cliente);
+				TiendasInt obj = new TiendasInt(cliente);
 				obj.setVisible(true);
 				dispose();
 				}
@@ -91,7 +91,7 @@ public class Principal extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Busqueda obj = new Busqueda(cliente);
+				BusquedaInt obj = new BusquedaInt(cliente);
 				obj.setVisible(true);
 				dispose();
 				}

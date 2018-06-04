@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JComboBox;
 
-public class Busqueda extends JFrame {
+public class BusquedaInt extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -31,7 +31,7 @@ public class Busqueda extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Busqueda frame = new Busqueda(null);
+					BusquedaInt frame = new BusquedaInt(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class Busqueda extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Busqueda(Cliente cliente) {
+	public BusquedaInt(Cliente cliente) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -64,7 +64,7 @@ public class Busqueda extends JFrame {
 		btnAtras.setBounds(10, 537, 89, 23);
 		contentPane.add(btnAtras);
 		
-		JLabel lblNewLabel = new JLabel("\u00BF Qu\u00E9 buscas?");
+		JLabel lblNewLabel = new JLabel("¿Qué buscas?");
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
 		lblNewLabel.setBounds(10, 11, 120, 23);
 		contentPane.add(lblNewLabel);
