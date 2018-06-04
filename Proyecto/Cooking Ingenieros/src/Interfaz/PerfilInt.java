@@ -41,6 +41,7 @@ public class PerfilInt extends JFrame {
 	 * Create the frame.
 	 */
 	public PerfilInt(Cliente cliente) {
+		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -51,6 +52,7 @@ public class PerfilInt extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Principal obj = new Principal(cliente);

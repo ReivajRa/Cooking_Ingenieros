@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import CheapDeal.Cliente;
+import CheapDeal.Oferta;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -39,7 +41,8 @@ public class OfertaInt extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OfertaInt(Cliente cliente, CheapDeal.Oferta oferta) {
+	public OfertaInt(Cliente cliente, Oferta oferta) {
+		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -97,13 +100,35 @@ public class OfertaInt extends JFrame {
 		contentPane.add(lblOpiniones);
 		
 		JList list = new JList();
-		list.setBounds(10, 368, 774, 192);
+		list.setFont(new Font("Arial", Font.PLAIN, 15));
+		list.setBounds(10, 368, 774, 111);
 		contentPane.add(list);
 		
 		JButton button_1 = new JButton("Opinar");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				OpinionOf obj = new OpinionOf(cliente, oferta);
+				obj.setVisible(true);
+				dispose();
+			}
+		});
 		button_1.setFont(new Font("Arial", Font.PLAIN, 15));
 		button_1.setBounds(450, 87, 95, 27);
 		contentPane.add(button_1);
-		setLocationRelativeTo(null);
+		
+		JButton btnIrAInicio = new JButton("Ir a inicio");
+		btnIrAInicio.setFont(new Font("Arial", Font.PLAIN, 15));
+		btnIrAInicio.setBounds(10, 527, 97, 25);
+		contentPane.add(btnIrAInicio);
+		btnIrAInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Principal obj = new Principal(cliente);
+				obj.setVisible(true);
+				dispose();
+			}
+		});
+		
+		
+		
 	}
 }
