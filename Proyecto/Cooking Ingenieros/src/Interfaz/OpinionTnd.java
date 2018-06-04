@@ -67,7 +67,7 @@ public class OpinionTnd extends JFrame {
 		lblOpinin.setBounds(12, 96, 70, 16);
 		contentPane.add(lblOpinin);
 		
-		JLabel lblPuntuacin = new JLabel("Puntuación:");
+		JLabel lblPuntuacin = new JLabel("Puntuacion:");
 		lblPuntuacin.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblPuntuacin.setBounds(12, 388, 85, 16);
 		contentPane.add(lblPuntuacin);

@@ -3,6 +3,7 @@ package CheapDeal;
 import java.util.*;
 
 import Interfaz.Login;
+import Interfaz.OfertaInt;
 
 
 
@@ -20,8 +21,7 @@ public class Main {
 		clientes[0] = cliente1;
 		clientes[1] = cliente2;
 		
-		Login ventana = new Login();
-		ventana.setVisible(true);
+		
 		
 		//3 tiendas de prueba
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior");
@@ -59,8 +59,14 @@ public class Main {
 		cat.removeAll(cat);
 		
 		tienda2.verOfertas();
+		cat.add(Categorias.MUEBLES);
+		Oferta of = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
+		of.aniadirOp(cliente1, "De puta pena", 7);
+		
 		/*Ordenacion ord = new Ordenacion();
  		OfertasCercanas = ord.getMaster();*/
+		OfertaInt obj = new OfertaInt(cliente1, of);
+		obj.setVisible(true);
 		
 	}
 

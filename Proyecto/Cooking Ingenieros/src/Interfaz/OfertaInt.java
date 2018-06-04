@@ -5,10 +5,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import CheapDeal.Categorias;
 import CheapDeal.Cliente;
 import CheapDeal.Oferta;
+import CheapDeal.Tienda;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -16,12 +19,21 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JList;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.TreeMap;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
 
 public class OfertaInt extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
+	private String[][] datos;
+	private String[] columnas = {"Usuario", "Mensaje", "Puntuacion"};
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -29,7 +41,12 @@ public class OfertaInt extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OfertaInt frame = new OfertaInt(null, null);
+					HashSet<Categorias> cat = new HashSet<Categorias>();cat.add(Categorias.MUEBLES);
+					Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior");
+					Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
+					Oferta of = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
+					of.aniadirOp(cliente1, "De puta pena", 7);
+					OfertaInt frame = new OfertaInt(cliente1, of);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -71,7 +88,7 @@ public class OfertaInt extends JFrame {
 		lblPuntuacin.setBounds(450, 49, 210, 27);
 		contentPane.add(lblPuntuacin);
 		
-		JLabel lblTienda = new JLabel("Tienda: " + oferta.getTienda());
+		JLabel lblTienda = new JLabel("Tienda: " + oferta.getTienda().getNombre());
 		lblTienda.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblTienda.setBounds(10, 87, 210, 27);
 		contentPane.add(lblTienda);
@@ -85,24 +102,20 @@ public class OfertaInt extends JFrame {
 			}
 		});
 		btnIr.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnIr.setBounds(230, 87, 95, 27);
+		btnIr.setBounds(230, 87, 129, 27);
 		contentPane.add(btnIr);
 		
 		JTextArea txtrDescripcin = new JTextArea();
 		txtrDescripcin.setText("Descripci\u00F3n: " + oferta.getDescripcion());
 		txtrDescripcin.setFont(new Font("Arial", Font.PLAIN, 15));
 		txtrDescripcin.setBounds(10, 125, 774, 194);
+		txtrDescripcin.setEditable(false);;
 		contentPane.add(txtrDescripcin);
 		
 		JLabel lblOpiniones = new JLabel("Opiniones:");
 		lblOpiniones.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblOpiniones.setBounds(10, 330, 95, 27);
 		contentPane.add(lblOpiniones);
-		
-		JList list = new JList();
-		list.setFont(new Font("Arial", Font.PLAIN, 15));
-		list.setBounds(10, 368, 774, 111);
-		contentPane.add(list);
 		
 		JButton button_1 = new JButton("Opinar");
 		button_1.addActionListener(new ActionListener() {
@@ -120,6 +133,86 @@ public class OfertaInt extends JFrame {
 		btnIrAInicio.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnIrAInicio.setBounds(10, 527, 97, 25);
 		contentPane.add(btnIrAInicio);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 355, 774, 161);
+		contentPane.add(scrollPane);
+		
+		
+		TreeMap<Integer, CheapDeal.Opinion> aux = new TreeMap<Integer, CheapDeal.Opinion>(oferta.getOpiniones());
+		
+		
+		int f = 0;
+		while(aux.containsKey(f)) {
+			datos[f][0] = aux.get(f).getUsuario().getUsuario();
+			datos[f][1] = aux.get(f).getMensaje();
+			datos[f][2] = String.valueOf(aux.get(f).getPuntuacion());
+			f++;
+		}
+		
+		
+
+		table = new JTable(datos, columnas);
+		scrollPane.setViewportView(table);
+		
+		/*int cont = 0;
+		while(aux.containsKey(cont)) {
+			Object[] fila = new Object[3];
+			fila[0] = aux.get(cont).getUsuario();
+			fila[1] = aux.get(cont).getMensaje();
+			fila[2] = aux.get(cont).getPuntuacion();
+			((DefaultTableModel) table.getModel()).addRow(fila);
+			cont++;
+		}
+		
+		
+		//table.("Usuario");
+	
+		
+		/*DefaultTableModel modelo = new DefaultTableModel();
+		modelo.addColumn("Usuario");
+		modelo.addColumn("Mensaje");
+		modelo.addColumn("Puntuacion");
+		TreeMap<Integer, CheapDeal.Opinion> aux = new TreeMap<Integer, CheapDeal.Opinion>(oferta.getOpiniones());
+		
+		int cont = 0;
+		while(aux.containsKey(cont)) {
+			Object[] fila = new Object[3];
+			fila[0] = aux.get(cont).getUsuario();
+			fila[1] = aux.get(cont).getMensaje();
+			fila[2] = aux.get(cont).getPuntuacion();
+			modelo.addRow(fila);
+			cont++;
+		}
+		
+		
+		table = new JTable(modelo);   new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"Usuario", "Mensaje", "Puntuacion"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, Double.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		
+		table.setBounds(10, 356, 774, 160);
+		contentPane.add(table);*/
+		
+		
+		
+		
 		btnIrAInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Principal obj = new Principal(cliente);
@@ -127,7 +220,6 @@ public class OfertaInt extends JFrame {
 				dispose();
 			}
 		});
-		
 		
 		
 	}
