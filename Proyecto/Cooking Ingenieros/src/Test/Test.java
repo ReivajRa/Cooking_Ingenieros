@@ -98,6 +98,7 @@ public class Test {
 		
 		assertNull("No deberia de existir la oferta",tienda.getOfertas().get(id));
 	}
+	/*
 	@org.junit.Test
 	public void testMockAniadirOpinionVerificaQueEstaEnLaColeccion()
 	{
@@ -137,7 +138,7 @@ public class Test {
 		cat.removeAll(cat);
 		
 		verify(ti).quitarOferta(id);
-	}
+	}*/
 	
 	
 	

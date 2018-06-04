@@ -14,7 +14,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		//MAPA PARA ORDENACION DE OFERTAS
 		HashSet<Categorias> cat = new HashSet<Categorias>();
-		Map<Integer,HashSet<Oferta>> OfertasCercanas = new HashMap<Integer, HashSet<Oferta>>();
+		LinkedList<Oferta> OfertasCercanas= new LinkedList<Oferta>();
+		Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","pepitoperez","pepeguapo@gmail.com");
@@ -27,7 +28,9 @@ public class Main {
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior");
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro");
 		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco N� 4", "Luke Andador del cielo");
-		
+		tiendas.put(tienda1.getId_tienda(), tienda1);
+		tiendas.put(tienda2.getId_tienda(), tienda2);
+		tiendas.put(tienda3.getId_tienda(), tienda3);
 		cat.add(Categorias.ELECTRODOMESTICOS);
 		tienda1.anadirOferta("Termo mix", 40.00, 2999.00, 
 				"Maquina de cocinar del siglo 22 increiblemente util, Doraemon approves", cat);
@@ -58,6 +61,7 @@ public class Main {
 				"Sofa de color negro mate de 3 plazas y de maxima calidad", cat );
 		cat.removeAll(cat);
 		
+<<<<<<< HEAD
 		tienda2.verOfertas();
 		cat.add(Categorias.MUEBLES);
 		Oferta of = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
@@ -67,6 +71,13 @@ public class Main {
  		OfertasCercanas = ord.getMaster();*/
 		OfertaInt obj = new OfertaInt(cliente1, of);
 		obj.setVisible(true);
+=======
+		
+		/*Ordenacion ord = new Ordenacion(tiendas);
+ 		OfertasCercanas = ord.getOfertasCercanas();
+		for (Oferta of : OfertasCercanas) {
+			of.toString();*/
+>>>>>>> beea2c799b3b4018fbc566c756e8981aecc63bf1
 		
 	}
 
