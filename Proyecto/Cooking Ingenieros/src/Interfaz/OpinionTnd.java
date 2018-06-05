@@ -52,7 +52,7 @@ public class OpinionTnd extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblAadirOpininDe = new JLabel("Añadir opinión de la tienda " + tienda.getNombre());
+		JLabel lblAadirOpininDe = new JLabel("Anadir opinion de la tienda <dynamic>");
 		lblAadirOpininDe.setFont(new Font("Arial", Font.BOLD, 20));
 		lblAadirOpininDe.setBounds(161, 13, 471, 41);
 		contentPane.add(lblAadirOpininDe);
