@@ -15,6 +15,7 @@ public class Cliente {
 	private HashSet<Cliente> seguidores;
 	private HashSet<Cliente> seguidos;
 	private double posX, posY;
+	private HashSet<Opinion> opiniones;
 
 	public Cliente(String u, String c, String e)
 	{
@@ -25,6 +26,7 @@ public class Cliente {
 		this.reputacion = 0.0;
 		seguidores = new HashSet<Cliente>();
 		seguidos = new HashSet<Cliente>();
+		opiniones = new HashSet<Opinion>();
 		aux++;
 	}
 	public int getId() {
@@ -100,6 +102,14 @@ public class Cliente {
 			aux.append("Nombre: " + o.usuario + ",");
 		}
 		return aux.toString();
+	}
+	
+	public void anadirOp(Opinion op) {
+		opiniones.add(op);
+	}
+	
+	public void eliminarOp(Opinion op) {
+		opiniones.remove(op);
 	}
 
 	@Override

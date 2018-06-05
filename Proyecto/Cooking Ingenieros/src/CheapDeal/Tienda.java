@@ -130,12 +130,14 @@ public class Tienda implements Comparable<Tienda>{
 		if(!(opiniones.containsKey(op.getUsuario().getId()))) {
 			puntuacion += op.getPuntuacion();
 			opiniones.put(op.getUsuario().getId(), op);
+			usu.anadirOp(op);
 		}
 		return op.getId();
 	}
 	
 	public void eliminarOp(Integer id) {
 		puntuacion -= opiniones.get(id).getPuntuacion();
+		opiniones.get(id).getUsuario().eliminarOp(opiniones.get(id));
 		opiniones.remove(id);
 	}
 
