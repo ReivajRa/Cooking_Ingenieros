@@ -42,7 +42,7 @@ public class OfertaInt extends JFrame {
 			public void run() {
 				try {
 					HashSet<Categorias> cat = new HashSet<Categorias>();cat.add(Categorias.MUEBLES);
-					Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior");
+					Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior", 34.1235, 75.00);
 					Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 					Oferta of = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
 					of.aniadirOp(cliente1, "De puta pena", 7);

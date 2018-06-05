@@ -3,7 +3,7 @@ package CheapDeal;
 import java.util.*;
 import java.util.Map;
 
-public class Tienda {
+public class Tienda implements Comparable<Tienda>{
 	private static int id=1;
 	private int id_tienda;
 	private String nombre;
@@ -13,9 +13,11 @@ public class Tienda {
 	private String[][] horario = new String[2][7]; // Primera fila maniana, segunda fila tarde
 	private Map<Integer, Opinion> opiniones;
 	private double puntuacion;
+	private double posX, posY;
+	private double distanciaAux;
 	
 
-	public Tienda(String nom, String dir, String due){
+	public Tienda(String nom, String dir, String due, double posY, double posX){
 		id_tienda = id;
 		nombre = nom.toUpperCase();
 		direccion = dir;
@@ -23,6 +25,8 @@ public class Tienda {
 		ofertas = new TreeMap<Integer, Oferta>();
 		opiniones = new TreeMap<Integer, Opinion>();
 		Tienda.id++;
+		this.posX = posX;
+		this.posY = posY;
 		
 	}
 	
@@ -56,6 +60,18 @@ public class Tienda {
 	
 	public double getPuntuacion() {
 		return puntuacion/opiniones.size();
+	}
+	
+	public double getPosX() {
+		return posX;
+	}
+	
+	public double getPosY() {
+		return posY;
+	}
+	
+	public double getDistanciaAux() {
+		return distanciaAux;
 	}
 
 	public void setId_tienda(int id_tienda) {
@@ -172,6 +188,16 @@ public class Tienda {
 				+ duenio + ", horario=" + Arrays.toString(horario) + "]";
 	}
 	
+	public void actualizarDistancia(double Y, double X) {
+		distanciaAux = Math.sqrt( Math.pow(Math.abs(posY - Y), 2) + Math.pow(Math.abs(posX - X), 2) );
+	}
+
+	
+	public int compareTo(Tienda t) {
+		if(distanciaAux < t.getDistanciaAux()) return -1;
+		if(distanciaAux > t.getDistanciaAux()) return 1;
+		return 0;
+	}
 	
 
 }
