@@ -175,7 +175,7 @@ public class TiendaInt extends JFrame {
 		
 		for(Oferta o : ofertas) {
 			dtm.addRow(new Object[] { o.getProducto(), o.getDescuento(), o.getTienda().getNombre(),	
-			o.getPuntuacion(), o.getTienda().getDistancia()});
+			o.getPuntuacion(), Math.round(o.getTienda().getDistancia())});
 		}
 		
 		scrollPane.setViewportView(table);

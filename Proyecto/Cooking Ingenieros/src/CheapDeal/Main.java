@@ -8,13 +8,15 @@ import Interfaz.OfertaVista;
 
 public class Main {
 	public static Cliente clientes[] = new Cliente[2];
-	public static Ordenacion ords[] = new Ordenacion[2];
+	//public static Ordenacion ords[] = new Ordenacion[2];
+	public static Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//MAPA PARA ORDENACION DE OFERTAS
 		HashSet<Categorias> cat = new HashSet<Categorias>();
-		LinkedList<Oferta> OfertasCercanas= new LinkedList<Oferta>();
-		Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
+		//LinkedList<Oferta> OfertasCercanas= new LinkedList<Oferta>();
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","1234567","pepeguapo@gmail.com");
@@ -26,9 +28,9 @@ public class Main {
 		
 		
 		//3 tiendas de prueba
-		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior", 34.1235, 75.00);
+		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nº 13", "Roberto junior", 34.1235, 75.00);
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro", 50.0, 50.0);
-		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nï¿½ 4", "Luke Andador del cielo", 0.00, 0.00);
+		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nº 4", "Luke Andador del cielo", 0.00, 0.00);
 		tiendas.put(tienda1.getId_tienda(), tienda1);
 		tiendas.put(tienda2.getId_tienda(), tienda2);
 		tiendas.put(tienda3.getId_tienda(), tienda3);
@@ -71,18 +73,55 @@ public class Main {
  		  //OfertasCercanas = ord.getMaster();
 		
 		
-		int selec = 0;
-		clientes[selec].actualizarUbicacion();
-		Ordenacion ord = new Ordenacion(tiendas, clientes[selec].getPosY(), clientes[selec].getPosX());
+		
+		/*Ordenacion ord0 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
+		Ordenacion ord1 = new Ordenacion(tiendas, clientes[1].getPosY(), clientes[1].getPosX());
+		ords[0] = ord0;
+		ords[1] = ord1;
+		
+		
+		
+		
+		
+		//clientes[selec].actualizarUbicacion();
+		Ordenacion ord = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
  		OfertasCercanas = ord.getOfertasCercanas();
 		for (Oferta of : OfertasCercanas) {
 			System.out.println(of.toString());
 		}
 		
-		Ordenacion ord0 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
-		Ordenacion ord1 = new Ordenacion(tiendas, clientes[1].getPosY(), clientes[1].getPosX());
-		ords[0] = ord0;
-		ords[1] = ord1;
+		System.out.println("\n \n \n \n \n ");
+		
+		
+		LinkedList<Oferta> OfertasCercanas2 = new LinkedList<Oferta>();
+		Ordenacion ord2 = new Ordenacion(tiendas, clientes[1].getPosY(), clientes[1].getPosX());
+		OfertasCercanas2 = ord2.getOfertasCercanas();
+		for (Oferta of : OfertasCercanas2) {
+			System.out.println(of.toString());
+		}
+		
+		System.out.println("\n \n \n \n \n ");
+		
+		
+		LinkedList<Oferta> OfertasCercanas3 = new LinkedList<Oferta>();
+		//Ordenacion ord2 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
+ 		OfertasCercanas3 = ords[0].getOfertasCercanas();
+		for (Oferta of : OfertasCercanas3) {
+			System.out.println(of.toString());
+		}
+		
+		System.out.println("\n \n \n \n \n ");
+		
+		
+		LinkedList<Oferta> OfertasCercanas4 = new LinkedList<Oferta>();
+		//Ordenacion ord2 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
+ 		OfertasCercanas4 = ords[1].getOfertasCercanas();
+		for (Oferta of : OfertasCercanas4) {
+			System.out.println(of.toString());
+		}*/
+		
+		
+		
 		
 		Login obj = new Login();
 		obj.setVisible(true);

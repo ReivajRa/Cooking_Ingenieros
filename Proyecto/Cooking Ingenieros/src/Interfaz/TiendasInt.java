@@ -125,7 +125,7 @@ public class TiendasInt extends JFrame {
 		
 		for(Tienda o : tiendasCercanas) {
 			dtm.addRow(new Object[] { o.getNombre() , o.getDireccion(),	
-			o.getPuntuacion(), o.getDistancia()});
+			o.getPuntuacion(), Math.round(o.getDistancia())});
 		}
 		
 			

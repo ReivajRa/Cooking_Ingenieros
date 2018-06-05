@@ -79,6 +79,9 @@ public class Principal extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		
+		
+		
+		
 		JButton btnCliente = new JButton("Mi perfil");
 		btnCliente.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnCliente.addActionListener(new ActionListener() {
@@ -167,7 +170,7 @@ public class Principal extends JFrame {
 		
 		for(Oferta o : ofertasCercanas) {
 			dtm.addRow(new Object[] { o.getProducto(), o.getDescuento(), o.getTienda().getNombre(),	
-			o.getPuntuacion(), o.getTienda().getDistancia()});
+			o.getPuntuacion(), Math.round(o.getTienda().getDistancia())});
 		}
 		scrollPane.setViewportView(table);
 		

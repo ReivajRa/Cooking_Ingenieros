@@ -5,8 +5,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Ordenacion {
-	 public Map<Integer,Tienda> Master;
-	 public LinkedList<Oferta> OfertasCercanas;
+	 private Map<Integer,Tienda> Master;
+	 private LinkedList<Oferta> OfertasCercanas;
 	 int filtro;
 	 double posX, posY;
 	 private LinkedList<Tienda> TiendasCercanas;

@@ -87,11 +87,12 @@ public class Login extends JFrame {
 				String usu = txtUsu.getText().toUpperCase();
 				String pass = txtPass.getText();
 				Cliente[] aux = Main.clientes.clone();
-				Ordenacion[] aux_ord = Main.ords.clone();
+				//Ordenacion[] aux_ord = Main.ords.clone();
 				boolean encontrado = false;
 				for(int i=0; i<aux.length; i++) {
 					if(usu.equals(aux[i].getUsuario()) && pass.equals(aux[i].getContrasenia())) {
-						Principal obj = new Principal(aux[i], aux_ord[i]);
+						Ordenacion ord = new Ordenacion(Main.tiendas, Main.clientes[i].getPosY(), Main.clientes[i].getPosX());
+						Principal obj = new Principal(aux[i], ord);
 						obj.setVisible(true);
 						encontrado = true;
 						dispose();

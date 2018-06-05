@@ -127,7 +127,7 @@ public class BusquedaInt extends JFrame {
 		contentPane.add(lblPrecioMaximo);
 		
 		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		spinner.setModel(new SpinnerNumberModel(new Integer(0), null, null, new Integer(1)));
 		spinner.setFont(new Font("Arial", Font.PLAIN, 15));
 		spinner.setBounds(663, 156, 121, 23);
 		contentPane.add(spinner);
@@ -209,23 +209,32 @@ public class BusquedaInt extends JFrame {
 		chckbxAplicarPrecio.setBounds(647, 332, 146, 23);
 		contentPane.add(chckbxAplicarPrecio);
 		
+		//DefaultTableModel aux = dtm;
+		
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(dtm.getRowCount()!=0)
+					for(int k=dtm.getRowCount()-1; k>=0; k--) {
+						dtm.removeRow(k);
+					};
+				
 				ofertas = ord.getOfertasCercanas();
 				ofertas = ord.filtrarNombre(ofertas, textField.getText());
 				if(chckbxAplicarPuntuacion.isSelected()) {
 					ofertas = ord.filtrarPuntuacion(ofertas, slider.getValue());
 				}
 				if(chckbxAplicarCategoria.isSelected()) {
-					ofertas = ord.filtrarCategoria(ofertas, Categorias.values()[slider.getValue()]);
+					ofertas = ord.filtrarCategoria(ofertas, (Categorias) comboBox.getSelectedItem());
 				}
 				if(chckbxAplicarPrecio.isSelected()) {
+					System.out.println((Integer)spinner_1.getValue());
+					System.out.println((Integer)spinner.getValue());
 					ofertas = ord.filtrarPrecio(ofertas, (Integer)spinner_1.getValue(), (Integer) spinner.getValue());
 				}
 				for(Oferta o : ofertas) {
 					dtm.addRow(new Object[] { o.getProducto(), o.getDescuento(), o.getTienda().getNombre(),	
-							o.getPuntuacion(), o.getTienda().getDistancia()});
+							o.getPuntuacion(), Math.round(o.getTienda().getDistancia())});
 				}
 				
 			}
