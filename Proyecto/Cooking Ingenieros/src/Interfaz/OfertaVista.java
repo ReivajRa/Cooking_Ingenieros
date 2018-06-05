@@ -11,45 +11,55 @@ import javax.swing.border.EmptyBorder;
 import CheapDeal.Categorias;
 import CheapDeal.Cliente;
 import CheapDeal.Oferta;
+import CheapDeal.Opinion;
 import CheapDeal.Tienda;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.DataBufferFloat;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.Vector;
 
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 public class OfertaVista extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-
+	private String[] cabecera = {"Usuario", "Mensaje" , "Puntacion"};
+	
+ 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		HashSet<Categorias> cat = new HashSet<Categorias>();
+		
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+				HashSet<Categorias> cat = new HashSet<Categorias>();
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior", 40.0, 50.0);
 		cat.add(Categorias.MUEBLES);
 		Oferta of = new Oferta("Mesa", 20.0, tienda1, 200.0, "La caña de españa.", cat);
+		of.aniadirOp(cliente1, "Caaa", 10);
 		OfertaVista frame = new OfertaVista(cliente1 , of);
 		frame.setVisible(true);
-		
-		/*EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
 					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});*/
+		});
 	}
 
 	/**
@@ -86,15 +96,17 @@ public class OfertaVista extends JFrame {
 		lblPuntuacion.setBounds(470, 53, 220, 31);
 		contentPane.add(lblPuntuacion);
 		
-		JLabel lblTienda = new JLabel("Tienda: " + oferta.getTienda().toString());
+		JLabel lblTienda = new JLabel("Tienda: " + oferta.getTienda().getNombre());
 		lblTienda.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblTienda.setBounds(10, 95, 220, 31);
 		contentPane.add(lblTienda);
 		
 		JTextPane txtpnDescripcion = new JTextPane();
+		txtpnDescripcion.setEditable(false);
 		txtpnDescripcion.setFont(new Font("Arial", Font.PLAIN, 15));
 		txtpnDescripcion.setText("Descripcion: " + oferta.getDescripcion());
 		txtpnDescripcion.setBounds(10, 137, 774, 139);
+		
 		contentPane.add(txtpnDescripcion);
 		
 		JLabel lblOpiniones = new JLabel("Opiniones:");
@@ -106,19 +118,39 @@ public class OfertaVista extends JFrame {
 		scrollPane.setBounds(10, 329, 774, 171);
 		contentPane.add(scrollPane);
 		
+		TreeMap<Integer, Opinion> opiniones = new TreeMap<>(oferta.getOpiniones());
+		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Usuario", "Mensaje", "Puntuacion"
+		DefaultTableModel dtm = new DefaultTableModel(0, 3);
+		
+		dtm.setColumnIdentifiers(cabecera);
+		table.setModel(dtm);
+		/*boolean[] columnEditables = new boolean[] {
+		false, true, true, true
+		};
+		public boolean isCellEditable(int row, int column) {
+			return columnEditables[column];
+		}*/
+		TableColumnModel columnModel = table.getColumnModel();
+		
+		columnModel.getColumn(0).setPreferredWidth(50);
+		columnModel.getColumn(1).setPreferredWidth(550);
+		columnModel.getColumn(2).setPreferredWidth(10);
+		table.setRowHeight(40);
+		
+		
+		int f ;
+		int i = opiniones.size(); 
+		for(f=0; f<100 ; f++) {
+			if(opiniones.containsKey(f) && i>0) {
+				dtm.addRow(new Object[] {opiniones.get(i).getUsuario().getUsuario(),
+	        			opiniones.get(i).getMensaje(), opiniones.get(i).getPuntuacion()	});
+				f++;
+				i--;
 			}
-		));
-		table.getColumnModel().getColumn(0).setMinWidth(30);
-		table.getColumnModel().getColumn(1).setPreferredWidth(400);
-		table.getColumnModel().getColumn(1).setMinWidth(30);
-		table.getColumnModel().getColumn(2).setPreferredWidth(50);
-		table.getColumnModel().getColumn(2).setMinWidth(30);
+		}
+		
+		
 		scrollPane.setViewportView(table);
 		
 		JButton btnIrAInicio = new JButton("Ir a inicio");

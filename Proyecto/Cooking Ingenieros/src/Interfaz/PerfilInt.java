@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import CheapDeal.Cliente;
 
@@ -16,10 +17,15 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JFormattedTextField;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class PerfilInt extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
+	private String[] cabecera = {"Usuario", "Mensaje" , "Puntacion"};
+
 
 	/**
 	 * Launch the application.
@@ -28,7 +34,9 @@ public class PerfilInt extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PerfilInt frame = new PerfilInt(null);
+					Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
+
+					PerfilInt frame = new PerfilInt(cliente1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -88,8 +96,15 @@ public class PerfilInt extends JFrame {
 		lblMisOpiniones.setBounds(348, 235, 97, 23);
 		contentPane.add(lblMisOpiniones);
 		
-		JList list = new JList();
-		list.setBounds(97, 269, 600, 257);
-		contentPane.add(list);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 269, 760, 257);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		DefaultTableModel dtm = new DefaultTableModel(0, 3);
+		
+		dtm.setColumnIdentifiers(cabecera);
+		table.setModel(dtm);
+		scrollPane.setViewportView(table);
 	}
 }

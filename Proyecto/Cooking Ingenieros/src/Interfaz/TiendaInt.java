@@ -33,7 +33,10 @@ public class TiendaInt extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TiendaInt frame = new TiendaInt(null, null);
+					Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior", 34.1235, 75.00);
+					Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
+
+					TiendaInt frame = new TiendaInt(cliente1, tienda1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
