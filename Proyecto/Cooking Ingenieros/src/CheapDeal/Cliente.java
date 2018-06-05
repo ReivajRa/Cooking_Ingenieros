@@ -14,6 +14,7 @@ public class Cliente {
 	private static int aux = 1;
 	private HashSet<Cliente> seguidores;
 	private HashSet<Cliente> seguidos;
+	private double posX, posY;
 
 	public Cliente(String u, String c, String e)
 	{
@@ -52,6 +53,13 @@ public class Cliente {
 	public HashSet<Cliente> getSeguidos()
 	{
 		return this.seguidos;
+	}
+	public double getPosX() {
+		return posX;
+	}
+	
+	public double getPosY() {
+		return posY;
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
@@ -121,5 +129,15 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [id=" + id + ", usuario=" + usuario + ", email=" + email + ", reputacion=" + reputacion + ", seguidores="
 				+ seguidores.size() + ", seguidos=" + seguidos.size() + "]";
+	}
+	
+	public void actualizarUbicacion() {
+		if(id%2==0) {
+			posY = -80.0;
+			posX = 25.0;
+		} else {
+			posY = -80.0;
+			posX = 25.0;
+		}
 	}
 }

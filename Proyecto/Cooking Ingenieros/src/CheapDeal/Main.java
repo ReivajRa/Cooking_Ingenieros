@@ -6,9 +6,8 @@ import Interfaz.Login;
 import Interfaz.OfertaInt;
 
 
-
 public class Main {
-	public static Cliente clientes[] = new Cliente[10];
+	public static Cliente clientes[] = new Cliente[2];
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,9 +24,9 @@ public class Main {
 		
 		
 		//3 tiendas de prueba
-		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior");
-		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro");
-		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco N� 4", "Luke Andador del cielo");
+		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja N� 13", "Roberto junior", 34.1235, 75.00);
+		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro", 50.0, 50.0);
+		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco N� 4", "Luke Andador del cielo", 0.00, 0.00);
 		tiendas.put(tienda1.getId_tienda(), tienda1);
 		tiendas.put(tienda2.getId_tienda(), tienda2);
 		tiendas.put(tienda3.getId_tienda(), tienda3);
@@ -61,23 +60,23 @@ public class Main {
 				"Sofa de color negro mate de 3 plazas y de maxima calidad", cat );
 		cat.removeAll(cat);
 		
-<<<<<<< HEAD
-		tienda2.verOfertas();
-		cat.add(Categorias.MUEBLES);
+		
+		/*cat.add(Categorias.MUEBLES);
 		Oferta of = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
 		of.aniadirOp(cliente1, "De puta pena", 7);
 		
-		/*Ordenacion ord = new Ordenacion();
- 		OfertasCercanas = ord.getMaster();*/
+		  //Ordenacion ord = new Ordenacion();
+ 		  //OfertasCercanas = ord.getMaster();
 		OfertaInt obj = new OfertaInt(cliente1, of);
-		obj.setVisible(true);
-=======
+		obj.setVisible(true);*/
 		
-		/*Ordenacion ord = new Ordenacion(tiendas);
+		int selec = 0;
+		clientes[selec].actualizarUbicacion();
+		Ordenacion ord = new Ordenacion(tiendas, clientes[selec].getPosY(), clientes[selec].getPosX());
  		OfertasCercanas = ord.getOfertasCercanas();
 		for (Oferta of : OfertasCercanas) {
-			of.toString();*/
->>>>>>> beea2c799b3b4018fbc566c756e8981aecc63bf1
+			System.out.println(of.toString());
+		}
 		
 	}
 

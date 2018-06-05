@@ -32,7 +32,7 @@ public class Test {
 		oferta = new Oferta("Patatas", 15.0, tienda, 5.0, "Kilos de patatas ",cat);
 		cat.removeAll(cat);
 		ofertas = new TreeMap<>();
-		tienda = new Tienda("Verduras Petra", "Av velazquez", "Petra");
+		tienda = new Tienda("Verduras Petra", "Av velazquez", "Petra", 0.0, 0.0);
 		tiendas = new TreeMap<>();
 		
 	  
