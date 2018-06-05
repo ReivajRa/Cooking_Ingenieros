@@ -14,6 +14,8 @@ public class Test {
 	
 	Cliente usuario;
 	Opinion opinion;
+	Ordenacion ord; 
+	LinkedList<Oferta> ofertasCerca;
 	Map<Integer,Opinion> opiniones;
 	Oferta oferta;
 	Map<Integer,Oferta> ofertas;
@@ -23,9 +25,9 @@ public class Test {
 	
 	
 	@Before 
-	
 	public void setUp(){
 		usuario = new Cliente("Paco","1234","paco@mail");
+		usuario.actualizarUbicacion();
 		//opinion = new Opinion(usuario, "Es una farsa",1.0, oferta, tienda);
 		opiniones = new TreeMap<>();
 		cat.add(Categorias.VERDURAS_HORTALIZAS);
@@ -33,30 +35,25 @@ public class Test {
 		cat.removeAll(cat);
 		ofertas = new TreeMap<>();
 		tienda = new Tienda("Verduras Petra", "Av velazquez", "Petra", 0.0, 0.0);
-		tiendas = new TreeMap<>();
+		tiendas = new TreeMap<>();  
+		ofertasCerca= new LinkedList<Oferta>();
+		ofertasCerca.add(oferta);
 		
-	  
 	}
 	
-
 	@After
 	public void tearDown() {
-		
 		usuario = null;
 		opinion = null;
 		opiniones=null;
 		cat=null;
 		oferta=null;
 		tienda=null;
-		tiendas=null;
-		
+		tiendas=null;	
 	}
 
-	
-	
 	@org.junit.Test
-	public void testDespuesdeAniadirUnaOpEstaEnLaColeccion()
-	{
+	public void testDespuesdeAniadirUnaOpEstaEnLaColeccion(){
 		int id;
 		id = oferta.aniadirOp(usuario, "Es una farsa", 1);
 		
@@ -64,11 +61,8 @@ public class Test {
 		
 	}
 
-	
-	
 	@org.junit.Test
-	public void testDespuesdeAniadirUnaOfEstaEnLaColeccion()
-	{
+	public void testDespuesdeAniadirUnaOfEstaEnLaColeccion(){
 		int id;
 		cat.add(Categorias.VERDURAS_HORTALIZAS);
 		id = tienda.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
@@ -78,18 +72,18 @@ public class Test {
 		//Falta modificar el return de anadirOferta de la misma manera que aniadirOp de la clase Oferta.
 			
 	}
+	
 	@org.junit.Test
-	public void testDespuesDeEliminarUnaOpNoEstaEnLaColeccion()
-	{
+	public void testDespuesDeEliminarUnaOpNoEstaEnLaColeccion(){
 		int id;
 		id = oferta.aniadirOp(usuario, "Es una farsa", 1);
 		oferta.eliminarOp(id);
 		
 		assertNull("No deberia de existir la opinion",oferta.getOpiniones().get(id));
 	}
+	
 	@org.junit.Test
-	public void testDespuesDeEliminarUnaOfNoEstaEnLaColeccion()
-	{
+	public void testDespuesDeEliminarUnaOfNoEstaEnLaColeccion(){
 		int id;
 		cat.add(Categorias.VERDURAS_HORTALIZAS);
 		id = tienda.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
@@ -97,55 +91,18 @@ public class Test {
 		tienda.quitarOferta(id);
 		
 		assertNull("No deberia de existir la oferta",tienda.getOfertas().get(id));
-	}
-	/*
+		}
+	
+
 	@org.junit.Test
-	public void testMockAniadirOpinionVerificaQueEstaEnLaColeccion()
+	public void testDespuesDeBuscarPorNombreEnElFiltroSeleccionaCorrectamente()
 	{
-		int id;
-		Oferta of= mock(Oferta.class);
-		id = of.aniadirOp(usuario, "Es una farsa", 1);
-		
-		verify(of).getOpiniones().get(id);
+		Ordenacion ord = mock(Ordenacion.class);
+		ord = new Ordenacion(tiendas, usuario.getPosY(), usuario.getPosX());
+		ord.getOfertasCercanas().addAll(ofertasCerca);
+		ord.filtrarNombre("Patatas");
+		verify(ord).filtrarNombre("Patatas");
 	}
-	
-	@org.junit.Test
-	public void testMockAniadirOfertaVerificaQueEstaEnLaColeccion() {
-		int id;
-		Tienda ti = mock(Tienda.class);
-		cat.add(Categorias.VERDURAS_HORTALIZAS);
-		id = ti.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
-		cat.removeAll(cat);
-		
-		verify(ti).getOfertas().get(id);
-	}
-	@org.junit.Test
-	public void testMockEliminarOpVerificaQueNoEstaEnLaColeccion()
-	{
-		int id;
-		Oferta of= mock(Oferta.class);
-		id = of.aniadirOp(usuario, "Es una farsa", 1);
-		
-		verify(of).eliminarOp(id);;
-	}
-	@org.junit.Test
-	public void testMockEliminarOfVerificaQueNoEstaEnLaColeccion()
-	{
-		int id;
-		Tienda ti = mock(Tienda.class);
-		cat.add(Categorias.VERDURAS_HORTALIZAS);
-		id = ti.anadirOferta("Patatas", 15.0, 5.0, "Kilos de patatas ",cat);
-		cat.removeAll(cat);
-		
-		verify(ti).quitarOferta(id);
-	}*/
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
+	
