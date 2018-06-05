@@ -40,6 +40,9 @@ public class Cliente {
 	{
 		return this.contrasenia;
 	}
+	public HashSet<Opinion> getOpiniones() {
+		return opiniones;
+	}
 	public String getEmail()
 	{
 		return this.email;

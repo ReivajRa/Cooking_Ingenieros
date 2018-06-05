@@ -16,6 +16,7 @@ import javax.swing.JSlider;
 import javax.swing.border.EmptyBorder;
 
 import CheapDeal.Cliente;
+import CheapDeal.Ordenacion;
 import CheapDeal.Tienda;
 
 public class OpinionTnd extends JFrame {
@@ -29,7 +30,7 @@ public class OpinionTnd extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OpinionTnd frame = new OpinionTnd(null, null);
+					OpinionTnd frame = new OpinionTnd(null, null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +42,7 @@ public class OpinionTnd extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OpinionTnd(Cliente cliente, Tienda tienda) {
+	public OpinionTnd(Cliente cliente, Tienda tienda, Ordenacion ord) {
 		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,7 +91,7 @@ public class OpinionTnd extends JFrame {
 		btnOpinar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tienda.aniadirOp(cliente, dtrpnOpinion.getText(), slider.getValue());
-				Principal obj = new Principal(cliente);
+				Principal obj = new Principal(cliente, ord);
 				obj.setVisible(true);
 				dispose();
 			}
@@ -105,7 +106,7 @@ public class OpinionTnd extends JFrame {
 		contentPane.add(btnIrAInicio);
 		btnIrAInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Principal obj = new Principal(cliente);
+				Principal obj = new Principal(cliente, ord);
 				obj.setVisible(true);
 				dispose();
 			}

@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import CheapDeal.Cliente;
 import CheapDeal.Oferta;
+import CheapDeal.Ordenacion;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -30,7 +32,7 @@ public class OpinionOf extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OpinionOf frame = new OpinionOf(null, null);
+					OpinionOf frame = new OpinionOf(null, null, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +44,7 @@ public class OpinionOf extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OpinionOf(Cliente cliente, Oferta oferta) {
+	public OpinionOf(Cliente cliente, Oferta oferta, Ordenacion ord) {
 		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,7 +93,7 @@ public class OpinionOf extends JFrame {
 		btnOpinar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				oferta.aniadirOp(cliente, dtrpnOpinion.getText(), slider.getValue());
-				Principal obj = new Principal(cliente);
+				Principal obj = new Principal(cliente, ord);
 				obj.setVisible(true);
 				dispose();
 			}
@@ -106,7 +108,7 @@ public class OpinionOf extends JFrame {
 		contentPane.add(btnIrAInicio);
 		btnIrAInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Principal obj = new Principal(cliente);
+				Principal obj = new Principal(cliente, ord);
 				obj.setVisible(true);
 				dispose();
 			}

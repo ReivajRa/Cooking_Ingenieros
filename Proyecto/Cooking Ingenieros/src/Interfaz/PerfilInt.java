@@ -7,11 +7,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
+import org.mockito.internal.matchers.Or;
+
+import CheapDeal.Categorias;
 import CheapDeal.Cliente;
+import CheapDeal.Oferta;
+import CheapDeal.Opinion;
+import CheapDeal.Ordenacion;
+import CheapDeal.Tienda;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -35,8 +44,12 @@ public class PerfilInt extends JFrame {
 			public void run() {
 				try {
 					Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
-
-					PerfilInt frame = new PerfilInt(cliente1);
+					HashSet<Categorias> cat = new HashSet<Categorias>();
+					Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior", 40.0, 50.0);
+					cat.add(Categorias.MUEBLES);
+					Oferta of = new Oferta("Mesa", 20.0, tienda1, 200.0, "La caña de españa.", cat);
+					of.aniadirOp(cliente1, "Caaa", 10);
+					PerfilInt frame = new PerfilInt(cliente1, null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +61,7 @@ public class PerfilInt extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PerfilInt(Cliente cliente) {
+	public PerfilInt(Cliente cliente, Ordenacion ord) {
 		setTitle("CookingIngenieros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,7 +76,7 @@ public class PerfilInt extends JFrame {
 		btnAtras.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Principal obj = new Principal(cliente);
+				Principal obj = new Principal(cliente, ord);
 				obj.setVisible(true);
 				dispose();
 			}
@@ -100,11 +113,32 @@ public class PerfilInt extends JFrame {
 		scrollPane.setBounds(10, 269, 760, 257);
 		contentPane.add(scrollPane);
 		
+		HashSet<Opinion> opiniones = new HashSet<>(cliente.getOpiniones());
 		table = new JTable();
-		DefaultTableModel dtm = new DefaultTableModel(0, 3);
-		
+		table.setFocusable(false);
+		table.setFont(new Font("Arial", Font.PLAIN, 15));
+		DefaultTableModel dtm = new DefaultTableModel(0, 3) {
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				return false;
+				
+			}
+		};
 		dtm.setColumnIdentifiers(cabecera);
 		table.setModel(dtm);
+		
+		TableColumnModel columnModel = table.getColumnModel();
+		columnModel.getColumn(0).setPreferredWidth(50);
+		columnModel.getColumn(1).setPreferredWidth(550);
+		columnModel.getColumn(2).setPreferredWidth(10);
+		table.setRowHeight(40);
+		table.getTableHeader().setReorderingAllowed(false);
+		
+		for(Opinion o : opiniones) {
+			dtm.addRow(new Object[] { o.getUsuario().getUsuario(), o.getMensaje(), 
+			o.getPuntuacion()});
+		}
+		
+		
 		scrollPane.setViewportView(table);
 	}
 }

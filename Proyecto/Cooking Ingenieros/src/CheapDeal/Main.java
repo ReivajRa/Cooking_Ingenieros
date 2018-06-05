@@ -8,7 +8,7 @@ import Interfaz.OfertaVista;
 
 public class Main {
 	public static Cliente clientes[] = new Cliente[2];
-	
+	public static Ordenacion ords[] = new Ordenacion[2];
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//MAPA PARA ORDENACION DE OFERTAS
@@ -17,9 +17,11 @@ public class Main {
 		Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
-		Cliente cliente2 = new Cliente("Pepe","pepitoperez","pepeguapo@gmail.com");
+		Cliente cliente2 = new Cliente("Pepe","1234567","pepeguapo@gmail.com");
 		clientes[0] = cliente1;
 		clientes[1] = cliente2;
+		clientes[0].actualizarUbicacion();
+		clientes[1].actualizarUbicacion();
 		
 		
 		
@@ -67,8 +69,7 @@ public class Main {
 		
 		  //Ordenacion ord = new Ordenacion();
  		  //OfertasCercanas = ord.getMaster();
-		OfertaVista obj = new OfertaVista(cliente1, oferta);
-		obj.setVisible(true);
+		
 		
 		int selec = 0;
 		clientes[selec].actualizarUbicacion();
@@ -78,7 +79,13 @@ public class Main {
 			System.out.println(of.toString());
 		}
 		
+		Ordenacion ord0 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
+		Ordenacion ord1 = new Ordenacion(tiendas, clientes[1].getPosY(), clientes[1].getPosX());
+		ords[0] = ord0;
+		ords[1] = ord1;
 		
+		Login obj = new Login();
+		obj.setVisible(true);
 		
 	}
 

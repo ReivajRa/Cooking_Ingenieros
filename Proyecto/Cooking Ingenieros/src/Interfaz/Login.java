@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 
 import CheapDeal.Cliente;
 import CheapDeal.Main;
+import CheapDeal.Ordenacion;
 
 public class Login extends JFrame {
 
@@ -86,21 +87,22 @@ public class Login extends JFrame {
 				String usu = txtUsu.getText().toUpperCase();
 				String pass = txtPass.getText();
 				Cliente[] aux = Main.clientes.clone();
+				Ordenacion[] aux_ord = Main.ords.clone();
+				boolean encontrado = false;
 				for(int i=0; i<aux.length; i++) {
 					if(usu.equals(aux[i].getUsuario()) && pass.equals(aux[i].getContrasenia())) {
-						Principal obj = new Principal(aux[i]);
+						Principal obj = new Principal(aux[i], aux_ord[i]);
 						obj.setVisible(true);
+						encontrado = true;
 						dispose();
 						break;
-					}else if(lblUsu.getText().equals("") || lblPass.equals("")){
-						JOptionPane.showMessageDialog(null, "Usuario y/o Contrase�a estan vacios\n");
-						setLocationRelativeTo(null);
-						break;
-					}else {
-						JOptionPane.showMessageDialog(null, "Usuario y/o Contrase�a invalidos\n");
-						setLocationRelativeTo(null);
-						break;
+					
 					}
+					
+				}
+				if(!encontrado) {
+					JOptionPane.showMessageDialog(null, "Usuario y/o Contrase�a invalidos\n");
+					setLocationRelativeTo(null);
 				}
 			}
 		});
