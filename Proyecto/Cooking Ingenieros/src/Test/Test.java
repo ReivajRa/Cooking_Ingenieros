@@ -33,10 +33,10 @@ public class Test {
 		//opinion = new Opinion(usuario, "Es una farsa",1.0, oferta, tienda);
 		opiniones = new TreeMap<>();
 		cat.add(Categorias.VERDURAS_HORTALIZAS);
-		oferta = new Oferta("Patatas", 10.0, tienda, 5.0, "Kilos de patatas ",cat);
+		oferta = new Oferta("Patatas", 4.5, tienda, 5.0, "Kilos de patatas ",cat);
 		cat.removeAll(cat);
 		cat.add(Categorias.ALCOHOLES);
-		ofer2 = new Oferta("Whisky",20.0,tienda,15.0,"Whisky de malta", cat);
+		ofer2 = new Oferta("Whisky",20.0,tienda,25.0,"Whisky de malta", cat);
 		cat.remove(cat);
 		ofertas = new TreeMap<>();
 		tienda = new Tienda("Verduras Petra", "Av velazquez", "Petra", 0.0, 0.0);
@@ -54,8 +54,12 @@ public class Test {
 		usuario = null;
 		opinion = null;
 		opiniones=null;
+		ord=null;
+		ofertasCerca=null;
+		ofer2=null;
 		cat=null;
 		oferta=null;
+		ofertas=null;
 		tienda=null;
 		tiendas=null;	
 	}
@@ -105,9 +109,8 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesDeBuscarPorNombreEnElFiltroSeleccionaCorrectamente()
 	{
-		LinkedList<Oferta> ofertaPorNombre = new LinkedList<>();
-		ord.getOfertasCercanas().addAll(ofertasCerca);
-		ofertaPorNombre = ord.filtrarNombre("Patatas");
+		LinkedList<Oferta> ofertaPorNombre = new LinkedList<Oferta>();
+		ofertaPorNombre = ord.filtrarNombre(ofertasCerca,"Patatas");
 		
 		assertEquals("Deberia de ser el nombre del parametro",String.valueOf("Patatas"),ofertaPorNombre.element().getProducto());
 		
@@ -116,23 +119,38 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesDeBuscarPorCategoriaEnElFiltroSeleccionaCorrectamente()
 	{
-		LinkedList<Oferta> ofertaPorCategoria = new LinkedList<>();
-		ord.getOfertasCercanas().addAll(ofertasCerca);
-		ofertaPorCategoria = ord.filtrarCategoria(Categorias.ALCOHOLES);
-		System.out.print(ofertaPorCategoria);
+		LinkedList<Oferta> ofertaPorCategoria = new LinkedList<Oferta>();
+		ofertaPorCategoria = ord.filtrarCategoria(ofertasCerca,Categorias.ALCOHOLES);
+		
 		
 		assertNotNull("Deberia de existir la categoria",ofertaPorCategoria.element().getCategoria());
 	}
 	@org.junit.Test
 	public void testDespuesDeBuscarPorPrecioEnElFiltroSeleccionaCorrectamente()
 	{
-		LinkedList<Oferta> ofertaPorPrecio = new LinkedList<>();
-		ord.getOfertasCercanas().addAll(ofertasCerca);
-		ofertaPorPrecio = ord.filtrarPrecio(0.0, 10.0);
-		System.out.print(ofertaPorPrecio);
+		LinkedList<Oferta> ofertaPorPrecio = new LinkedList<Oferta>();
+		ofertaPorPrecio = ord.filtrarPrecio(ofertasCerca,0.0, 10.0);
 		
-		assertTrue("Deberia ser ese precio",4.5==ofertaPorPrecio.element().getPrecio());
+		
+		assertTrue("Deberia ser ese precio",4.5==ofertaPorPrecio.element().getDescuento());
 	}
+	@org.junit.Test
+	public void testDespuesDeBuscarPorTiendaEnElFiltroSeleccionaCorrectamente()
+	{
+		LinkedList<Tienda> tiendaPorNombre = new LinkedList<Tienda>();
+		tiendaPorNombre = ord.filtrarTienda("VERDURAS PETRA");
+		System.out.print(tiendaPorNombre);
+		
+		assertEquals("Deberia ser el nombre del parametro",String.valueOf("VERDURAS PETRA"),tiendaPorNombre.element().getNombre());
+	}
+	
+	/*@org.junit.Test
+	public void testDespuessDeBuscarPorNombreEnElFiltroSeleccionaCorrectamente()
+	{
+		Ordenacion orde = mock(Ordenacion.class);
+		ord.filtrarNombre(ofertasCerca, "Patatas");
+		verify(ord).filtrarNombre(ofertasCerca, "Patatas");
+	} DEBIDO A UN FALLO EN LA CREACIÓN DEL MOCK QUE DESCONOCEMOS COMO ARREGLARLO, DECIDIMOS NO UTILIZARLO PARA LAS PRUEBAS */
 	
 	
 }
