@@ -22,7 +22,7 @@ public class Oferta {
 	public Oferta(String p, double d, Tienda t, double pr, String des, HashSet<Categorias> cat)
 	{
 		this.id_oferta= id;
-		this.producto = p.toUpperCase();
+		this.producto = p;
 		this.descuento = d;
 		this.tienda = t;
 		this.precio = pr;
@@ -162,7 +162,7 @@ public class Oferta {
 		long temp;
 		temp = Double.doubleToLongBits(precio);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
+		result = prime * result + ((producto == null) ? 0 : producto.toUpperCase().hashCode());
 		result = prime * result + ((tienda == null) ? 0 : tienda.hashCode());
 		return result;
 	}
@@ -192,8 +192,8 @@ public class Oferta {
 	}
 
 	public String toString() {
-		String aux = "ID oferta: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
-		+ ". Descuento: " + descuento + ". Descripción: " + descripcion + ". Categorias: " + mostrarCategorias() + ".";
+		String aux = "ID: " + id_oferta + ". Producto: " + producto + ". Precio: " + precio
+		+ ". Descuento: " + descuento + ". Descripcion: " + descripcion + ". " + mostrarCategorias() + ".";
 		if(codigoQR!= null) {
 			aux += "CodigoQR: " + codigoQR + ".";
 		}

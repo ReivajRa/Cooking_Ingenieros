@@ -146,8 +146,8 @@ public class Cliente {
 			posY = -80.0;
 			posX = 25.0;
 		} else {
-			posY = -80.0;
-			posX = 25.0;
+			posY = 52.0;
+			posX = -38.62;
 		}
 	}
 }
