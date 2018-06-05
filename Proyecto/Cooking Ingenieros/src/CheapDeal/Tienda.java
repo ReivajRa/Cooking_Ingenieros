@@ -25,6 +25,7 @@ public class Tienda implements Comparable<Tienda>{
 		ofertas = new TreeMap<Integer, Oferta>();
 		opiniones = new TreeMap<Integer, Opinion>();
 		Tienda.id++;
+		puntuacion = 0;
 		this.posX = posX;
 		this.posY = posY;
 		
@@ -108,13 +109,15 @@ public class Tienda implements Comparable<Tienda>{
 
 	public int anadirOferta(String producto, double desc, double precio, String descrip, HashSet<Categorias> categ) {
 		Oferta of= new Oferta(producto, desc, this , precio, descrip, categ);
-		if(!(ofertas.containsKey(of.hashCode()))) {
+		if(!ofertas.containsKey(of.hashCode())) {
 			ofertas.put(of.hashCode(), of);
+			return of.hashCode();
 		}
-		return of.getId_oferta();
+		System.err.println("La oferta ya existe");
+		return -1;
 	}
 
-	public void quitarOferta(Integer id){
+	public void quitarOferta(int id){
 		ofertas.remove(id);
 	}
 
@@ -131,8 +134,10 @@ public class Tienda implements Comparable<Tienda>{
 			puntuacion += op.getPuntuacion();
 			opiniones.put(op.getUsuario().getId(), op);
 			usu.anadirOp(op);
+			return op.getUsuario().getId();
 		}
-		return op.getId();
+		System.err.println("La opinion ya existe");
+		return -1;
 	}
 	
 	public void eliminarOp(Integer id) {
