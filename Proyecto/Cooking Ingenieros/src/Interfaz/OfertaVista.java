@@ -35,7 +35,7 @@ public class OfertaVista extends JFrame {
 	public static void main(String[] args) {
 		HashSet<Categorias> cat = new HashSet<Categorias>();
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
-		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior");
+		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior", 40.0, 50.0);
 		cat.add(Categorias.MUEBLES);
 		Oferta of = new Oferta("Mesa", 20.0, tienda1, 200.0, "La caña de españa.", cat);
 		OfertaVista frame = new OfertaVista(cliente1 , of);
@@ -135,7 +135,7 @@ public class OfertaVista extends JFrame {
 			}
 		});
 		btnIrATienda.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnIrATienda.setBounds(240, 95, 175, 25);
+		btnIrATienda.setBounds(240, 95, 140, 25);
 		contentPane.add(btnIrATienda);
 		
 		JButton btnOpinar = new JButton("Opinar");

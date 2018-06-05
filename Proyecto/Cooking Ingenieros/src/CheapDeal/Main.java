@@ -4,6 +4,7 @@ import java.util.*;
 
 import Interfaz.Login;
 import Interfaz.OfertaInt;
+import Interfaz.OfertaVista;
 
 
 public class Main {
@@ -61,14 +62,14 @@ public class Main {
 		cat.removeAll(cat);
 		
 		
-		/*cat.add(Categorias.MUEBLES);
-		Oferta of = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
-		of.aniadirOp(cliente1, "De puta pena", 7);
+		cat.add(Categorias.MUEBLES);
+		Oferta oferta = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
+		oferta.aniadirOp(cliente1, "De puta pena", 7);
 		
 		  //Ordenacion ord = new Ordenacion();
  		  //OfertasCercanas = ord.getMaster();
-		OfertaInt obj = new OfertaInt(cliente1, of);
-		obj.setVisible(true);*/
+		OfertaVista obj = new OfertaVista(cliente1, oferta);
+		obj.setVisible(true);
 		
 		int selec = 0;
 		clientes[selec].actualizarUbicacion();
@@ -77,6 +78,8 @@ public class Main {
 		for (Oferta of : OfertasCercanas) {
 			System.out.println(of.toString());
 		}
+		
+		
 		
 	}
 
