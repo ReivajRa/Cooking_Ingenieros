@@ -71,7 +71,7 @@ public class Tienda implements Comparable<Tienda>{
 		return posY;
 	}
 	
-	public double getDistanciaAux() {
+	public double getDistancia() {
 		return distanciaAux;
 	}
 
@@ -201,8 +201,8 @@ public class Tienda implements Comparable<Tienda>{
 
 	
 	public int compareTo(Tienda t) {
-		if(distanciaAux < t.getDistanciaAux()) return -1;
-		if(distanciaAux > t.getDistanciaAux()) return 1;
+		if(distanciaAux < t.getDistancia()) return -1;
+		if(distanciaAux > t.getDistancia()) return 1;
 		return 0;
 	}
 	

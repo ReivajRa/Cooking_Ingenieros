@@ -26,6 +26,7 @@ public class Ordenacion {
 		 
 		 TiendasCercanas.stream().forEach(Tienda->OfertasCercanas.addAll(Tienda.getOfertas().values()));
 	 }
+	 
 	 public LinkedList<Oferta> getOfertasCercanas() {
 		 return OfertasCercanas;
 	 }
@@ -34,29 +35,41 @@ public class Ordenacion {
 		 return TiendasCercanas;
 	 }
 	 
-	 public LinkedList<Oferta> filtrarNombre(String nombre){
+	 public LinkedList<Oferta> filtrarNombre(LinkedList<Oferta> lista, String nombre){
 		 LinkedList<Oferta> OfertasporNombre;
-		 OfertasporNombre = OfertasCercanas.stream()
+		 OfertasporNombre = lista.stream()
 				 .filter(Oferta->Oferta.getProducto().contains(nombre))
 				 .collect(Collectors.toCollection(LinkedList::new));
 		 
 		 return OfertasporNombre;
 	 }
-	 public LinkedList<Oferta> filtrarCategoria(Categorias cat) {
+	 public LinkedList<Oferta> filtrarCategoria(LinkedList<Oferta> lista, Categorias cat) {
 		 LinkedList<Oferta> OfertasporCategoria;
-		 OfertasporCategoria = OfertasCercanas.stream()
+		 OfertasporCategoria = lista.stream()
 				 .filter(Oferta->Oferta.getCategoria().contains(cat))
 				 .collect(Collectors.toCollection(LinkedList::new));
 
 		 return OfertasporCategoria;
 	 }
-	 public LinkedList<Oferta> filtrarPrecio(double min, double max) {
+	 public LinkedList<Oferta> filtrarPrecio(LinkedList<Oferta> lista, double min, double max) {
 		 LinkedList<Oferta> OfertasporPrecio;
-		 OfertasporPrecio = OfertasCercanas.stream()
+		 OfertasporPrecio = lista.stream()
 				 .filter(Oferta->Oferta.getDescuento() >= min && Oferta.getDescuento() <= max)
 				 .collect(Collectors.toCollection(LinkedList::new));
 		 return OfertasporPrecio;
 	 }
+	 
+	 public LinkedList<Oferta> filtrarPuntuacion(LinkedList<Oferta> lista, double min) {
+		 LinkedList<Oferta> OfertasporPrecio;
+		 OfertasporPrecio = lista.stream()
+				 .filter(Oferta->Oferta.getPuntuacion() >= min)
+				 .collect(Collectors.toCollection(LinkedList::new));
+		 return OfertasporPrecio;
+	 }
+	 
+	 
+	 
+	 
 	 public LinkedList<Tienda> filtrarTienda(String nombre) {
 		 LinkedList<Tienda> TiendasPorNombre;
 		 TiendasPorNombre = TiendasCercanas.stream()

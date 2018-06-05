@@ -79,6 +79,10 @@ public class Oferta {
 		return opiniones;
 	}
 	
+	public double getDistancia() {
+		return tienda.getDistancia();
+	}
+	
 	public void setProducto(String producto) {
 		this.producto = producto;
 	}
