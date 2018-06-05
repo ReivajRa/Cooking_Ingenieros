@@ -194,19 +194,19 @@ public class BusquedaInt extends JFrame {
 		
 		JCheckBox chckbxAplicarPuntuacion = new JCheckBox("Aplicar puntuacion");
 		chckbxAplicarPuntuacion.setFont(new Font("Arial", Font.PLAIN, 15));
-		chckbxAplicarPuntuacion.setBounds(648, 280, 146, 23);
+		chckbxAplicarPuntuacion.setBounds(638, 280, 156, 23);
 		contentPane.add(chckbxAplicarPuntuacion);
 		//chckbxAplicarPuntuacion.isSelected();
 		
 		
 		JCheckBox chckbxAplicarCategoria = new JCheckBox("Aplicar categoria");
 		chckbxAplicarCategoria.setFont(new Font("Arial", Font.PLAIN, 15));
-		chckbxAplicarCategoria.setBounds(647, 306, 146, 23);
+		chckbxAplicarCategoria.setBounds(638, 306, 155, 23);
 		contentPane.add(chckbxAplicarCategoria);
 		
 		JCheckBox chckbxAplicarPrecio = new JCheckBox("Aplicar precio");
 		chckbxAplicarPrecio.setFont(new Font("Arial", Font.PLAIN, 15));
-		chckbxAplicarPrecio.setBounds(647, 332, 146, 23);
+		chckbxAplicarPrecio.setBounds(638, 332, 155, 23);
 		contentPane.add(chckbxAplicarPrecio);
 		
 		//DefaultTableModel aux = dtm;

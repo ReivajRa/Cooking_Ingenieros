@@ -63,7 +63,7 @@ public class OpinionTnd extends JFrame {
 		dtrpnOpinion.setBounds(12, 125, 770, 250);
 		contentPane.add(dtrpnOpinion);
 		
-		JLabel lblOpinin = new JLabel("Opinión:");
+		JLabel lblOpinin = new JLabel("Opinion:");
 		lblOpinin.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblOpinin.setBounds(12, 96, 70, 16);
 		contentPane.add(lblOpinin);

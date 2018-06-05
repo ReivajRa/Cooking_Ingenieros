@@ -59,7 +59,7 @@ public class TiendaInt extends JFrame {
 					Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior", 40.0, 50.0);
 					cat.add(Categorias.MUEBLES);
 					tienda1.anadirOferta("Mesa", 20.0, 400, "Una mesa muy bonita", cat);
-					Oferta of = new Oferta("Mesa", 20.0, tienda1, 200.0, "La caña de españa.", cat);
+					Oferta of = new Oferta("Mesa", 20.0, tienda1, 200.0, "La caï¿½a de espaï¿½a.", cat);
 					of.aniadirOp(cliente1, "Caaa", 10);
 					tienda1.aniadirOp(cliente1, "Locoo esto funciona", 10);
 					TiendaInt frame = new TiendaInt(cliente1, tienda1, null);
@@ -89,7 +89,7 @@ public class TiendaInt extends JFrame {
 		lblNombre.setBounds(10, 11, 350, 32);
 		contentPane.add(lblNombre);
 		
-		JLabel lblDireccin = new JLabel("Direcci\u00F3n: " + tienda.getDireccion());
+		JLabel lblDireccin = new JLabel("Direccion: <dynamic>");
 		lblDireccin.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblDireccin.setBounds(10, 54, 350, 32);
 		contentPane.add(lblDireccin);
