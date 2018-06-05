@@ -3,6 +3,7 @@ package Test;
 import CheapDeal.*;
 
 
+
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 import org.junit.*;
@@ -18,6 +19,7 @@ public class Test {
 	LinkedList<Oferta> ofertasCerca;
 	Map<Integer,Opinion> opiniones;
 	Oferta oferta;
+	Oferta ofer2;
 	Map<Integer,Oferta> ofertas;
 	Tienda tienda;
 	Map<Integer,Tienda> tiendas;
@@ -31,13 +33,19 @@ public class Test {
 		//opinion = new Opinion(usuario, "Es una farsa",1.0, oferta, tienda);
 		opiniones = new TreeMap<>();
 		cat.add(Categorias.VERDURAS_HORTALIZAS);
-		oferta = new Oferta("Patatas", 15.0, tienda, 5.0, "Kilos de patatas ",cat);
+		oferta = new Oferta("Patatas", 10.0, tienda, 5.0, "Kilos de patatas ",cat);
 		cat.removeAll(cat);
+		cat.add(Categorias.ALCOHOLES);
+		ofer2 = new Oferta("Whisky",20.0,tienda,15.0,"Whisky de malta", cat);
+		cat.remove(cat);
 		ofertas = new TreeMap<>();
 		tienda = new Tienda("Verduras Petra", "Av velazquez", "Petra", 0.0, 0.0);
-		tiendas = new TreeMap<>();  
+		tiendas = new TreeMap<>();
+		tiendas.put(tienda.getId_tienda(), tienda);
+		ord = new Ordenacion(tiendas, usuario.getPosY(), usuario.getPosX());
 		ofertasCerca= new LinkedList<Oferta>();
 		ofertasCerca.add(oferta);
+		ofertasCerca.add(ofer2);
 		
 	}
 	
@@ -69,6 +77,7 @@ public class Test {
 		cat.removeAll(cat);
 		
 		assertNotNull("Deberia existir la oferta",tienda.getOfertas().get(id));
+		//Falta modificar el return de anadirOferta de la misma manera que aniadirOp de la clase Oferta.
 			
 	}
 	
@@ -96,12 +105,35 @@ public class Test {
 	@org.junit.Test
 	public void testDespuesDeBuscarPorNombreEnElFiltroSeleccionaCorrectamente()
 	{
-		Ordenacion ord = mock(Ordenacion.class);
-		ord = new Ordenacion(tiendas, usuario.getPosY(), usuario.getPosX());
+		LinkedList<Oferta> ofertaPorNombre = new LinkedList<>();
 		ord.getOfertasCercanas().addAll(ofertasCerca);
-		ord.filtrarNombre("Patatas");
-		verify(ord).filtrarNombre("Patatas");
+		ofertaPorNombre = ord.filtrarNombre("Patatas");
+		
+		assertEquals("Deberia de ser el nombre del parametro",String.valueOf("Patatas"),ofertaPorNombre.element().getProducto());
+		
 	}
+	
+	@org.junit.Test
+	public void testDespuesDeBuscarPorCategoriaEnElFiltroSeleccionaCorrectamente()
+	{
+		LinkedList<Oferta> ofertaPorCategoria = new LinkedList<>();
+		ord.getOfertasCercanas().addAll(ofertasCerca);
+		ofertaPorCategoria = ord.filtrarCategoria(Categorias.ALCOHOLES);
+		System.out.print(ofertaPorCategoria);
+		
+		assertNotNull("Deberia de existir la categoria",ofertaPorCategoria.element().getCategoria());
+	}
+	@org.junit.Test
+	public void testDespuesDeBuscarPorPrecioEnElFiltroSeleccionaCorrectamente()
+	{
+		LinkedList<Oferta> ofertaPorPrecio = new LinkedList<>();
+		ord.getOfertasCercanas().addAll(ofertasCerca);
+		ofertaPorPrecio = ord.filtrarPrecio(0.0, 10.0);
+		System.out.print(ofertaPorPrecio);
+		
+		assertTrue("Deberia ser ese precio",4.5==ofertaPorPrecio.element().getPrecio());
+	}
+	
 	
 }
 	
