@@ -98,7 +98,7 @@ public class TiendasInt extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				TiendaInt obj = new TiendaInt(cliente, tiendasCercanas.get(table.getSelectedRowCount()-1), ord);
+				TiendaInt obj = new TiendaInt(cliente, tiendasCercanas.get(table.getSelectedRow()), ord);
 				obj.setVisible(true);
 				dispose();
 			}

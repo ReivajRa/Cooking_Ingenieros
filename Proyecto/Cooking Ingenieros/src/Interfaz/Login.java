@@ -96,7 +96,6 @@ public class Login extends JFrame {
 						encontrado = true;
 						dispose();
 						break;
-					
 					}
 					
 				}

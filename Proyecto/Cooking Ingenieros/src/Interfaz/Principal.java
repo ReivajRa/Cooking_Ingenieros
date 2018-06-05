@@ -139,7 +139,7 @@ public class Principal extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				OfertaVista obj = new OfertaVista(cliente, ofertasCercanas.get(table.getSelectedRowCount()-1), ord);
+				OfertaVista obj = new OfertaVista(cliente, ofertasCercanas.get(table.getSelectedRow()), ord);
 				obj.setVisible(true);
 				dispose();
 			}
@@ -167,7 +167,7 @@ public class Principal extends JFrame {
 		
 		for(Oferta o : ofertasCercanas) {
 			dtm.addRow(new Object[] { o.getProducto(), o.getDescuento(), o.getTienda().getNombre(),	
-			o.getPuntuacion(), o.getDistancia()});
+			o.getPuntuacion(), o.getTienda().getDistancia()});
 		}
 		scrollPane.setViewportView(table);
 		

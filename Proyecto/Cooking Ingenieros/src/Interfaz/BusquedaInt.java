@@ -163,7 +163,7 @@ public class BusquedaInt extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				OfertaVista obj = new OfertaVista(cliente, ofertas.get(table.getSelectedRowCount()-1), ord);
+				OfertaVista obj = new OfertaVista(cliente, ofertas.get(table.getSelectedRow()), ord);
 				obj.setVisible(true);
 				dispose();
 			}
