@@ -57,4 +57,11 @@ public class Ordenacion {
 				 .collect(Collectors.toCollection(LinkedList::new));
 		 return OfertasporPrecio;
 	 }
+	 public LinkedList<Tienda> filtrarTienda(String nombre) {
+		 LinkedList<Tienda> TiendasPorNombre;
+		 TiendasPorNombre = TiendasCercanas.stream()
+				 .filter(Tienda->Tienda.getNombre().contains(nombre))
+				 .collect(Collectors.toCollection(LinkedList::new));
+		 return TiendasPorNombre;
+	 }
 }

@@ -69,7 +69,6 @@ public class Test {
 		cat.removeAll(cat);
 		
 		assertNotNull("Deberia existir la oferta",tienda.getOfertas().get(id));
-		//Falta modificar el return de anadirOferta de la misma manera que aniadirOp de la clase Oferta.
 			
 	}
 	
