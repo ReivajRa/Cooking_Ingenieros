@@ -50,22 +50,13 @@ public class Main {
 		int aux;
 		//3 tiendas de prueba
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nº 13", "Roberto junior", 34.1235, 75.00);
-		tienda1.aniadirOp(cliente11, "Timadores!!", 2);
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro", 50.0, 50.0);
-		tienda2.aniadirOp(cliente9, "Muy buena moda, aunque la electorica no es de mucha calidad", 7);
 		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nº 4", "Luke Andador del cielo", 0.00, 0.00);
-		tienda3.aniadirOp(cliente2, "Muy buena calidad precio", 6);
-		tienda3.aniadirOp(cliente4, "Las instrucciones son imposibles!", 5);
-		Tienda tienda4 = new Tienda("SpaceX","Camino Buzz Lightyear 7", "Francis Cano", 10.00, 10.00);
-		tienda4.aniadirOp(cliente8, "Mi cohete gasta mucho combustible, por lo demas perfecto", 7);
-		Tienda tienda5 = new Tienda("El Rancho Tecnologico","Calle Rancho Fracaxo 15", "Pinchecu Liao", 20.00, 25.00);
-		tienda5.aniadirOp(cliente2, "Es la mejor tienda de electronica de la zona ", 9);
-		Tienda tienda6 = new Tienda("Fruteria Pera", "Calle Parque Jurasico 3", "Adolfo Llarte", 60.0, 40.0);
-		tienda6.aniadirOp(cliente5, "MUy ricas las peras jejeje, me han dado platano macho muy bueno tambien", 8 );
 		Tienda tienda7 = new Tienda("Pepapig", "Calle matadero 13", "Chicote", 49.1235, 32.00);
-		tienda7.aniadirOp(cliente7, "Te atienden muy muy bien", 10);
 		Tienda tienda8 = new Tienda("Kiosko paco","Pesaito frito N 42", "Lucia Buenavista", 80.233, 10.00);
-		tienda8.aniadirOp(cliente11, "Los dulces me sabian a frutos secos", 3);
+		Tienda tienda4 = new Tienda("SpaceX","Camino Buzz Lightyear 7", "Francis Cano", 10.00, 10.00);
+		Tienda tienda5 = new Tienda("El Rancho Tecnologico","Calle Rancho Fracaxo 15", "Pinchecu Liao", 20.00, 25.00);
+		Tienda tienda6 = new Tienda("Fruteria Pera", "Calle Parque Jurasico 3", "Adolfo Llarte", 60.0, 40.0);
 		
 		tiendas.put(tienda1.getId_tienda(), tienda1);
 		tiendas.put(tienda2.getId_tienda(), tienda2);
@@ -111,7 +102,14 @@ public class Main {
 		tienda3.anadirOferta("Sofa de piel", 1040.00, 2599.00, 
 				"Sofa de color negro mate de 3 plazas y de maxima calidad", cat );
 		cat.removeAll(cat);
-	
+		
+		
+		/*cat.add(Categorias.MUEBLES);
+		Oferta oferta = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
+		oferta.aniadirOp(cliente1, "De puta pena", 7);
+		cat.removeAll(cat);*/
+		//Se pierde?
+		
 		cat.add(Categorias.CHARCUTERIA);
 		aux = tienda7.anadirOferta("Bacon fresco", 8.99, 15.99, "El mejor bacon de todo Villanueva", cat);
 		tienda7.getOfertas().get(aux).aniadirOp(cliente12, "Buenisimo para el bocadillo bacon queso 10/10 ", 10);
