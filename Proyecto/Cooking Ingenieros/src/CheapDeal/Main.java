@@ -7,7 +7,7 @@ import Interfaz.OfertaVista;
 
 
 public class Main {
-	public static Cliente clientes[] = new Cliente[2];
+	public static Cliente clientes[] = new Cliente[11];
 	//public static Ordenacion ords[] = new Ordenacion[2];
 	public static Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
 	
@@ -20,50 +20,82 @@ public class Main {
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","1234567","pepeguapo@gmail.com");
-		clientes[0] = cliente1;
-		clientes[1] = cliente2;
-		clientes[0].actualizarUbicacion();
-		clientes[1].actualizarUbicacion();
 		
 		Cliente cliente4 = new Cliente("Jeff Bezos","1234567","pepeguapo@gmail.com");
 		Cliente cliente5 = new Cliente("Mr. Googler","12345","juanito@gmail.com");
 		Cliente cliente6 = new Cliente("Rosa","1234567","pepeguapo@gmail.com");
 		Cliente cliente7 = new Cliente("Manu","12345","juanito@gmail.com");
 		Cliente cliente8 = new Cliente("John","1234567","pepeguapo@gmail.com");
+		Cliente cliente9 = new Cliente("Alberto","fst_alberto","juanito@gmail.com");
+	 	Cliente cliente10 = new Cliente("Javi","fst_javi","pepeguapo@gmail.com");
+	 	Cliente cliente11 = new Cliente("Bonifacio","casaazul","juanito@gmail.com");
+		Cliente cliente12 = new Cliente("Ctangana","billetes","pepeguapo@gmail.com");
+		clientes[0] = cliente1;
+		clientes[1] = cliente2;
+		clientes[2] = cliente4;
+		clientes[3] = cliente5;
+		clientes[4] = cliente6;
+		clientes[5] = cliente7;
+		clientes[6] = cliente8;
+		clientes[7] = cliente9;
+		clientes[8] = cliente10;
+		clientes[9] = cliente11;
+		clientes[10] = cliente12;
+		clientes[0].actualizarUbicacion();
+		clientes[1].actualizarUbicacion();
+		clientes[5].actualizarUbicacion();
 		
 		
 		
-		
+		int aux;
 		//3 tiendas de prueba
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nº 13", "Roberto junior", 34.1235, 75.00);
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro", 50.0, 50.0);
 		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nº 4", "Luke Andador del cielo", 0.00, 0.00);
+		Tienda tienda7 = new Tienda("Pepapig", "Calle matadero 13", "Chicote", 49.1235, 32.00);
+		Tienda tienda8 = new Tienda("Kiosko paco","Pesaito frito N 42", "Lucia Buenavista", 80.233, 10.00);
+		Tienda tienda4 = new Tienda("SpaceX","Camino Buzz Lightyear 7", "Francis Cano", 10.00, 10.00);
+		Tienda tienda5 = new Tienda("El Rancho Tecnologico","Calle Rancho Fracaxo 15", "Pinchecu Liao", 20.00, 25.00);
+		Tienda tienda6 = new Tienda("Fruteria Pera", "Calle Parque Jurasico 3", "Adolfo Llarte", 60.0, 40.0);
+		
 		tiendas.put(tienda1.getId_tienda(), tienda1);
 		tiendas.put(tienda2.getId_tienda(), tienda2);
 		tiendas.put(tienda3.getId_tienda(), tienda3);
+		tiendas.put(tienda4.getId_tienda(), tienda4);
+		tiendas.put(tienda5.getId_tienda(), tienda5);
+		tiendas.put(tienda6.getId_tienda(), tienda6);
+		tiendas.put(tienda7.getId_tienda(), tienda7);
+		tiendas.put(tienda8.getId_tienda(), tienda8);
+		
 		cat.add(Categorias.ELECTRODOMESTICOS);
-		tienda1.anadirOferta("Termo mix", 1800.00, 2999.00, 
+		aux = tienda1.anadirOferta("Termo mix", 1800.00, 2999.00, 
 				"Maquina de cocinar del siglo 22 increiblemente util, Doraemon approves", cat);
+		tienda1.getOfertas().get(aux).aniadirOp(cliente7, "Cuando vas to borracho te cocina que da gusto", 8);
+		tienda1.getOfertas().get(aux).aniadirOp(cliente5, "Me ha roto la cocina esta mierda", 2);
 		cat.removeAll(cat);
 		
 		cat.add(Categorias.SONIDO);
-		tienda2.anadirOferta("Auriculares SONY", 30.00, 60.00, 
+		aux = tienda2.anadirOferta("Auriculares SONY", 30.00, 60.00, 
 				"Auriculares con sonido envolvente y maxima calidad", cat );
+		tienda2.getOfertas().get(aux).aniadirOp(cliente1, "Se escuchan muy muy bien", 9);
 		cat.removeAll(cat);
 		
 		cat.add(Categorias.ROPA);
-		tienda2.anadirOferta("Camiseta Nike", 12.00, 15.95, 
+		aux = tienda2.anadirOferta("Camiseta Nike", 12.00, 15.95, 
 				"Camiseta marca Nike con tejido ultratranspirable y elasticidad maxima", cat );
+		tienda2.getOfertas().get(aux).aniadirOp(cliente2, "No hace irritacion y se corre de puta madre", 7);
 		cat.removeAll(cat);
 		
 		cat.add(Categorias.MUEBLES);
-		tienda3.anadirOferta("Mesa teka", 420.00, 599.00, 
+		aux = tienda3.anadirOferta("Mesa teka", 420.00, 599.00, 
 				"Mesa de 8 personas con madera de pino moderna", cat );
+		tienda3.getOfertas().get(aux).aniadirOp(cliente4, "Muy robusta", 3);
 		cat.removeAll(cat);
 		
 		cat.add(Categorias.MUEBLES);
-		tienda3.anadirOferta("Sillon IkeaBasic", 69.30, 99.00, 
+		 aux = tienda3.anadirOferta("Sillon IkeaBasic", 69.30, 99.00, 
 				"Sillon de interior de madera contrachapada de color negro", cat );
+		tienda3.getOfertas().get(aux).aniadirOp(cliente4, "MUY comodo, me he quedado frito en el vaya ", 10);
 		cat.removeAll(cat);
 		
 		cat.add(Categorias.MUEBLES);
@@ -78,19 +110,29 @@ public class Main {
 		cat.removeAll(cat);*/
 		//Se pierde?
 		
+		cat.add(Categorias.CHARCUTERIA);
+		aux = tienda7.anadirOferta("Bacon fresco", 8.99, 15.99, "El mejor bacon de todo Villanueva", cat);
+		tienda7.getOfertas().get(aux).aniadirOp(cliente12, "Buenisimo para el bocadillo bacon queso 10/10 ", 10);
+		cat.removeAll(cat);
 		
+		cat.add(Categorias.APERITIVOS);
+		aux = tienda8.anadirOferta("Fresas", 2.50,5.00 , "Fresas con nata con chocolate y barquillos de nutella", cat);
+		tienda8.getOfertas().get(aux).aniadirOp(cliente7, "Estan buenisimas, aunque un poco empalagosas", 6);
+		cat.removeAll(cat);
 		
-		Tienda tienda4 = new Tienda("SpaceX","Camino Buzz Lightyear 7", "Francis Cano", 10.00, 10.00);
-		Tienda tienda5 = new Tienda("El Rancho Tecnologico","Calle Rancho Fracaxo 15", "Pinchecu Liao", 20.00, 25.00);
-		Tienda tienda6 = new Tienda("Fruteria Pera", "Calle Parque Jurasico 3", "Adolfo Llarte", 60.0, 40.0);
-
-		tiendas.put(tienda4.getId_tienda(), tienda4);
-		tiendas.put(tienda5.getId_tienda(), tienda5);
-		tiendas.put(tienda6.getId_tienda(), tienda6);
+		cat.add(Categorias.CHARCUTERIA);
+	    aux = tienda8.anadirOferta("Jamon Serrano", 79.00, 119.00, "Jamon serrano iberico de pata negra del Villanueva", cat);
+	    tienda8.getOfertas().get(aux).aniadirOp(cliente11, "Se funde en la boca", 9);
+		cat.removeAll(cat);
 		
+		cat.add(Categorias.DULCE);
+		    aux = tienda8.anadirOferta("Golosinas", 0.50, 120.00, "Golosinas de queso del himalaya", cat);
+		    cat.removeAll(cat);
 		
-		
-		int aux;
+		cat.add(Categorias.ROPA);
+		aux = tienda2.anadirOferta("Traje ", 119.00, 149.00, "Traje de punto gorgio armani de increible calite", cat);
+		tienda2.getOfertas().get(aux).aniadirOp(cliente12, "Un traje muy bueno para irse de fiesta y perder la tarjeta de credito", 7);
+		cat.removeAll(cat);
 
 	    cat.add(Categorias.TRANSPORTE);
 	    tienda4.anadirOferta("Queroseno", 80.00, 150.00,
