@@ -109,7 +109,7 @@ public class Login extends JFrame {
 		btnNewButton.setBounds(220, 324, 180, 23);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblCookingIngenieros = new JLabel("Cooking Ingenieros");
+		JLabel lblCookingIngenieros = new JLabel("Cheap Deal");
 		lblCookingIngenieros.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCookingIngenieros.setFont(new Font("Arial", Font.PLAIN, 22));
 		lblCookingIngenieros.setBounds(144, 108, 281, 50);

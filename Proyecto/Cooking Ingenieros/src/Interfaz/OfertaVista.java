@@ -88,12 +88,12 @@ public class OfertaVista extends JFrame {
 		lblNombre.setBounds(10, 11, 774, 31);
 		contentPane.add(lblNombre);
 		
-		JLabel lblPrecio = new JLabel("Precio: " + oferta.getPrecio());
+		JLabel lblPrecio = new JLabel("Precio original: " + oferta.getPrecio());
 		lblPrecio.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblPrecio.setBounds(10, 53, 220, 31);
 		contentPane.add(lblPrecio);
 		
-		JLabel lblDescuento = new JLabel("Descuento: " + oferta.getDescuento());
+		JLabel lblDescuento = new JLabel("Precio con descuento: " + oferta.getDescuento());
 		lblDescuento.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblDescuento.setBounds(240, 53, 220, 31);
 		contentPane.add(lblDescuento);

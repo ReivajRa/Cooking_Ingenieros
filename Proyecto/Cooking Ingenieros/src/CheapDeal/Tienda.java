@@ -19,9 +19,9 @@ public class Tienda implements Comparable<Tienda>{
 
 	public Tienda(String nom, String dir, String due, double posY, double posX){
 		id_tienda = id;
-		nombre = nom.toUpperCase();
+		nombre = nom;
 		direccion = dir;
-		duenio = due.toUpperCase();
+		duenio = due;
 		ofertas = new TreeMap<Integer, Oferta>();
 		opiniones = new TreeMap<Integer, Opinion>();
 		Tienda.id++;

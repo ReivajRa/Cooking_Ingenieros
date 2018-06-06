@@ -33,7 +33,7 @@ public class PerfilInt extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private String[] cabecera = {"Usuario", "Mensaje" , "Puntacion"};
+	private String[] cabecera = {"Oferta", "Mensaje" , "Puntacion"};
 
 
 	/**
@@ -134,7 +134,7 @@ public class PerfilInt extends JFrame {
 		table.getTableHeader().setReorderingAllowed(false);
 		
 		for(Opinion o : opiniones) {
-			dtm.addRow(new Object[] { o.getUsuario().getUsuario(), o.getMensaje(), 
+			dtm.addRow(new Object[] { o.getOferta().getProducto(), o.getMensaje(), 
 			o.getPuntuacion()});
 		}
 		

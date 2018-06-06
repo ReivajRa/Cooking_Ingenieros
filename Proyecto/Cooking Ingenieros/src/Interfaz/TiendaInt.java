@@ -89,7 +89,7 @@ public class TiendaInt extends JFrame {
 		lblNombre.setBounds(10, 11, 350, 32);
 		contentPane.add(lblNombre);
 		
-		JLabel lblDireccin = new JLabel("Direccion: <dynamic>");
+		JLabel lblDireccin = new JLabel("Direccion: " + tienda.getDireccion());
 		lblDireccin.setFont(new Font("Arial", Font.PLAIN, 15));
 		lblDireccin.setBounds(10, 54, 350, 32);
 		contentPane.add(lblDireccin);

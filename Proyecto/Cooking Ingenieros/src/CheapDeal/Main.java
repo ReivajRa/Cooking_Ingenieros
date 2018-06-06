@@ -72,10 +72,10 @@ public class Main {
 		cat.removeAll(cat);
 		
 		
-		cat.add(Categorias.MUEBLES);
+		/*cat.add(Categorias.MUEBLES);
 		Oferta oferta = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
 		oferta.aniadirOp(cliente1, "De puta pena", 7);
-		cat.removeAll(cat);
+		cat.removeAll(cat);*/
 		//Se pierde?
 		
 		
