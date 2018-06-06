@@ -7,7 +7,7 @@ import Interfaz.OfertaVista;
 
 
 public class Main {
-	public static Cliente clientes[] = new Cliente[10];
+	public static Cliente clientes[] = new Cliente[2];
 	//public static Ordenacion ords[] = new Ordenacion[2];
 	public static Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
 	
@@ -20,38 +20,27 @@ public class Main {
 		//2 cliente de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","1234567","pepeguapo@gmail.com");
-		Cliente cliente4 = new Cliente("JeffBezos","1234567","pepeguapo@gmail.com");
+		clientes[0] = cliente1;
+		clientes[1] = cliente2;
+		clientes[0].actualizarUbicacion();
+		clientes[1].actualizarUbicacion();
+		
+		Cliente cliente4 = new Cliente("Jeff Bezos","1234567","pepeguapo@gmail.com");
 		Cliente cliente5 = new Cliente("Mr. Googler","12345","juanito@gmail.com");
 		Cliente cliente6 = new Cliente("Rosa","1234567","pepeguapo@gmail.com");
 		Cliente cliente7 = new Cliente("Manu","12345","juanito@gmail.com");
 		Cliente cliente8 = new Cliente("John","1234567","pepeguapo@gmail.com");
-		clientes[0] = cliente1;
-		clientes[1] = cliente2;
-		clientes[2] = cliente4;
-		clientes[3] = cliente5;
-		clientes[4] = cliente6;
-		clientes[5] = cliente7;
-		clientes[6] = cliente8;
-		clientes[0].actualizarUbicacion();
-		clientes[1].actualizarUbicacion();
+		
 		
 		
 		
 		//3 tiendas de prueba
-		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nï¿½ 13", "Roberto junior", 34.1235, 75.00);
+		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nº 13", "Roberto junior", 34.1235, 75.00);
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro", 50.0, 50.0);
-		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nï¿½ 4", "Luke Andador del cielo", 0.00, 0.00);
-		Tienda tienda4 = new Tienda("SpaceX","Camino Buzz Lightyear 7", "Francis Cano", 10.00, 10.00);
-		Tienda tienda5 = new Tienda("El Rancho Tecnologico","Calle Rancho Fracaxo 15", "Pinchecu Liao", 20.00, 25.00);
-		Tienda tienda6 = new Tienda("Fruteria Pera", "Calle Parque Jurasico 3", "Adolfo Llarte", 60.0, 40.0);
+		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nº 4", "Luke Andador del cielo", 0.00, 0.00);
 		tiendas.put(tienda1.getId_tienda(), tienda1);
 		tiendas.put(tienda2.getId_tienda(), tienda2);
 		tiendas.put(tienda3.getId_tienda(), tienda3);
-		tiendas.put(tienda4.getId_tienda(), tienda4);
-		tiendas.put(tienda5.getId_tienda(), tienda5);
-		tiendas.put(tienda6.getId_tienda(), tienda6);
-		
-		
 		cat.add(Categorias.ELECTRODOMESTICOS);
 		tienda1.anadirOferta("Termo mix", 1800.00, 2999.00, 
 				"Maquina de cocinar del siglo 22 increiblemente util, Doraemon approves", cat);
@@ -89,6 +78,18 @@ public class Main {
 		cat.removeAll(cat);*/
 		//Se pierde?
 		
+		
+		
+		Tienda tienda4 = new Tienda("SpaceX","Camino Buzz Lightyear 7", "Francis Cano", 10.00, 10.00);
+		Tienda tienda5 = new Tienda("El Rancho Tecnologico","Calle Rancho Fracaxo 15", "Pinchecu Liao", 20.00, 25.00);
+		Tienda tienda6 = new Tienda("Fruteria Pera", "Calle Parque Jurasico 3", "Adolfo Llarte", 60.0, 40.0);
+
+		tiendas.put(tienda4.getId_tienda(), tienda4);
+		tiendas.put(tienda5.getId_tienda(), tienda5);
+		tiendas.put(tienda6.getId_tienda(), tienda6);
+		
+		
+		
 		int aux;
 
 	    cat.add(Categorias.TRANSPORTE);
@@ -111,9 +112,8 @@ public class Main {
 	    
 	    
 	    cat.add(Categorias.SONIDO);
-	    aux = tienda5.anadirOferta("Pixel EarBuds", 99.00, 159.00, "Ahora con Google Assitant en espaï¿½ol", cat);
+	    aux = tienda5.anadirOferta("Pixel EarBuds", 99.00, 159.00, "Ahora con Google Assitant en español", cat);
 	    tienda5.getOfertas().get(aux).aniadirOp(cliente5, "Pegan un parrao de la hostia", 10);
-	    tienda5.getOfertas().get(aux).aniadirOp(cliente6, "No funciona muy bien y tiene muchos bugs", 2);
 	    cat.removeAll(cat);
 
 	    cat.add(Categorias.ILUMINACION);
@@ -132,7 +132,7 @@ public class Main {
 	    cat.removeAll(cat);
 
 	    cat.add(Categorias.FRUTA);
-	    aux = tienda6.anadirOferta("Pepinos de Africa", 2.00, 3.00, "Tamaï¿½o extralargo", cat);
+	    aux = tienda6.anadirOferta("Pepinos de Africa", 2.00, 3.00, "Tamaño extralargo", cat);
 	    tienda6.getOfertas().get(aux).aniadirOp(cliente8, "Impresionante no pensaba que fuesen tan grandes de verdad", 7);
 	    cat.removeAll(cat);
 		
