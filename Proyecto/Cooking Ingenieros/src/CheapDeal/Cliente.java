@@ -154,3 +154,42 @@ public class Cliente {
 		}
 	}
 }
+/*
+ *  Cliente cliente9 = new Cliente("Alberto","fst_alberto","juanito@gmail.com");
+ 	Cliente cliente10 = new Cliente("Javi","fst_javi","pepeguapo@gmail.com");
+ 	Cliente cliente11 = new Cliente("Bonifacio","casaazul","juanito@gmail.com");
+	Cliente cliente12 = new Cliente("Ctangana","billetes","pepeguapo@gmail.com");
+	Tienda tienda7 = new Tienda("Pepapig", "Calle matadero 13", "Chicote", 49.1235, 32.00);
+	Tienda tienda8 = new Tienda("Kiosko paco","Pesaito frito N 42", "Lucia Buenavista", 80.233, 10.00);
+	clientes[7] = cliente9;
+	clientes[8] = cliente10;
+	clientes[9] = cliente11;
+	clientes[10] = cliente12;
+	tiendas.put(tienda7.getId_tienda(), tienda7);
+	tiendas.put(tienda8.getId_tienda(), tienda8);
+	
+	cat.add(Categorias.CHARCUTERIA);
+	aux = tienda7.anadirOferta("Bacon fresco", 8.99, 15.99, "El mejor bacon de todo Villanueva", cat);
+	tienda7.getOfertas().get(aux).aniadirOp(cliente12, "Buenisimo para el bocadillo bacon queso 10/10 ", 10);
+	cat.removeAll(cat);
+	
+	cat.add(Categorias.APERITIVOS);
+	aux = tienda8.anadirOferta("Fresas", 2.50,5.00 , "Fresas con nata con chocolate y barquillos de nutella", cat);
+	tienda8.getOfertas().get(aux).aniadirOp(cliente7, "Estan buenisimas, aunque un poco empalagosas", 6);
+	cat.removeAll(cat);
+	
+	cat.add(Categorias.CHARCUTERIA);
+    aux = tienda8.anadirOferta("Jamon Serrano", 79.00, 119.00, "Jamon serrano iberico de pata negra del Villanueva", cat);
+    tienda8.getOfertas().get(aux).aniadirOp(cliente11, "Se funde en la boca", 9);
+	cat.removeAll(cat);
+	
+	cat.add(Categorias.DULCE);
+	    aux = tienda8.anadirOferta("Golosinas", 0.50, 120.00, "Golosinas de queso del himalaya", cat);
+	    cat.removeAll(cat);
+	
+	cat.add(Categorias.ROPA);
+	aux = tienda2.anadirOferta("Traje ", 119.00, 149.00, "Traje de punto gorgio armani de increible calite", cat);
+	tienda2.getOfertas().get(aux).aniadirOp(cliente12, "Un traje muy bueno para irse de fiesta y perder la tarjeta de credito", 7);
+	cat.removeAll(cat);
+		
+		*/
