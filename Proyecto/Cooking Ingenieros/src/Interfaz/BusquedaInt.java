@@ -228,8 +228,6 @@ public class BusquedaInt extends JFrame {
 					ofertas = ord.filtrarCategoria(ofertas, (Categorias) comboBox.getSelectedItem());
 				}
 				if(chckbxAplicarPrecio.isSelected()) {
-					System.out.println((Integer)spinner_1.getValue());
-					System.out.println((Integer)spinner.getValue());
 					ofertas = ord.filtrarPrecio(ofertas, (Integer)spinner_1.getValue(), (Integer) spinner.getValue());
 				}
 				for(Oferta o : ofertas) {

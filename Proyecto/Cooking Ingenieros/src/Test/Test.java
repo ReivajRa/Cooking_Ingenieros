@@ -138,10 +138,10 @@ public class Test {
 	public void testDespuesDeBuscarPorTiendaEnElFiltroSeleccionaCorrectamente()
 	{
 		LinkedList<Tienda> tiendaPorNombre = new LinkedList<Tienda>();
-		tiendaPorNombre = ord.filtrarTienda("VERDURAS PETRA");
+		tiendaPorNombre = ord.filtrarTienda("Verduras Petra");
 		System.out.print(tiendaPorNombre);
 		
-		assertEquals("Deberia ser el nombre del parametro",String.valueOf("VERDURAS PETRA"),tiendaPorNombre.element().getNombre());
+		assertEquals("Deberia ser el nombre del parametro",String.valueOf("Verduras Petra"),tiendaPorNombre.element().getNombre());
 	}
 	
 	/*@org.junit.Test

@@ -33,7 +33,7 @@ public class PerfilInt extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private String[] cabecera = {"Oferta", "Mensaje" , "Puntacion"};
+	private String[] cabecera = {"Tienda", "Oferta", "Mensaje" , "Puntacion"};
 
 
 	/**
@@ -127,15 +127,26 @@ public class PerfilInt extends JFrame {
 		table.setModel(dtm);
 		
 		TableColumnModel columnModel = table.getColumnModel();
-		columnModel.getColumn(0).setPreferredWidth(50);
-		columnModel.getColumn(1).setPreferredWidth(550);
-		columnModel.getColumn(2).setPreferredWidth(10);
+		columnModel.getColumn(0).setPreferredWidth(60);
+		columnModel.getColumn(1).setPreferredWidth(60);
+		columnModel.getColumn(2).setPreferredWidth(500);
+		columnModel.getColumn(3).setPreferredWidth(10);
 		table.setRowHeight(40);
 		table.getTableHeader().setReorderingAllowed(false);
 		
 		for(Opinion o : opiniones) {
-			dtm.addRow(new Object[] { o.getOferta().getProducto(), o.getMensaje(), 
-			o.getPuntuacion()});
+			if(o.getOferta() != null){
+				dtm.addRow(new Object[] {o.getTienda().getNombre(), o.getOferta().getProducto(), o.getMensaje(), 
+				o.getPuntuacion()});
+				
+			} else {
+				dtm.addRow(new Object[] { o.getTienda().getNombre(), "", o.getMensaje(), 
+				o.getPuntuacion()});
+			}
+			
+			
+			
+			
 		}
 		
 		

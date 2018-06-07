@@ -3,21 +3,16 @@ package CheapDeal;
 import java.util.*;
 
 import Interfaz.Login;
-import Interfaz.OfertaVista;
 
 
 public class Main {
 	public static Cliente clientes[] = new Cliente[11];
-	//public static Ordenacion ords[] = new Ordenacion[2];
 	public static Map<Integer,Tienda> tiendas = new HashMap<Integer, Tienda>();
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//MAPA PARA ORDENACION DE OFERTAS
 		HashSet<Categorias> cat = new HashSet<Categorias>();
-		//LinkedList<Oferta> OfertasCercanas= new LinkedList<Oferta>();
-		//2 cliente de prueba
+		//Clientes de prueba
 		Cliente cliente1 = new Cliente("Juan","12345","juanito@gmail.com");
 		Cliente cliente2 = new Cliente("Pepe","1234567","pepeguapo@gmail.com");
 		
@@ -48,7 +43,7 @@ public class Main {
 		
 		
 		int aux;
-		//3 tiendas de prueba
+		//Tiendas de prueba
 		Tienda tienda1 = new Tienda("LaTiendaEnCasa", "Calle Ninja Nº 13", "Roberto junior", 34.1235, 75.00);
 		Tienda tienda2 = new Tienda("El Corteingles","Calle Lolito Fernandez", "Silvia Charro", 50.0, 50.0);
 		Tienda tienda3 = new Tienda("Ikea","Avenida El trabuco Nº 4", "Luke Andador del cielo", 0.00, 0.00);
@@ -104,11 +99,7 @@ public class Main {
 		cat.removeAll(cat);
 		
 		
-		/*cat.add(Categorias.MUEBLES);
-		Oferta oferta = new Oferta("Mesa", 22.5, tienda1, 50, "Una mesa muy bonita", cat);
-		oferta.aniadirOp(cliente1, "De puta pena", 7);
-		cat.removeAll(cat);*/
-		//Se pierde?
+		
 		
 		cat.add(Categorias.CHARCUTERIA);
 		aux = tienda7.anadirOferta("Bacon fresco", 8.99, 15.99, "El mejor bacon de todo Villanueva", cat);
@@ -179,60 +170,34 @@ public class Main {
 	    cat.removeAll(cat);
 		
 		
+	    
+		tienda1.aniadirOp(cliente11, "Timadores!!", 2);
+		
+		tienda2.aniadirOp(cliente9, "Muy buena moda, aunque la electorica no es de mucha calidad", 7);
+		
+		tienda3.aniadirOp(cliente2, "Muy buena calidad precio", 6);
+		tienda3.aniadirOp(cliente4, "Las instrucciones son imposibles!", 5);
+		
+		tienda4.aniadirOp(cliente8, "Mi cohete gasta mucho combustible, por lo demas perfecto", 7);
+		
+		tienda5.aniadirOp(cliente2, "Es la mejor tienda de electronica de la zona ", 9);
+		
+		tienda6.aniadirOp(cliente5, "MUy ricas las peras jejeje, me han dado platano macho muy bueno tambien", 8 );
+		
+		tienda7.aniadirOp(cliente7, "Te atienden muy muy bien", 10);
+			
+		tienda8.aniadirOp(cliente11, "Los dulces me sabian a frutos secos", 3);
+		
+	    	
 		
 		
-		
-		  //Ordenacion ord = new Ordenacion();
- 		  //OfertasCercanas = ord.getMaster();
-		
-		
-		
-		/*Ordenacion ord0 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
-		Ordenacion ord1 = new Ordenacion(tiendas, clientes[1].getPosY(), clientes[1].getPosX());
-		ords[0] = ord0;
-		ords[1] = ord1;
-		
-		
-		
-		
-		
-		//clientes[selec].actualizarUbicacion();
+		/*LinkedList<Oferta> OfertasCercanas = new LinkedList<Oferta>();
 		Ordenacion ord = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
  		OfertasCercanas = ord.getOfertasCercanas();
 		for (Oferta of : OfertasCercanas) {
 			System.out.println(of.toString());
 		}
-		
-		System.out.println("\n \n \n \n \n ");
-		
-		
-		LinkedList<Oferta> OfertasCercanas2 = new LinkedList<Oferta>();
-		Ordenacion ord2 = new Ordenacion(tiendas, clientes[1].getPosY(), clientes[1].getPosX());
-		OfertasCercanas2 = ord2.getOfertasCercanas();
-		for (Oferta of : OfertasCercanas2) {
-			System.out.println(of.toString());
-		}
-		
-		System.out.println("\n \n \n \n \n ");
-		
-		
-		LinkedList<Oferta> OfertasCercanas3 = new LinkedList<Oferta>();
-		//Ordenacion ord2 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
- 		OfertasCercanas3 = ords[0].getOfertasCercanas();
-		for (Oferta of : OfertasCercanas3) {
-			System.out.println(of.toString());
-		}
-		
-		System.out.println("\n \n \n \n \n ");
-		
-		
-		LinkedList<Oferta> OfertasCercanas4 = new LinkedList<Oferta>();
-		//Ordenacion ord2 = new Ordenacion(tiendas, clientes[0].getPosY(), clientes[0].getPosX());
- 		OfertasCercanas4 = ords[1].getOfertasCercanas();
-		for (Oferta of : OfertasCercanas4) {
-			System.out.println(of.toString());
-		}*/
-		
+		System.out.println("\n \n \n \n");*/
 		
 		
 		
@@ -242,14 +207,3 @@ public class Main {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-

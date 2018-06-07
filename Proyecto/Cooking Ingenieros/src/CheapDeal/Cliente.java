@@ -144,6 +144,10 @@ public class Cliente {
 				+ seguidores.size() + ", seguidos=" + seguidos.size() + "]";
 	}
 	
+	
+	
+	 
+/**	Metodo que actualiza la posicion del cliente. Funcionamiento actual solo para la demostracion de funcionalidad de la demo. */
 	public void actualizarUbicacion() {
 		if(id%2==0) {
 			posY = -80.0;

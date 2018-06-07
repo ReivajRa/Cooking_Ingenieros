@@ -29,6 +29,7 @@ public class Login extends JFrame {
 	private JPasswordField txtPass;
 	private JLabel lblPass;
 	private JLabel lblUsu;
+	private JLabel notaAlProfesor;
 
 	/**
 	 * Launch the application.
@@ -81,6 +82,11 @@ public class Login extends JFrame {
 		txtPass.setBounds(220, 265, 180, 30);
 		contentPane.add(txtPass);
 		
+		notaAlProfesor = new JLabel("Nota al profesor: inicie sesion con [Juan, 12345] o [Pepe, 1234567]. Debe clickar Entrar");
+		notaAlProfesor.setFont(new Font("Arial", Font.PLAIN, 15));
+		notaAlProfesor.setBounds(2, 5, 570, 30);
+		contentPane.add(notaAlProfesor);
+		
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -102,7 +108,7 @@ public class Login extends JFrame {
 					
 				}
 				if(!encontrado) {
-					JOptionPane.showMessageDialog(null, "Usuario y/o Contrase�a invalidos\n");
+					JOptionPane.showMessageDialog(null, "Usuario y/o contrasenha invalidos\n");
 					setLocationRelativeTo(null);
 				}
 			}
