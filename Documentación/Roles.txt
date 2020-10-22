@@ -1,20 +1,20 @@
 Nombre del equipo: Cooking Ingenieros
 			
 Miembros del equipo (rol primario y rol secundario):
-- Alberto Espejo Labao, 53743031N, Computadores A.            Programador y Jefe de Proyecto.
-- David Fern·ndez DÌaz, 46071373G, Computadores A.            Encargado pruebas y DocumentaciÛn/modelado.
-- Ionut Turcu Vasile, X8365131P, Computadores A. 	      DocumentaciÛn/modelado y Jefe de Proyecto.
-- Javier RamÌrez AragÛn, 09184602R, Computadores A. 	      Jefe de proyecto y Programador.
-- JosÈ Carlos GÛmez Vera, 76433115K, Computadores A. 	      Programador y DocumentaciÛn/modelado.
-- Juan ¡lvaro Caravaca Seliva, 75966088D, Computadores A.     Encargado pruebas y Programador.
-- Manuel Jurado PÈrez, 26834884W, Computadores A. 	      Encargado pruebas y Programador.
-- MarÌa BelÈn Verdugo Verdugo, 49122247C, Computadores A.     Jefe de proyecto y Encargado pruebas.
-- Miguel ¡ngel Fern·ndez Somovilla, 26833820L, Inform·tica D. Encargado pruebas y DocumentaciÛn/modelado.
-- Miguel Rios Calle, 77671128J, Computadores A. 	      DocumentaciÛn/modelado y Encargado pruebas.
+- Alberto Espejo Labao, Computadores A.			Programador y Jefe de Proyecto.
+- David Fern√°ndez D√≠az, Computadores A.			Encargado pruebas y Documentaci√≥n/modelado.
+- Ionut Turcu Vasile, Computadores A.			Documentaci√≥n/modelado y Jefe de Proyecto.
+- Javier Ram√≠rez Arag√≥n, Computadores A.		Jefe de proyecto y Programador.
+- Jos√© Carlos G√≥mez Vera, Computadores A.		Programador y Documentaci√≥n/modelado.
+- Juan √Ålvaro Caravaca Seliva, Computadores A.		Encargado pruebas y Programador.
+- Manuel Jurado P√©rez, Computadores A.			Encargado pruebas y Programador.
+- Mar√≠a Bel√©n Verdugo Verdugo, Computadores A.		Jefe de proyecto y Encargado pruebas.
+- Miguel √Ångel Fern√°ndez Somovilla, Inform√°tica D.	Encargado pruebas y Documentaci√≥n/modelado.
+- Miguel Rios Calle, Computadores A.			Documentaci√≥n/modelado y Encargado pruebas.
 
 
 Vista por roles (primario - secundario):
-- Jefe de proyecto:	  Javier, MarÌa BelÈn.	             - Alberto, Ionut.
-- DocumentaciÛn/modelado: Ionut, Miguel.	             - David, JosÈ Carlos, Miguel ¡ngel.
-- Programador:		  Alberto, JosÈ Carlos.	             - Javier, Juan, Manuel.
-- Encargado pruebas:	  David, Juan, Manuel, Miguel ¡ngel. - MarÌa BelÈn, Miguel.
+- Jefe de proyecto:	  Javier, Mar√≠a Bel√©n.	             - Alberto, Ionut.
+- Documentaci√≥n/modelado: Ionut, Miguel.	             - David, Jos√© Carlos, Miguel √Ångel.
+- Programador:		  Alberto, Jos√© Carlos.	             - Javier, Juan, Manuel.
+- Encargado pruebas:	  David, Juan, Manuel, Miguel √Ångel. - Mar√≠a Bel√©n, Miguel.
